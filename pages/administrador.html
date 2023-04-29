@@ -43,27 +43,82 @@
         <h1 class="display-1 text-center">Administrador</h1>
         <hr>
         <section class="row">
-            <article class="col-md-3 tablaOpcion">
+            <article class="col-md-12 col-lg-2 tablaOpcion text-center text-md-center text-lg-start border border-2 border-black">
                 <a href="administrador.html" class="text-decoration-none text-dark"><h5>Menu Administrador</h5></a>
                 <a href="administrador.html" class="text-decoration-none text-dark"><h5>Productos</h5></a>
                 <a href="administrador.html" class="text-decoration-none text-dark"><h5>Usuarios</h5></a>
             </article>
-            <article class="col-md-6">
+            <article class="col-md-12 col-lg-10">
                 <h2 class="text-center">Productos</h2>
                 <form class="mt-md-3">
                     <label class="">Buscar</label>
-                    <input type="text" id="inputBuscar">
-                    <button class="btn btn-primary">Agregar Producto</button>
+                    <input type="text" id="inputBuscar" class="border border-black">
+                    <button class="btn btn-primary mt-3 mt-md-0">Agregar Producto</button>
                 </form>
-                <table class="table-responsive table-striped mt-lg-4">
+                <div class="table-responsive">
+                <table class="table table-bordered table-striped mt-4">
                     <thead>
+                        <tr>
                         <th>Codigo</th>
                         <th>Nombre</th>
                         <th>Categoria</th>
                         <th>Precio</th>
                         <th>Stock</th>
+                        <th>Acciones</th>
+                        </tr>
                     </thead>
+                    <tbody>
+                        <tr>
+                          <th>1</th>
+                          <td>Remera</td>
+                          <td>Prendas de vestir</td>
+                          <td>$500</td>
+                          <td>30</td>
+                          <td>
+                            <button class=" btn bi bi-search btn-primary"></button>
+                            <button class=" btn bi bi-pencil btn-warning"></button>
+                            <button class=" btn bi bi-x-lg btn-danger"></button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>2</th>
+                          <td>Remera</td>
+                          <td>Prendas de vestir</td>
+                          <td>$500</td>
+                          <td>30</td>
+                          <td>
+                            <button class=" btn bi bi-search btn-primary"></button>
+                            <button class=" btn bi bi-pencil btn-warning"></button>
+                            <button class=" btn bi bi-x-lg btn-danger"></button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>3</th>
+                          <td>Remera</td>
+                          <td>Prendas de vestir</td>
+                          <td>$500</td>
+                          <td>30</td>
+                          <td>
+                            <button class=" btn bi bi-search btn-primary"></button>
+                            <button class=" btn bi bi-pencil btn-warning"></button>
+                            <button class=" btn bi bi-x-lg btn-danger"></button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>4</th>
+                          <td>Remera</td>
+                          <td>Prendas de vestir</td>
+                          <td>$500</td>
+                          <td>30</td>
+                          <td>
+                            <button class=" btn bi bi-search btn-primary"></button>
+                            <button class=" btn bi bi-pencil btn-warning"></button>
+                            <button class=" btn bi bi-x-lg btn-danger"></button>
+                          </td>
+                        </tr>
+                    </tbody>
                 </table>
+            </div>
             </article>
             
         </section>
