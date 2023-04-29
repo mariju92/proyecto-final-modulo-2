@@ -50,3 +50,7 @@ footer{
         transition-duration: 1.0s;
     }
 }
+
+.tablaOpcion{
+    background-color: orange;
+}
