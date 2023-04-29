@@ -33,6 +33,15 @@ footer{
     font-size: 40px;
 }
 
+/*PAGINA DETALLES*/
+
+.bg-detalles{
+    background-image: linear-gradient(to top, #fab519, #faa616, #f99618, #f7871c, #f47721);
+}
+
+
+
+
 @media all and (min-width: 992px){
     .opcionNav:hover{
         background-color: grey;
