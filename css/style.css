@@ -33,6 +33,10 @@ footer{
     font-size: 40px;
 }
 
+.fondoTabla{
+    background-image: linear-gradient(to top, #ffe600 0%, rgb(255,165,0)  100%);
+}
+
 @media all and (min-width: 992px){
     .opcionNav:hover{
         background-color: grey;
