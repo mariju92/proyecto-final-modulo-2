@@ -19,8 +19,6 @@ footer{
     color: orange;
 }
 
-
-
 .opcionNav{
     color: orange;
     font-size: 20px;
@@ -31,11 +29,19 @@ footer{
     font-size: 20px;
 }
 
+.carrito{
+    font-size: 40px;
+}
+
 @media all and (min-width: 992px){
     .opcionNav:hover{
         background-color: grey;
         transition-duration: 1.0s;
         color: orange;
+    }
+
+    .carrito{
+        font-size: 20px;
     }
 
     .botonIniciarSesion:hover{
