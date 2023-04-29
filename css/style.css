@@ -11,10 +11,6 @@ main{
     flex-grow: 1;
 }
 
-nav{
-    font-size: 20px;
-}
-
 .logo{
     width: 100px;
 }
@@ -23,16 +19,17 @@ footer{
     color: orange;
 }
 
+
+
 .opcionNav{
     color: orange;
+    font-size: 20px;
 }
 
 .botonIniciarSesion{
     background-color: orange;
     font-size: 20px;
 }
-
-
 
 @media all and (min-width: 992px){
     .opcionNav:hover{
