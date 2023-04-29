@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+main{
+    flex-grow: 1;
+}
+
+nav{
+    font-size: 20px;
+}
+
+.logo{
+    width: 100px;
+}
+
+.opcionNav{
+    color: orange;
+}
+
+.botonIniciarSesion{
+    background-color: orange;
+    font-size: 20px;
+}
+
+
+
+@media all and (min-width: 992px){
+    .opcionNav:hover{
+        background-color: grey;
+        transition-duration: 1.0s;
+        color: orange;
+    }
+
+    .botonIniciarSesion:hover{
+        background-color: gray;
+        color: orange;
+        transition-duration: 1.0s;
+    }
+}
