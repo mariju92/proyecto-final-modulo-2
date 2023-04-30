@@ -1,52 +1,144 @@
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap");
 
-body{
-    min-height: 100vh;
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Maven Pro", sans-serif;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.logo {
+  width: 100px;
+}
+
+footer {
+  color: orange;
+}
+
+.opcionNav {
+  color: orange;
+  font-size: 20px;
+}
+
+.botonIniciarSesion {
+  background-color: orange;
+  font-size: 20px;
+}
+
+.carrito {
+  font-size: 40px;
+}
+
+@media all and (min-width: 992px) {
+  .opcionNav:hover {
+    background-color: grey;
+    transition-duration: 1s;
+    color: orange;
+  }
+
+  .carrito {
+    font-size: 20px;
+  }
+
+  .botonIniciarSesion:hover {
+    background-color: gray;
+    color: orange;
+    transition-duration: 1s;
+  }
+}
+
+/* Agrego la clase para el bg naranja */
+
+.mainError404 {
+  background-image: url("../img/error404/fondo6.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  width: 100%;
+}
+.cardError {
+  position: relative;
+  top: 20%;
+  left: 65%;
+  background-color: rgba(167, 136, 77, 0.126);
+  color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+  height: 50%;
+}
+
+.titulo404 {
+  font-size: 90px;
+  font-weight: 700;
+}
+.btnHover404:hover {
+  background-color: orange;
+}
+
+ @media  (max-width: 576px) {
+  .cardError {
+    position: relative;
+    top: 20%;
+    left: 15%;
+    height: 50%;
+    width: 100%;
+    background-color: rgba(167, 136, 77, 0.250);
+    text-shadow: 1px 1px 1px black;
+    padding: 10px;
+  }
+  .cuerpoCard{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    font-family: 'Maven Pro', sans-serif;
+}
+  .cardError div a{
+    text-shadow: none;
+    font-weight: 600;
+
+  }
+  .mainError404 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 85vh;
+    width: 100%;
+  }
 }
 
-main{
-    flex-grow: 1;
-}
-
-.logo{
-    width: 100px;
-}
-
-footer{
-    color: orange;
-}
-
-.opcionNav{
-    color: orange;
-    font-size: 20px;
-}
-
-.botonIniciarSesion{
-    background-color: orange;
-    font-size: 20px;
-}
-
-.carrito{
-    font-size: 40px;
-}
-
-@media all and (min-width: 992px){
-    .opcionNav:hover{
-        background-color: grey;
-        transition-duration: 1.0s;
-        color: orange;
+@media  (max-width: 992px) {
+    .cardError { 
+      left: 25%;
+      height: 50%;
+      width: 50%;
+      background-color: rgba(167, 136, 77, 0.250);
+      text-shadow: 1px 1px 1px black;
+      padding: 5px;
+      padding-bottom: 50px;
     }
-
-    .carrito{
-        font-size: 20px;
+    .cuerpoCard{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
-
-    .botonIniciarSesion:hover{
-        background-color: gray;
-        color: orange;
-        transition-duration: 1.0s;
+    .cuerpoCard a{
+      text-shadow: none;
+      font-weight: 600;
     }
-}
+    .mainError404 {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 85vh;
+      width: 100%;
+    }
+  }
