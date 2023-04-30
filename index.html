@@ -46,8 +46,8 @@
       </div>
     </nav>
   </header>
-  <main>
-    <div class="container text-white text-center py-4">
+  <main class="">
+    <div class="container-fluid text-white text-center py-4">
       <div class="row">
         <div class="col-12">
           <h4 class="d-none d-md-block">ELIGÍ, PAGÁ Y RECIBÍ TU PEDIDO SIN MOVERTE DE TU CASA.</h4>
@@ -55,20 +55,530 @@
         </div>
       </div>
     </div>
-    <div class="text-center bg-danger-subtle bannerInicio py-3 py-md-5 ">
+    <div class="container-fluid text-center bannerInicio py-3 py-md-5 ">
       <div class="container-fluid bg-white bg-opacity-50 py-3 p-md-4">
         <h1 class="opacity-100 colorNaranja"><b> ENVÍO GRATIS EN COMPRAS SUPERIORES A 10.000</b></h1>
       </div>
     </div>
-    <hr class="opacity-100 py-1 colorDegradado">
-    <form class="container form-inline">
+    <hr class="opacity-100 py-1 colorDegradadoOrizontal">
+    <form class="container form-inline pb-3">
       <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center justify-content-md-end ">
-        <input class="colorDegradado border-0 botonRedondo" type="search" placeholder="Buscar" aria-label="Buscar">
+        <input class="colorDegradadoOrizontal border-0 botonRedondo" id="buscador" type="search" placeholder="Buscar"
+          aria-label="Buscar">
       </div>
     </form>
+    <div class="container-fluid">
+      <!-- CATEGORIAS DISPOSITIVOS PEQUEÑOS  Y MEDIANOS-->
+      <div class="row d-lg-none">
+        <div class="col-3 col-md-2 col-lg-1">
+          <p class="text-center text-white opacity-100 mancha"><b>CATEGORIAS</b>
 
+          </p>
+        </div>
+        <div class="col-9 col-md-10">
+          <!-- CARRUCEL DISPOSITIVO PEQUEÑO-->
+          <div id="demo" class="carousel slide d-md-none" data-interval="false">
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner ">
+              <div class="carousel-item active">
+                <div class="list-group list-group-horizontal d-flex justify-content-evenly">
+                  <a class="text-decoration-none" href="./pages/error404.html">Comics</a>
+                  <a class="text-decoration-none" href="./pages/error404.html">accesorios</a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="list-group list-group-horizontal d-flex justify-content-evenly">
+                  <a class="text-decoration-none" href="./pages/error404.html">posters</a>
+                  <a class="text-decoration-none" href="./pages/error404.html">funcos</a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="list-group list-group-horizontal  d-flex justify-content-evenly">
+                  <a class="text-decoration-none" href="./pages/error404.html">peluches</a>
+                  <a class="text-decoration-none" href="./pages/error404.html">remeras</a>
+                </div>
+              </div>
+            </div>
 
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" title="atras"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" title="adelante"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+          <!-- CARRUCEL DISPOSITIVO MEDIANO-->
+          <div id="demo" class="carousel slide d-none d-md-block d-lg-none" data-interval="false">
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="list-group list-group-horizontal d-flex justify-content-evenly">
+                  <a class="text-decoration-none" href="./pages/error404.html">Comics</a>
+                  <a class="text-decoration-none" href="./pages/error404.html">accesorios</a>
+                  <a class="text-decoration-none" href="./pages/error404.html">posters</a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="list-group list-group-horizontal d-flex justify-content-evenly">
+                  <a class="text-decoration-none" href="./pages/error404.html">funcos</a>
+                  <a class="text-decoration-none" href="./pages/error404.html">peluches</a>
+                  <a class="text-decoration-none" href="./pages/error404.html">remeras</a>
+                </div>
+              </div>
 
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" title="atras"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" title="adelante"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--CATEGORIAS DISPOSITIVOS GRANDES-->
+      <div class="d-flex justify-content-around">
+        <div class="d-none d-lg-block ">
+          <div class=" d-flex flex-column justify-content-center ">
+            <a class="text-decoration-none text-white py-2 pt-4 d-none d-lg-block" href="./pages/error404.html"><b
+                class="mancha">CATEGORIAS</b></a>
+            <a class="text-decoration-none text-white py-2" href="./pages/error404.html">Comics</a>
+            <a class="text-decoration-none text-white py-2" href="./pages/error404.html">accesorios</a>
+            <a class="text-decoration-none text-white py-2" href="./pages/error404.html">posters</a>
+            <a class="text-decoration-none text-white py-2" href="./pages/error404.html">funcos</a>
+            <a class="text-decoration-none text-white py-2" href="./pages/error404.html">peluches</a>
+            <a class="text-decoration-none text-white py-2" href="./pages/error404.html">remeras</a>
+          </div>
+
+        </div>
+        <div class="">
+          <!--PRODUCTOS!!!-->
+          <div class="row justify-content-center justify-content-md-start pe-lg-0">
+            <div class="col-9 col-md-4 col-lg-3 p-3 text-center ">
+              <div class="card border-0 m-2"><a href="./pages/error404.html">
+                  <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png" alt="Card image"></a>
+                <div class="card-body fondoNegro"><a href="./pages/error404.html" class="text-decoration-none">
+                    <h4 class="card-title text-white">producto1</h4>
+                    <h5 class="colorNaranja">$200</h5>
+                  </a>
+                  <form class="container">
+                    <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                      <button class="colorDegradadoOrizontal border-0 botonRedondo text-white" type="button">agregar al
+                        carrito</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-9 col-md-4 col-lg-3 p-3 text-center ">
+              <div class="card border-0 m-2"><a href="./pages/error404.html">
+                  <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png" alt="Card image"></a>
+                <div class="card-body fondoNegro"><a href="./pages/error404.html" class="text-decoration-none">
+                    <h4 class="card-title text-white">producto1</h4>
+                    <h5 class="colorNaranja">$200</h5>
+                  </a>
+                  <form class="container">
+                    <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                      <button class="colorDegradadoOrizontal border-0 botonRedondo text-white" type="button">agregar al
+                        carrito</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-9 col-md-4 col-lg-3 p-3 text-center ">
+              <div class="card border-0 m-2"><a href="./pages/error404.html">
+                  <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png" alt="Card image"></a>
+                <div class="card-body fondoNegro"><a href="./pages/error404.html" class="text-decoration-none">
+                    <h4 class="card-title text-white">producto1</h4>
+                    <h5 class="colorNaranja">$200</h5>
+                  </a>
+                  <form class="container">
+                    <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                      <button class="colorDegradadoOrizontal border-0 botonRedondo text-white" type="button">agregar al
+                        carrito</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-9 col-md-4 col-lg-3 p-3 text-center ">
+              <div class="card border-0 m-2"><a href="./pages/error404.html">
+                  <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png" alt="Card image"></a>
+                <div class="card-body fondoNegro"><a href="./pages/error404.html" class="text-decoration-none">
+                    <h4 class="card-title text-white">producto1</h4>
+                    <h5 class="colorNaranja">$200</h5>
+                  </a>
+                  <form class="container">
+                    <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                      <button class="colorDegradadoOrizontal border-0 botonRedondo text-white" type="button">agregar al
+                        carrito</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-9 col-md-4 col-lg-3 p-3 text-center ">
+              <div class="card border-0 m-2"><a href="./pages/error404.html">
+                  <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png" alt="Card image"></a>
+                <div class="card-body fondoNegro"><a href="./pages/error404.html" class="text-decoration-none">
+                    <h4 class="card-title text-white">producto1</h4>
+                    <h5 class="colorNaranja">$200</h5>
+                  </a>
+                  <form class="container">
+                    <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                      <button class="colorDegradadoOrizontal border-0 botonRedondo text-white" type="button">agregar al
+                        carrito</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-9 col-md-4 col-lg-3 p-3 text-center ">
+              <div class="card border-0 m-2"><a href="./pages/error404.html">
+                  <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png" alt="Card image"></a>
+                <div class="card-body fondoNegro"><a href="./pages/error404.html" class="text-decoration-none">
+                    <h4 class="card-title text-white">producto1</h4>
+                    <h5 class="colorNaranja">$200</h5>
+                  </a>
+                  <form class="container">
+                    <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                      <button class="colorDegradadoOrizontal border-0 botonRedondo text-white" type="button">agregar al
+                        carrito</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <ul class="pagination justify-content-center">
+              <li class="page-item text-primary shadow"><a class="p-3 text-decoration-none fondoNegro text-primary"
+                  href="javascript:void(0);">
+                  anterior </a>
+              </li>
+              <li class="page-item "><a class="p-3 text-decoration-none colorNaranja" href="javascript:void(0);">1</a>
+              </li>
+              <li class="page-item "><a class="p-3 text-decoration-none colorNaranja" href="javascript:void(0);">2</a>
+              </li>
+              <li class="page-item text-primary shadow"><a class="p-3 text-decoration-none fondoNegro text-primary"
+                  href="javascript:void(0);">siguiente</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container d-flex justify-content-center fondoNegro py-4">
+      <h2 class="display-4">DESTACADOS</h2>
+    </div>
+    <div class="colorDegradadoOrizontal">
+      <!-- Carousel pequeño -->
+      <div id="carucelpequeño" class="carousel slide d-md-none" data-interval="false">
+
+        <!--Carucel pequeño destacados -->
+        <div class="carousel-inner m-1 py-3 pe-5 ps-5 ">
+          <div class="carousel-item active">
+            <div class="card border-0 m-2"><a href="./pages/error404.html">
+                <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png" alt="Card image"></a>
+              <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                  class="text-decoration-none">
+                  <h4 class="card-title text-white text-center"><b> producto1</b></h4>
+                  <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                </a>
+                <form class="container">
+                  <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                    <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                      carrito</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item 
+          ">
+            <div class="card border-0 m-2"><a href="./pages/error404.html">
+                <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png" alt="Card image"></a>
+              <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                  class="text-decoration-none">
+                  <h4 class="card-title text-white text-center"><b> producto2</b></h4>
+                  <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                </a>
+                <form class="container">
+                  <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                    <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                      carrito</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="card border-0 m-2"><a href="./pages/error404.html">
+                <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png" alt="Card image"></a>
+              <div class="card-body colorDegradadoOrizontal "><a href="./pages/error404.html"
+                  class="text-decoration-none">
+                  <h4 class="card-title text-white text-center"><b> producto3</b></h4>
+                  <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                </a>
+                <form class="container">
+                  <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                    <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                      carrito</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carucelpequeño" data-bs-slide="prev"
+          title="botonatras">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carucelpequeño" data-bs-slide="next"
+          title="botonadelante">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+      <!--carrucel mediano -->
+      <div id="carucelmediano" class="carousel slide d-none d-md-block d-lg-none" data-interval="false">
+
+        <!--Carucel mediano destacados -->
+        <div class="carousel-inner py-3">
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-center">
+              <div class="">
+                <div class="card border-0 m-2"><a href="./pages/error404.html">
+                    <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png"
+                      alt="Card image"></a>
+                  <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                      class="text-decoration-none">
+                      <h4 class="card-title text-white text-center"><b> producto1</b></h4>
+                      <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                    </a>
+                    <form class="container">
+                      <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                        <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                          carrito</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="card border-0 m-2"><a href="./pages/error404.html">
+                    <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png"
+                      alt="Card image"></a>
+                  <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                      class="text-decoration-none">
+                      <h4 class="card-title text-white text-center"><b> producto2</b></h4>
+                      <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                    </a>
+                    <form class="container">
+                      <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                        <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                          carrito</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-center">
+              <div class="">
+                <div class="card border-0 m-2"><a href="./pages/error404.html">
+                    <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png"
+                      alt="Card image"></a>
+                  <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                      class="text-decoration-none">
+                      <h4 class="card-title text-white text-center"><b> producto3</b></h4>
+                      <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                    </a>
+                    <form class="container">
+                      <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                        <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                          carrito</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="card border-0 m-2"><a href="./pages/error404.html">
+                    <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png"
+                      alt="Card image"></a>
+                  <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                      class="text-decoration-none">
+                      <h4 class="card-title text-white text-center"><b> producto4</b></h4>
+                      <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                    </a>
+                    <form class="container">
+                      <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                        <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                          carrito</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carucelmediano" data-bs-slide="prev"
+          title="botonatras">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carucelmediano" data-bs-slide="next"
+          title="botonadelante">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+      <div id="carucelgrande" class="carousel slide d-none d-lg-block" data-interval="false">
+
+        <!--Carucel grande -->
+        <div class="carousel-inner py-3">
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-center">
+              <div class="">
+                <div class="card border-0 m-2"><a href="./pages/error404.html">
+                    <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png"
+                      alt="Card image"></a>
+                  <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                      class="text-decoration-none">
+                      <h4 class="card-title text-white text-center"><b> producto1</b></h4>
+                      <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                    </a>
+                    <form class="container">
+                      <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                        <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                          carrito</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="card border-0 m-2"><a href="./pages/error404.html">
+                    <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png"
+                      alt="Card image"></a>
+                  <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                      class="text-decoration-none">
+                      <h4 class="card-title text-white text-center"><b> producto2</b></h4>
+                      <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                    </a>
+                    <form class="container">
+                      <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                        <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                          carrito</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="card border-0 m-2"><a href="./pages/error404.html">
+                    <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png"
+                      alt="Card image"></a>
+                  <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                      class="text-decoration-none">
+                      <h4 class="card-title text-white text-center"><b> producto3</b></h4>
+                      <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                    </a>
+                    <form class="container">
+                      <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                        <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                          carrito</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-center">
+              <div class="">
+                <div class="card border-0 m-2"><a href="./pages/error404.html">
+                    <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png"
+                      alt="Card image"></a>
+                  <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                      class="text-decoration-none">
+                      <h4 class="card-title text-white text-center"><b> producto4</b></h4>
+                      <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                    </a>
+                    <form class="container">
+                      <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                        <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                          carrito</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="card border-0 m-2"><a href="./pages/error404.html">
+                    <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png"
+                      alt="Card image"></a>
+                  <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                      class="text-decoration-none">
+                      <h4 class="card-title text-white text-center"><b> producto5</b></h4>
+                      <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                    </a>
+                    <form class="container">
+                      <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                        <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                          carrito</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="card border-0 m-2"><a href="./pages/error404.html">
+                    <img class="card-img-top border-1 bordeNaranja" src="./img/productovacioej.png"
+                      alt="Card image"></a>
+                  <div class="card-body colorDegradadoOrizontal"><a href="./pages/error404.html"
+                      class="text-decoration-none">
+                      <h4 class="card-title text-white text-center"><b> producto6</b></h4>
+                      <h5 class="colorNaranja text-center"><b>$200</b></h5>
+                    </a>
+                    <form class="container">
+                      <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
+                        <button class=" botonRedondo bg-warning border-1 border-warning" type="button">agregar al
+                          carrito</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carucelgrande" data-bs-slide="prev"
+          title="botonatras">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carucelgrande" data-bs-slide="next"
+          title="botonadelante">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
   </main>
   <footer class="bg-dark py-4">
     <section class="container">
