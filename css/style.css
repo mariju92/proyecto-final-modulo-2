@@ -107,3 +107,96 @@ footer {
         transition-duration: 1.0s;
     }
 }
+
+
+/* estilos para ERROR 404 */
+
+.mainError404 {
+    background-image: url("../img/error404/fondo6.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    width: 100%;
+  }
+  .cardError {
+    position: relative;
+    top: 20%;
+    left: 65%;
+    background-color: rgba(167, 136, 77, 0.126);
+    color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    height: 50%;
+  }
+  
+  .titulo404 {
+    font-size: 90px;
+    font-weight: 700;
+  }
+  .btnHover404:hover {
+    background-color: orange;
+  }
+  
+   @media  (max-width: 576px) {
+    .cardError {
+      position: relative;
+      top: 20%;
+      left: 15%;
+      height: 50%;
+      width: 100%;
+      background-color: rgba(167, 136, 77, 0.250);
+      text-shadow: 1px 1px 1px black;
+      padding: 10px;
+    }
+    .cuerpoCard{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+    .cardError div a{
+      text-shadow: none;
+      font-weight: 600;
+  
+    }
+    .mainError404 {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 85vh;
+      width: 100%;
+    }
+  }
+  
+  @media  (max-width: 992px) {
+      .cardError { 
+        left: 25%;
+        height: 50%;
+        width: 50%;
+        background-color: rgba(167, 136, 77, 0.250);
+        text-shadow: 1px 1px 1px black;
+        padding: 5px;
+        padding-bottom: 50px;
+      }
+      .cuerpoCard{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+      }
+      .cuerpoCard a{
+        text-shadow: none;
+        font-weight: 600;
+      }
+      .mainError404 {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 85vh;
+        width: 100%;
+      }
+    }
