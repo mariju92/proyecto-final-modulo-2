@@ -107,3 +107,7 @@ footer {
         transition-duration: 1.0s;
     }
 }
+/* ESTILOS DE MODAL LOGIN */
+.formLogin{
+    border: 1px solid orange!important;
+}
