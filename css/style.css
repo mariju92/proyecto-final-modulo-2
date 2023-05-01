@@ -108,6 +108,12 @@ footer {
     }
 }
 
+/* ESTILOS DE MODAL LOGIN */
+.formLogin{
+    border: 1px solid orange!important;
+}
+
+
 
 /* estilos para ERROR 404 */
 
@@ -200,3 +206,4 @@ footer {
         width: 100%;
       }
     }
+
