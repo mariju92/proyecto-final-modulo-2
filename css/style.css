@@ -94,10 +94,40 @@ footer {
     font-size: 20px;
 }
 
-
 .fondoTabla{
     background-image: linear-gradient(to top, #ffe600 0%, rgb(255,165,0)  100%);
 }
+
+
+/*PAGINA DETALLES*/
+
+.bg-detalles{
+    background-image: linear-gradient(to top, #fab519, #faa616, #f99618, #f7871c, #f47721);
+}
+.acordionDetalles{
+    border-color: #f47721;
+    background-color: black;
+}
+.btnCarrito{
+    background-color: #f47721;
+    border: none;
+}
+.btnCarrito:hover{
+    background-color: #ea5e00;
+}
+
+.btnComprar{
+    background-color: #fab519;
+    border: none;
+}
+.btnComprar:hover{
+    background-color: #e49f00;
+}
+.colorDescripcion{
+    color: #f47721;
+}
+
+
 
 @media all and (min-width: 992px) {
     .opcionNav:hover {
