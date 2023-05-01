@@ -34,9 +34,12 @@ El fin de este trabajo es crear una página unificando los conocimientos obtenid
 git clone https://github.com/mariju92/proyecto-final-modulo-2.git
 ```
 ## Como contribuir con el repositorio 🤝
-Para contribuir en el proyecto puede ponerse en contacto con cualquiera de los siguientes mails: *mariana.ju92@gmail.com*
-*joaquin.fuentes1327@gmail.com*
-*juliansergiomartin@gmail.com*
+Para contribuir en el proyecto puede ponerse en contacto con cualquiera de los siguientes mails: 
+- *joaquin.fuentes1327@gmail.com*
+- *groxania@gmail.com*
+- *mariana.ju92@gmail.com*
+- *juliansergiomartin@gmail.com*
+- *leoooquipildor@gmail.com*
 
 
 ## Desarrolladores 
