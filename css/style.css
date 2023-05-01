@@ -90,8 +90,17 @@ footer {
     font-size: 40px;
 }
 
+
+.fondoTabla{
+    background-image: linear-gradient(to top, #ffe600 0%, rgb(255,165,0)  100%);
+}
+
+@media all and (min-width: 992px){
+    .opcionNav:hover{
+
 @media all and (min-width: 992px) {
     .opcionNav:hover {
+
         background-color: grey;
         transition-duration: 1.0s;
         color: orange;
@@ -107,6 +116,12 @@ footer {
         transition-duration: 1.0s;
     }
 }
+
+
+.tablaOpcion{
+    background-color: orange;
+}
+
 
 /* ESTILOS DE MODAL LOGIN */
 .formLogin{
@@ -206,4 +221,3 @@ footer {
         width: 100%;
       }
     }
-
