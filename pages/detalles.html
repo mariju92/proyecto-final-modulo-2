@@ -96,31 +96,71 @@
         </article>
         <article class="bg-black">
           <aside class="row col-12">
-            <div class="col-6">
-              <img src="https://play-lh.googleusercontent.com/pzgB2fszpoM4JjJxPConGQqwMW-czaYkYOinlHyC1uZq8gqQ_URKLuymg6sQEBhlrAQ" alt="" class="img-fluid p-5">
+            <div class="col-6 p-5">
+              <img src="https://play-lh.googleusercontent.com/pzgB2fszpoM4JjJxPConGQqwMW-czaYkYOinlHyC1uZq8gqQ_URKLuymg6sQEBhlrAQ" alt="" class="img-fluid">
             </div>
             <div class="col-6 p-5">
               <div class="col-12">
-                <h2 class="text-light">TITULO PRODUCTO</h2>
-                <h2 class="text-warning">$999,99</h2>
-                <i class="bi bi-check-circle-fill text-warning fs-5 "><span class="text-light ps-3">EN STOCK</span></i>
-                <br>
+                <h2 class="text-light pb-4">TITULO PRODUCTO</h2>
+                <h2 class="text-warning pb-3">$999,99</h2>
+                <div class="pb-3">
+                  <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK</span></i>
+                </div>
                 <i class="bi bi-truck text-warning fs-5"><span class="text-light ps-3">SELECCIONA TU FORMA DE ENTREGA</span></i><a href="" class="text-warning text-decoration-none fw-bold"> ></a>
-                <div class="row py-4">
-                  <div class="col-2">
+                <div class="row py-5 col-12 m-0">
+                  <div class="col-2 p-0">
                     <input type="number" min="1" max="10" value="1" class="w-100 h-100">
                   </div>
                   <div class="col-10 bg-warning">
                     <p class="text-center fs-3 fw-bold pt-2">COMPRAR</p>
                   </div>
-                  <div class="col-12 bg-warning my-4">
-                    <p>AGREGAR AL CARRITO</p>
+                  <div class="col-12 my-4 text-center bgBtnCarrito">
+                    <i class="bi bi-cart-plus fw-bold fs-3"><span class="text-center">AGREGAR AL CARRITO</span></i>
                   </div>  
                 </div>
-                
               </div>
             </div>
           </aside>
+          <aside class="row col-12">
+            <div class="col-12 px-5">
+              <h3 class="colorDescripcion">DESCRIPCION</h3>
+              <p class="text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit perferendis odio dolore illo, blanditiis rerum? Quam libero rerum perspiciatis voluptas exercitationem facere veniam cum autem cumque tenetur voluptates, nesciunt iste. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, perspiciatis! At nemo natus fuga eius accusantium temporibus facere assumenda culpa, ratione harum mollitia sit. Corrupti vitae quam amet? Nemo, debitis!</p>
+            </div>
+          </aside>
+        </article>
+        <article class="bg-black my-5 ">
+          <div class="accordion accordion-flush acordionDetalles " id="accordionFlushExample">
+            <div class="accordion-item acordionDetalles">
+              <h2 class="accordion-header " id="flush-headingOne">
+                <button class="accordion-button collapsed bg-black text-light " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  <span>INFORMACION DEL PRODUCTO</span>
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body text-light">Placeholder content for this accordion, which is intended to demonstrate theclass. This is the first item's accordion body.</div>
+              </div>
+            </div>
+            <div class="accordion-item acordionDetalles">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed bg-black text-light " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  <span>POLITICA DE DEVOLUCION Y REEMBOLSO</span>
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body text-light">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+              </div>
+            </div>
+            <div class="accordion-item acordionDetalles">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed bg-black text-light " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  <span>INFORMACION DEL ENVIO</span>
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body text-light">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+              </div>
+            </div>
+          </div>
         </article>
       </section>
     </main>

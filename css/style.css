@@ -38,6 +38,16 @@ footer{
 .bg-detalles{
     background-image: linear-gradient(to top, #fab519, #faa616, #f99618, #f7871c, #f47721);
 }
+.acordionDetalles{
+    border-color: #f47721;
+    background-color: black;
+}
+.bgBtnCarrito{
+    background-color: #f47721;
+}
+.colorDescripcion{
+    color: #f47721;
+}
 
 
 
