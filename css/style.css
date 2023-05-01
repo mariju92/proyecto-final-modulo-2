@@ -42,8 +42,20 @@ footer{
     border-color: #f47721;
     background-color: black;
 }
-.bgBtnCarrito{
+.btnCarrito{
     background-color: #f47721;
+    border: none;
+}
+.btnCarrito:hover{
+    background-color: #ea5e00;
+}
+
+.btnComprar{
+    background-color: #fab519;
+    border: none;
+}
+.btnComprar:hover{
+    background-color: #e49f00;
 }
 .colorDescripcion{
     color: #f47721;
