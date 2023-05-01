@@ -10,6 +10,10 @@ body {
 
 main {
     flex-grow: 1;
+}
+
+.fondoIndex
+{
     background-color: black;
 }
 
@@ -87,16 +91,13 @@ footer {
 }
 
 .carrito {
-    font-size: 40px;
+    font-size: 20px;
 }
 
 
 .fondoTabla{
     background-image: linear-gradient(to top, #ffe600 0%, rgb(255,165,0)  100%);
 }
-
-@media all and (min-width: 992px){
-    .opcionNav:hover{
 
 @media all and (min-width: 992px) {
     .opcionNav:hover {
