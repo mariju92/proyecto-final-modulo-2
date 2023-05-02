@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="author"
-      content="Martin	Julian,Juarez Avila Mariana, Gomez Roxania, Fuentes Joaquin, Quipildor Leandro"
+      content="Martin	Julian, Juarez Avila Mariana, Gomez Roxania, Fuentes Joaquin, Quipildor Leandro"
     />
     <meta
       name="description"
@@ -32,11 +32,11 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg bg-dark">
+      <nav class="navbar navbar-expand-lg bg-black">
         <div class="container">
-          <a class="navbar-brand" href="index.html"
+          <a class="navbar-brand" href="../index.html"
             ><img
-              src="/img/TucumánimeLogo.png"
+              src="../img/TucumánimeLogo.png"
               class="img-fluid logo rounded-pill"
               alt="Logo Tucumánime"
           /></a>
@@ -57,38 +57,25 @@
                 <a
                   class="nav-link opcionNav"
                   aria-current="page"
-                  href="/index.html"
+                  href="../index.html"
                   >Inicio</a
                 >
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link opcionNav"
-                  aria-current="page"
-                  href="/pages/administrador.html"
-                  >Administrador</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
                   class="nav-link opcionNav mx-lg-3"
-                  href="/pages/sobrenosotros.html"
+                  href="sobrenosotros.html"
                   >Sobre Nosotros</a
                 >
               </li>
               <!-- Boton para activar el modal -->
+            <li class="nav-item">
+              <button type="button" class="btn botonIniciarSesion" data-bs-toggle="modal" data-bs-target="#exampleModal">
+               Iniciar Sesión
+               </button>
+            </li>
               <li class="nav-item">
-                <button
-                  type="button"
-                  class="btn btn-warning"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                >
-                  Iniciar Sesión
-                </button>
-              </li>
-              <li class="nav-item">
-                <a class="btn" href="index.html"
+                <a class="btn" href="carrito.html"
                   ><i class="bi bi-cart-fill opcionNav carrito"></i
                   ><span class="badge translate-middle bg-danger">0</span></a
                 >
@@ -191,11 +178,6 @@
           <aside class="col-md-4 text-center text-md-end">
             <a href="/index.html" class="text-decoration-none opcionNav d-block"
               >Inicio</a
-            >
-            <a
-              href="./pages/login.html"
-              class="text-decoration-none opcionNav d-block"
-              >Iniciar Sesion</a
             >
             <a
               href="/pages/sobrenosotros.html"
