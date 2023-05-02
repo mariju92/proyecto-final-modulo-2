@@ -98,6 +98,19 @@ footer {
     background-image: linear-gradient(to top, #ffe600 0%, rgb(255,165,0)  100%);
 }
 
+/*Carrito de compras*/
+.ColorLetras{
+    color: orange;
+}
+.botonCarrito{
+background-color: orange;
+color: black;
+}
+.cardsCarrito{
+    margin-left: 8%;
+    margin-bottom: 3%;
+}
+
 
 /*PAGINA DETALLES*/
 
@@ -214,6 +227,8 @@ footer {
     background-color: orange;
   }
   
+  /*mediaqueries*/
+
    @media  (max-width: 576px) {
     .cardError {
       position: relative;
