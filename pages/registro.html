@@ -91,7 +91,7 @@
         rápida.
       </h1>
       <section class="contenedorFormulario">
-        <form class="row">
+        <form class="row" id="formCargarUsuario">
           <article>
             <label for="nombreapellido" class="form-label text-light py-2"
               >Nombre y Apellido:</label
@@ -100,10 +100,10 @@
             <input
               type="text"
               placeholder="Juan Perez"
-              id="nombreapellido"
+              id="nombreApellido"
               minlength="3"
               maxlength="50"
-              required
+              
               class="form-control"
             />
           </article>
@@ -116,7 +116,7 @@
               id="email"
               minlength="3"
               maxlength="100"
-              required
+              
               class="form-control"
             />
           </article>
@@ -127,11 +127,11 @@
 
             <input
               type="password"
-              id="contraseña"
+              id="contrasenia"
               placeholder="Se recomienda agregar simbolos,números y mayúsculas para mayor seguridad"
               minlength="5"
               maxlength="20"
-              required
+              
               class="form-control"
             />
             <label for="confirmarcontraseña" class="form-label text-light py-2">
@@ -139,10 +139,10 @@
             >
             <input
               type="password"
-              id="confirmarcontraseña"
+              id="confirmarContrasenia"
               minlength="5"
               maxlength="20"
-              required
+              
               class="form-control"
             />
           </article>
@@ -236,6 +236,6 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/app.js"></script>
+    <script src="../js/administradorUsuario.js" type="module"></script>
   </body>
 </html>
