@@ -4,6 +4,7 @@ import { sumarioValidaciones } from "./helpers.js";
 const nombreProducto = document.getElementById('nombre');
 const precio = document.getElementById('precio');
 const descripcion = document.getElementById('descripcion');
+const imagen = document.getElementById('imagen');
 const categoria = document.getElementById('categoria');
 const stock = document.getElementById('stock');
 const btnAgregar = document.getElementById('botonAgregar');
@@ -19,14 +20,13 @@ function mostrarModalProducto(){
 
 function crearProducto(e){
     e.preventDefault()
-    let sumario = sumarioValidaciones(nombreProducto.value,precio.value);
+    let sumario = sumarioValidaciones(nombreProducto.value,precio.value,descripcion.value,imagen.value,categoria.value,stock.value);
     if(sumario.length === 0)
     {
         
         console.log('creando')
-        modalProducto.hide()
-        formularioProducto.reset()
-        
+        modalProducto.hide();
+        limpiarFormulario();
     }
     else{
     }
