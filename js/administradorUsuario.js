@@ -2,6 +2,7 @@ import Usuario from "./classUsuario.js";
 
 const datosTablaUsuario = document.querySelector("#tbodyUsuarios")
 
+
 //traigo los usuarios de localstorage
 let listaUsuarios = localStorage.getItem("listaUsuarios");
 if(!listaUsuarios){
@@ -13,10 +14,14 @@ if(!listaUsuarios){
         usuario.nombre,
         usuario.email,
         usuario.contrasenia,
-        usuario.rol
+        usuario.rol,
+        usuario.carrito
     )
     )
 }
+
+
+
 
 cargaInicial()
 

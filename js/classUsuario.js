@@ -4,12 +4,15 @@ export default class Usuario {
     #email;
     #contrasenia;
     #rol;
-    constructor (id = uuidv4(), nombre, email, contrasenia, rol){
+    #carrito;
+    constructor (id = uuidv4(), nombre, email, contrasenia, rol, carrito){
         this.#id = id;
         this.#nombre = nombre;
         this.#email = email;
         this.#contrasenia = contrasenia;
         this.#rol = rol;
+        this.#carrito = carrito;
+
     }
     
     get id() {
@@ -51,6 +54,14 @@ export default class Usuario {
     set rol(valor) {
         this.#rol = valor;
     }
+    get carrito() {
+        return this.#carrito;
+    }
+
+    set carrito(valor) {
+        this.#carrito = valor;
+    }
+
 
     
     //stringify accede a este metodo
@@ -61,6 +72,7 @@ export default class Usuario {
             email: this.#email,
             contrasenia: this.#contrasenia,
             rol: this.#rol,
+            carrito: this.#carrito
         }
     }
 

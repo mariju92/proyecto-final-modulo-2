@@ -40,7 +40,8 @@ function crearUsuario(){
         nombre.value,
         email.value,
         contrasenia.value,
-        verificarSiEsAdmin(email)
+        verificarSiEsAdmin(email),
+        []
         );
         listaUsuarios.push(nuevoUsuario);
         console.log(nuevoUsuario)
