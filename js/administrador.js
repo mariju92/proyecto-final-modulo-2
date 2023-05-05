@@ -1,5 +1,5 @@
 import Producto from './claseProducto.js';
-import { sumarioValidaciones, validarNombre } from "./helpers.js";
+import { sumarioValidaciones, validarCategoria, validarDescripcion, validarNombreProducto, validarPrecio, validarStock, validarURLImagen } from "./helpers.js";
 
 
 const nombreProducto = document.getElementById('nombre');
@@ -19,12 +19,13 @@ formularioProducto.addEventListener('submit',crearProducto)
 let listaProducto = [];
 
 function mostrarModalProducto(){
-    modalProducto.show()
+  modalProducto.show();
+  limpiarFormulario();
 }
 
 function crearProducto(e){
     e.preventDefault()
-    let sumario = sumarioValidaciones(nombreProducto.value,precio.value,descripcion.value,imagen.value,categoria.value,stock.value);
+    let sumario = sumarioValidaciones(nombreProducto,precio,descripcion,imagen,categoria,stock);
     if(sumario.length === 0)
     {
         
@@ -48,7 +49,7 @@ function crearProducto(e){
         msjError.innerHTML = sumario;
         setTimeout(() => {
             msjError.style.display = 'none'
-        },3000)
+        },5000)
         msjError.style.display = 'block'
     }
 }
@@ -56,6 +57,16 @@ function crearProducto(e){
 function limpiarFormulario()
 {
     formularioProducto.reset()
+    const limpiarClaseSelect = document.querySelector('.selectFormularioProducto');
+    limpiarClaseSelect.classList.remove('is-valid','is-invalid');
+    const limpiarClase = document.querySelectorAll('.inputFormularioProducto');
+    limpiarClase.forEach(input => {
+      input.classList.remove('is-valid','is-invalid')});
 }
 
-nombreProducto.addEventListener('keyup', () => validarNombre(nombreProducto));
+nombreProducto.addEventListener('keyup', () => validarNombreProducto(nombreProducto));
+precio.addEventListener('keyup', () => validarPrecio(precio))
+descripcion.addEventListener('keyup', () => validarDescripcion(descripcion))
+imagen.addEventListener('keyup', () => validarURLImagen(imagen))
+categoria.addEventListener('change', () => validarCategoria(categoria))
+stock.addEventListener('keyup', () => validarStock(stock))

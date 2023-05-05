@@ -127,11 +127,11 @@
             </div>
             </article>
         </section>
-        <section class="modal fade" id="modalAgregarProducto" tabindex="-1" aria-labelledby="agregarProductoModalLabel" aria-hidden="true">
+        <section class="modal fade" id="modalAgregarProducto" data-bs-backdrop="static" tabindex="-1" aria-labelledby="agregarProductoModalLabel" aria-hidden="true">
           <article class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="agregarProductoModalLabel">Administrar Producto</h1>
+                <h1 class="modal-title fs-5" id="agregarProductoModalLabel">Crear Producto</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -142,27 +142,27 @@
                   </div>
                   <div class="mb-3">
                     <label class="col-form-label">Nombre del Producto *</label>
-                    <input type="text" class="form-control" id="nombre" minlength="10" maxlength="50" required placeholder="Ej: Remera de Dragon Ball Z">
+                    <input type="text" class="form-control inputFormularioProducto" id="nombre" minlength="10" maxlength="50" required placeholder="Ej: Remera de Dragon Ball Z">
                     <div class="invalid-feedback">El nombre del producto debe comenzar con mayuscula y tener entre 10 y 50 carácteres</div>
                   </div>
                   <div class="mb-3">
                     <label class="col-form-label">Precio *</label>
-                    <input type="number" class="form-control" id="precio" min="300" required placeholder="Ej: 1500">
+                    <input type="number" class="form-control inputFormularioProducto" id="precio" min="300" required placeholder="Ej: 1500">
                     <div class="invalid-feedback">El precio debe ser como minimo $300</div>
                   </div>
                   <div class="mb-3">
                     <label class="col-form-label">Descripcion *</label>
-                    <textarea type="text" class="form-control" id="descripcion" minlength="10" maxlength="200" required placeholder="Ej: Remera de Dragon Ball Z estampado realizado con sublimación" rows="3" cols="3"></textarea>
+                    <textarea type="text" class="form-control inputFormularioProducto" id="descripcion" minlength="10" maxlength="200" required placeholder="Ej: Remera de Dragon Ball Z estampado realizado con sublimación" rows="3" cols="3"></textarea>
                     <div class="invalid-feedback">La descripcion debe tener entre 10 y 200 carácteres</div>
                   </div>
                   <div class="mb-3">
                     <label class="col-form-label">Imagen *</label>
-                    <input type="text" class="form-control" id="imagen" minlength="3" maxlength="5" required placeholder="Una url en formato .jpg/.png">
+                    <input type="text" class="form-control inputFormularioProducto" id="imagen" required placeholder="Una url en formato .jpg/.png">
                     <div class="invalid-feedback">La imagen debe ser una url que tenga formato .jpg/.png</div>
                   </div>
                   <div class="mb-3">
                     <label class="col-form-label">Categoria *</label>
-                    <select class="form-select" aria-label="Elegir Categoria" required id="categoria">
+                    <select class="form-select selectFormularioProducto" aria-label="Elegir Categoria" required id="categoria">
                       <option selected value="">Seleccione una categoria</option>
                       <option value="Ropa">Ropa</option>
                       <option value="Mochila">Mochila</option>
@@ -173,8 +173,8 @@
                   </div>
                   <div class="mb-3">
                     <label class="col-form-label">Stock *</label>
-                    <input type="number" class="form-control" id="stock" min="0" required placeholder="Ej: 10">
-                    <div class="invalid-feedback">El minimo de stock es 0</div>
+                    <input type="number" class="form-control inputFormularioProducto" id="stock" min="0" required placeholder="Ej: 10">
+                    <div class="invalid-feedback">El minimo de stock es 1</div>
                   </div>
                   <div class="justify-content-start">
                     <button class="btn btn-primary">Enviar</button>
