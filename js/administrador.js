@@ -8,6 +8,7 @@ const descripcion = document.getElementById('descripcion');
 const imagen = document.getElementById('imagen');
 const categoria = document.getElementById('categoria');
 const stock = document.getElementById('stock');
+const destacado = document.getElementById('destacado');
 const btnAgregar = document.getElementById('botonAgregar');
 const modalProducto = new bootstrap.Modal(document.getElementById('modalAgregarProducto'));
 const formularioProducto = document.getElementById('formAdministrarProducto');
@@ -15,7 +16,6 @@ const msjError = document.getElementById('msjError');
 
 btnAgregar.addEventListener('click',mostrarModalProducto)
 formularioProducto.addEventListener('submit',crearProducto)
-
 let listaProducto = [];
 
 function mostrarModalProducto(){
@@ -25,7 +25,7 @@ function mostrarModalProducto(){
 
 function crearProducto(e){
     e.preventDefault()
-    let sumario = sumarioValidaciones(nombreProducto,precio,descripcion,imagen,categoria,stock);
+    let sumario = sumarioValidaciones(nombreProducto,precio,descripcion,imagen,categoria,stock,destacado);
     if(sumario.length === 0)
     {
         
@@ -37,7 +37,8 @@ function crearProducto(e){
           descripcion.value,
           imagen.value,
           categoria.value,
-          stock.value
+          stock.value,
+          destacado.value
         )
         listaProducto.push(nuevoProducto);
         localStorage.setItem('listaProducto',JSON.stringify(listaProducto))

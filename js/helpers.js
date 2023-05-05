@@ -74,8 +74,19 @@ export function validarStock(stock)
     
 }
 
+export function esDestacado(destacado)
+{
+    if(destacado.checked == true)
+    {
+        destacado.value = true;
+        return true
+    }
+    destacado.value = false;
+    return false;
+}
 
-export function sumarioValidaciones(nombre,precio,descripcion,imagen,categoria,stock){
+
+export function sumarioValidaciones(nombre,precio,descripcion,imagen,categoria,stock,destacado){
     let resumen = '';
     if(!validarNombreProducto(nombre))
     {
@@ -99,6 +110,10 @@ export function sumarioValidaciones(nombre,precio,descripcion,imagen,categoria,s
     if(!validarStock(stock))
     {
         resumen += 'El minimo de Stock debe ser 1'
+    }
+    if(!esDestacado(destacado))
+    {
+        destacado.value = false;
     }
     if(resumen.length !== 0){
         return resumen;

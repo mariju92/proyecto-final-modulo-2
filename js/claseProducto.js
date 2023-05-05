@@ -7,7 +7,7 @@ export default class Producto{
     #descripcion;
     #stock;
     #destacado
-    constructor(codigo = uuidv4(),nombre,precio,categoria,imagen,descripcion,stock)
+    constructor(codigo = uuidv4(),nombre,precio,categoria,imagen,descripcion,stock,destacado)
     {
         this.#codigo = codigo;
         this.#nombre = nombre;
@@ -16,7 +16,7 @@ export default class Producto{
         this.#imagen = imagen;
         this.#descripcion = descripcion;
         this.#stock = stock;
-        this.#destacado = false;
+        this.#destacado = destacado;
     }
 
     get codigo(){
@@ -76,7 +76,8 @@ export default class Producto{
             categoria: this.categoria,
             imagen: this.imagen,
             descripcion: this.descripcion,
-            stock: this.stock
+            stock: this.stock,
+            destacado: this.destacado
         }
     } 
 }
