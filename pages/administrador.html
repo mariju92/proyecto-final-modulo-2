@@ -143,7 +143,7 @@
                   <div class="mb-3">
                     <label class="col-form-label">Nombre del Producto *</label>
                     <input type="text" class="form-control" id="nombre" minlength="10" maxlength="50" required placeholder="Ej: Remera de Dragon Ball Z">
-                    <div class="invalid-feedback">El nombre del producto debe empezar con mayúscula contener entre 10 y 50 carácteres</div>
+                    <div class="invalid-feedback">El nombre del producto debe comenzar con mayuscula y tener entre 10 y 50 carácteres</div>
                   </div>
                   <div class="mb-3">
                     <label class="col-form-label">Precio *</label>
@@ -157,7 +157,7 @@
                   </div>
                   <div class="mb-3">
                     <label class="col-form-label">Imagen *</label>
-                    <input type="text" class="form-control" id="imagen" required placeholder="Una url en formato .jpg/.png">
+                    <input type="text" class="form-control" id="imagen" minlength="3" maxlength="5" required placeholder="Una url en formato .jpg/.png">
                     <div class="invalid-feedback">La imagen debe ser una url que tenga formato .jpg/.png</div>
                   </div>
                   <div class="mb-3">
@@ -179,7 +179,7 @@
                   <div class="justify-content-start">
                     <button class="btn btn-primary">Enviar</button>
                   </div>
-                  <div class="alert alert-danger mt-3 d-none" role="alert" id="msjFormulario">
+                  <div class="alert alert-danger mt-3 d-none" role="alert" id="msjError">
                   </div>
                 </form>
               </div>

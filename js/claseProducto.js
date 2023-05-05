@@ -67,6 +67,17 @@ export default class Producto{
     }
     set destacado(newDestacado){
         this.#destacado = newDestacado;
+    }
+    toJSON(){
+        return {
+            codigo: this.codigo,
+            nombre: this.nombre,
+            precio: this.precio,
+            categoria: this.categoria,
+            imagen: this.imagen,
+            descripcion: this.descripcion,
+            stock: this.stock
+        }
     } 
 }
 
