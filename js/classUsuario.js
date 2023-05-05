@@ -9,7 +9,7 @@ export default class Usuario {
         this.#nombre = nombre;
         this.#email = email;
         this.#contrasenia = contrasenia;
-        this.#rol = "invitado";
+        this.#rol = rol;
     }
     
     get id() {

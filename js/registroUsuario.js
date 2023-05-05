@@ -40,7 +40,7 @@ function crearUsuario(){
         nombre.value,
         email.value,
         contrasenia.value,
-        undefined
+        verificarSiEsAdmin(email)
         );
         listaUsuarios.push(nuevoUsuario);
         console.log(nuevoUsuario)
@@ -66,4 +66,12 @@ function guardarUsuarioEnLocalStorage(){
 }
 function limpiarFormularioUsuario(){
     formCargarUsuario.reset()
+}
+
+function verificarSiEsAdmin(email){
+    if(email.value === "admin@gmail.com"){
+       return  "administrador"
+    } else{
+       return  "invitado"
+    }
 }
