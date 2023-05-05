@@ -38,6 +38,34 @@ else{
 
 console.log(listaProducto)
 
+cargaInicial()
+
+function cargaInicial()
+{
+  if(listaProducto.length > 0)
+  {
+    listaProducto.map((producto, indice) => crearFila(producto,indice))
+  }
+}
+
+function crearFila(producto,indice)
+{
+  let datosProducto = document.querySelector('tbody');
+
+  datosProducto.innerHTML += `<tr>
+  <th>${indice + 1}</th>
+  <td>${producto.nombre}</td>
+  <td>${producto.categoria}</td>
+  <td>${producto.precio}</td>
+  <td>${producto.stock}</td>
+  <td>
+    <button class=" btn bi bi-search btn-primary"></button>
+    <button class=" btn bi bi-pencil btn-warning my-3 my-md-0"></button>
+    <button class=" btn bi bi-x-lg btn-danger"></button>
+  </td>
+</tr>`
+}
+
 function mostrarModalProducto(){
   modalProducto.show();
   limpiarFormulario();
