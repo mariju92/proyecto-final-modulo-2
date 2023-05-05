@@ -16,7 +16,27 @@ const msjError = document.getElementById('msjError');
 
 btnAgregar.addEventListener('click',mostrarModalProducto)
 formularioProducto.addEventListener('submit',crearProducto)
-let listaProducto = [];
+
+let listaProducto = localStorage.getItem('listaProducto');
+
+if(!listaProducto)
+{
+  listaProducto = [];
+}
+else{
+  listaProducto = JSON.parse(listaProducto).map(producto => new Producto(
+    undefined,
+    producto.nombre,
+    producto.precio,
+    producto.categoria,
+    producto.imagen,
+    producto.descripcion,
+    producto.stock,
+    producto.destacado
+  ))
+}
+
+console.log(listaProducto)
 
 function mostrarModalProducto(){
   modalProducto.show();
@@ -34,9 +54,9 @@ function crearProducto(e){
           undefined,
           nombreProducto.value,
           precio.value,
-          descripcion.value,
-          imagen.value,
           categoria.value,
+          imagen.value,
+          descripcion.value,
           stock.value,
           destacado.value
         )
