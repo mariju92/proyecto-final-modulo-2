@@ -74,7 +74,7 @@ export function validarStock(stock)
     
 }
 
-export function esDestacado(destacado)
+function esDestacado(destacado)
 {
     if(destacado.checked == true)
     {
