@@ -91,6 +91,8 @@ function crearProducto(e){
         listaProducto.push(nuevoProducto);
         localStorage.setItem('listaProducto',JSON.stringify(listaProducto))
         modalProducto.hide();
+        let indicePro = listaProducto.length - 1;
+        crearFila(nuevoProducto, indicePro)
         Swal.fire(
           'Producto Creado',
           'El producto ingresado fue creado correctamente',
