@@ -7,18 +7,22 @@ const contrasenia = document.querySelector("#contrasenia");
 const confirmarContrasenia = document.querySelector("#confirmarContrasenia");
 const formCargarUsuario = document.querySelector("#formCargarUsuario")
 
+
+
+//traigo los usuarios de localstorage
 let listaUsuarios = localStorage.getItem("listaUsuarios");
-if (!listaUsuarios){
-    listaUsuarios = [];
+if(!listaUsuarios){
+    listaUsuarios = []
 } else{
     listaUsuarios = JSON.parse(listaUsuarios).map((usuario)=>
-        new Usuario(
-            usuario.id,
-            usuario.nombre,
-            usuario.email,
-            usuario.contrasenia,
-            usuario.rol
-        )
+    new Usuario(
+        usuario.id,
+        usuario.nombre,
+        usuario.email,
+        usuario.contrasenia,
+        usuario.rol,
+        usuario.carrito
+    )
     )
 }
 
