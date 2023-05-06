@@ -16,7 +16,55 @@ const msjError = document.getElementById('msjError');
 
 btnAgregar.addEventListener('click',mostrarModalProducto)
 formularioProducto.addEventListener('submit',crearProducto)
-let listaProducto = [];
+
+let listaProducto = localStorage.getItem('listaProducto');
+
+if(!listaProducto)
+{
+  listaProducto = [];
+}
+else{
+  listaProducto = JSON.parse(listaProducto).map(producto => new Producto(
+    undefined,
+    producto.nombre,
+    producto.precio,
+    producto.categoria,
+    producto.imagen,
+    producto.descripcion,
+    producto.stock,
+    producto.destacado
+  ))
+}
+
+console.log(listaProducto)
+
+cargaInicial()
+
+function cargaInicial()
+{
+  if(listaProducto.length > 0)
+  {
+    listaProducto.map((producto, indice) => crearFila(producto,indice))
+  }
+}
+
+function crearFila(producto,indice)
+{
+  let datosProducto = document.querySelector('tbody');
+
+  datosProducto.innerHTML += `<tr>
+  <th>${indice + 1}</th>
+  <td>${producto.nombre}</td>
+  <td>${producto.categoria}</td>
+  <td>${producto.precio}</td>
+  <td>${producto.stock}</td>
+  <td>
+    <button class=" btn bi bi-search btn-primary"></button>
+    <button class=" btn bi bi-pencil btn-warning my-3 my-md-0"></button>
+    <button class=" btn bi bi-x-lg btn-danger"></button>
+  </td>
+</tr>`
+}
 
 function mostrarModalProducto(){
   modalProducto.show();
@@ -34,15 +82,17 @@ function crearProducto(e){
           undefined,
           nombreProducto.value,
           precio.value,
-          descripcion.value,
-          imagen.value,
           categoria.value,
+          imagen.value,
+          descripcion.value,
           stock.value,
           destacado.value
         )
         listaProducto.push(nuevoProducto);
         localStorage.setItem('listaProducto',JSON.stringify(listaProducto))
         modalProducto.hide();
+        let indicePro = listaProducto.length - 1;
+        crearFila(nuevoProducto, indicePro)
         Swal.fire(
           'Producto Creado',
           'El producto ingresado fue creado correctamente',
