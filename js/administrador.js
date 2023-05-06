@@ -16,6 +16,12 @@ const msjError = document.getElementById('msjError');
 
 btnAgregar.addEventListener('click',mostrarModalProducto)
 formularioProducto.addEventListener('submit',crearProducto)
+nombreProducto.addEventListener('keyup', () => validarNombreProducto(nombreProducto));
+precio.addEventListener('keyup', () => validarPrecio(precio))
+descripcion.addEventListener('keyup', () => validarDescripcion(descripcion))
+imagen.addEventListener('keyup', () => validarURLImagen(imagen))
+categoria.addEventListener('change', () => validarCategoria(categoria))
+stock.addEventListener('keyup', () => validarStock(stock))
 
 let listaProducto = localStorage.getItem('listaProducto');
 
@@ -61,7 +67,7 @@ function crearFila(producto,indice)
   <td>
     <button class=" btn bi bi-search btn-primary"></button>
     <button class=" btn bi bi-pencil btn-warning my-3 my-md-0"></button>
-    <button class=" btn bi bi-x-lg btn-danger"></button>
+    <button class=" btn bi bi-x-lg btn-danger" onclick="borrarProducto('${producto.codigo}')"></button>
   </td>
 </tr>`
 }
@@ -89,7 +95,7 @@ function crearProducto(e){
           destacado.value
         )
         listaProducto.push(nuevoProducto);
-        localStorage.setItem('listaProducto',JSON.stringify(listaProducto))
+        guardarLocalStorage();
         modalProducto.hide();
         let indicePro = listaProducto.length - 1;
         crearFila(nuevoProducto, indicePro)
@@ -120,9 +126,33 @@ function limpiarFormulario()
       input.classList.remove('is-valid','is-invalid')});
 }
 
-nombreProducto.addEventListener('keyup', () => validarNombreProducto(nombreProducto));
-precio.addEventListener('keyup', () => validarPrecio(precio))
-descripcion.addEventListener('keyup', () => validarDescripcion(descripcion))
-imagen.addEventListener('keyup', () => validarURLImagen(imagen))
-categoria.addEventListener('change', () => validarCategoria(categoria))
-stock.addEventListener('keyup', () => validarStock(stock))
+function guardarLocalStorage()
+{
+  localStorage.setItem('listaProducto',JSON.stringify(listaProducto))
+}
+
+window.borrarProducto = (codigo) => {
+  Swal.fire({
+    title: '¿Esta seguro de borrar el producto?',
+    text: "No podras revertirlo después de borrarlo",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Borrar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed){
+    let posicionProducto = listaProducto.findIndex(producto => producto.codigo === codigo)
+    let datosProducto = document.querySelector('tbody');
+    listaProducto.splice(posicionProducto,1)
+    guardarLocalStorage();
+    datosProducto.removeChild(datosProducto.children[posicionProducto]);
+    Swal.fire(
+    'Se borro el producto',
+    'El producto seleccionado fue eliminado correctamente',
+    'success'
+  )
+}
+})
+}
