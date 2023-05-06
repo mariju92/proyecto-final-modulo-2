@@ -11,7 +11,7 @@ function validarEmail(){
     if(regExp.test(email.value)){
         email.className = "form-control is-valid";
         return true
-    } else{
+    } else {
         email.className ="form-control is-invalid";
         return false;
     }
@@ -39,23 +39,45 @@ function validarNombre(){
         return false;
     }
 }
+function validarRol(){
+    const regExp= /^(invitado|administrador)$/;
+    if(regExp.test(rol.value)){
+        rol.className = "form-control is-valid";
+        return true
+    } else{
+        rol.className ="form-control is-invalid";
+        return false;
+    }
+}
+
 function validarConfirmacionContrasenia(){
-  if ( confirmarContrasenia.value === contrasenia.value){
-    confirmarContrasenia.className = "form-control is-valid";
-    return true
-  } else{
-    confirmarContrasenia.className ="form-control is-invalid";
-    return false;
-  }
+    const regExp= /^.{4,}$/;
+    if(!(regExp.test(confirmarContrasenia.value)) || !( confirmarContrasenia.value === contrasenia.value)){
+        confirmarContrasenia.className ="form-control is-invalid";
+        return false;
+    } else{
+        confirmarContrasenia.className = "form-control is-valid";
+        return true
+    }
 }
 
 
-export function sumarioValidaciones (){
+export function sumarioValidacionesCrear (){
     validarConfirmacionContrasenia();
     validarContrasenia();
     validarEmail();
     validarNombre();
     if((validarNombre() && validarEmail() && validarContrasenia() && validarConfirmacionContrasenia())){
+        return  true
+    } else{
+        return false
+    }
+}
+export function sumarioValidacionesEditar (){
+    validarEmail();
+    validarNombre();
+    validarRol();
+    if((validarNombre() && validarEmail() && validarRol())){
         return  true
     } else{
         return false

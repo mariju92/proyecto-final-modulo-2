@@ -114,7 +114,7 @@
     <div class="modal-content">
       <div>
         <form class="border formLogin p-4 rounded bg-dark text-warning" id="formModalCargaUsuario">
-          <h3 class="text-center fw-bold fs-2" id="tituloModalUsuario">Registrar Usuario</h3>
+          <h3 class="text-center fw-bold fs-2 mb-2" id="tituloModalUsuario">Registrar Usuario</h3>
           <div class="mb-3">
             <label for="exampleInputNombre1" class="form-label"
               ><i class="bi bi-person-fill me-1"></i>Nombre:</label
@@ -123,24 +123,27 @@
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label"
-              ><i class="bi bi-person-fill me-1" ></i>Email:</label
+              ><i class="bi bi-envelope-fill me-1"></i></i>Email:</label
             >
             <input type="email" class="form-control" id="email" />
           </div>
-            <div class="mb-3 ">
+          <div id="divContrasenia">
+            <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label"
                 ><i class="bi bi-lock-fill me-1"></i>Contraseña:</label
               >
               <input type="password" class="form-control" id="contrasenia" />
             </div>
-            <div class="mb-3 ">
+            <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label"
                 ><i class="bi bi-lock-fill me-1"></i>Confirmar contraseña:</label
               >
               <input type="password" class="form-control" id="confirmarContrasenia" />
             </div>
-          <div class="mb-3">
-            <label class="col-form-label">Rol </label>
+          </div>
+          <div class="mb-4">
+            <label class="col-form-label">
+              <i class="bi bi-person-vcard-fill me-1"></i>Rol </label>
             <select
               class="form-select w-100"
               aria-label="Elegir ROL del usuario"

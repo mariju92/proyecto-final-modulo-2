@@ -1,5 +1,5 @@
 import Usuario from "./classUsuario.js"
-import {sumarioValidaciones} from "./helpersUsuario.js"
+import {sumarioValidacionesCrear} from "./helpersUsuario.js"
 
 const nombre = document.querySelector("#nombreApellido");
 const email = document.querySelector("#email");
@@ -37,7 +37,7 @@ function cargarUsuario(e){
 }
 function crearUsuario(){
     //validar datos
-    if(sumarioValidaciones()){
+    if(sumarioValidacionesCrear()){
         //crear el usuario
     let nuevoUsuario = new Usuario(
         undefined,
