@@ -1,7 +1,7 @@
 import Producto from './claseProducto.js';
 import { sumarioValidaciones, validarCategoria, validarDescripcion, validarNombreProducto, validarPrecio, validarStock, validarURLImagen } from "./helpers.js";
 
-
+const codigo = document.getElementById('codigo');
 const nombreProducto = document.getElementById('nombre');
 const precio = document.getElementById('precio');
 const descripcion = document.getElementById('descripcion');
@@ -15,7 +15,7 @@ const formularioProducto = document.getElementById('formAdministrarProducto');
 const msjError = document.getElementById('msjError');
 
 btnAgregar.addEventListener('click',mostrarModalProducto)
-formularioProducto.addEventListener('submit',crearProducto)
+formularioProducto.addEventListener('submit',cargarProducto)
 nombreProducto.addEventListener('keyup', () => validarNombreProducto(nombreProducto));
 precio.addEventListener('keyup', () => validarPrecio(precio))
 descripcion.addEventListener('keyup', () => validarDescripcion(descripcion))
@@ -24,6 +24,10 @@ categoria.addEventListener('change', () => validarCategoria(categoria))
 stock.addEventListener('keyup', () => validarStock(stock))
 
 let listaProducto = localStorage.getItem('listaProducto');
+let estadoProducto = true;
+let titulo = document.getElementById('agregarProductoModalLabel');
+let boton = document.getElementById('botonFormulario');
+
 
 if(!listaProducto)
 {
@@ -31,7 +35,7 @@ if(!listaProducto)
 }
 else{
   listaProducto = JSON.parse(listaProducto).map(producto => new Producto(
-    undefined,
+    producto.codigo,
     producto.nombre,
     producto.precio,
     producto.categoria,
@@ -66,19 +70,34 @@ function crearFila(producto,indice)
   <td>${producto.stock}</td>
   <td>
     <button class=" btn bi bi-search btn-primary"></button>
-    <button class=" btn bi bi-pencil btn-warning my-3 my-md-0"></button>
+    <button class=" btn bi bi-pencil btn-warning my-3 my-md-0" onclick="editarProducto('${producto.codigo}')"></button>
     <button class=" btn bi bi-x-lg btn-danger" onclick="borrarProducto('${producto.codigo}')"></button>
   </td>
 </tr>`
 }
 
 function mostrarModalProducto(){
+  estadoProducto = true;
   modalProducto.show();
+  titulo.innerHTML = 'Crear Producto'
+  boton.className = 'btn btn-primary';
+  boton.innerHTML = 'Enviar'
   limpiarFormulario();
 }
 
-function crearProducto(e){
-    e.preventDefault()
+function cargarProducto(e){
+  e.preventDefault();
+  if(estadoProducto){
+      crearProducto();
+  }
+  else{
+      actualizarProducto();
+  }
+  
+  
+}
+
+function crearProducto(){
     let sumario = sumarioValidaciones(nombreProducto,precio,descripcion,imagen,categoria,stock,destacado);
     if(sumario.length === 0)
     {
@@ -92,7 +111,7 @@ function crearProducto(e){
           imagen.value,
           descripcion.value,
           stock.value,
-          destacado.value
+          destacado.checked
         )
         listaProducto.push(nuevoProducto);
         guardarLocalStorage();
@@ -155,4 +174,48 @@ window.borrarProducto = (codigo) => {
   )
 }
 })
+}
+
+window.editarProducto = (codigoUni) => {
+  titulo.innerHTML = 'Editar Producto'
+  boton.className = 'btn btn-warning';
+  boton.innerHTML = 'Editar'
+  const producto = listaProducto.find(producto => producto.codigo === codigoUni)
+  modalProducto.show()
+  codigo.value = producto.codigo;
+  nombreProducto.value = producto.nombre;
+  precio.value = producto.precio;
+  categoria.value = producto.categoria;
+  imagen.value = producto.imagen
+  descripcion.value = producto.descripcion
+  stock.value = producto.stock
+  destacado.value = producto.destacado;
+  estadoProducto = false;
+}
+
+function actualizarProducto(){
+  let sumario = sumarioValidaciones(nombreProducto,precio,descripcion,imagen,categoria,stock,destacado);
+  if(sumario.length === 0){
+  let posicionProducto = listaProducto.findIndex(pro => pro.codigo === codigo.value)
+  listaProducto[posicionProducto].nombre = nombreProducto.value;
+  listaProducto[posicionProducto].precio = precio.value;
+  listaProducto[posicionProducto].categoria = categoria.value;
+  listaProducto[posicionProducto].imagen = imagen.value;
+  listaProducto[posicionProducto].descripcion = descripcion.value;
+  listaProducto[posicionProducto].stock = stock.value;
+  listaProducto[posicionProducto].destacado = destacado.checked;
+  guardarLocalStorage();
+  Swal.fire(
+      "Producto Editado",
+      "El producto elegido fue editado corrrectamente",
+      "success"
+  );
+  let datosProducto = document.querySelector('tbody');
+  datosProducto.children[posicionProducto].children[1].innerText = nombreProducto.value;
+  datosProducto.children[posicionProducto].children[2].innerText = categoria.value;
+  datosProducto.children[posicionProducto].children[3].innerText = precio.value;
+  datosProducto.children[posicionProducto].children[4].innerText = stock.value;
+  limpiarFormulario();
+  modalProducto.hide();
+  }
 }
