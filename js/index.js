@@ -71,7 +71,7 @@ function crearCardProductoDestacado(producto) {
     <div class="">
       <div class="card border-0 m-2">
         <a href="./pages/error404.html">
-          <img class="card-img-top border-1 bordeNaranja" src="${producto.imagen}" alt="${producto.nombre}">
+          <img class="card-img-top border-1 bordeNaranja img-fluid" src="${producto.imagen}" alt="${producto.nombre}">
         </a>
         <div class="card-body colorDegradadoOrizontal">
           <a href="./pages/error404.html" class="text-decoration-none">
