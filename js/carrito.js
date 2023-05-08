@@ -4,7 +4,10 @@ let listaProducto =
   JSON.parse(localStorage.getItem("listaProducto")) || [];
 
 const productoBuscado = listaProducto.find((Producto) => Producto.codigo === parametroCodigo.get('codigo'));
+console.log(productoBuscado);
+
 const contador = parametroCodigo.get('contador');
+console.log(contador);
 let detalle = document.getElementById('tablaCarrito');
 detalle.innerHTML = `<thead>
 <tr>
