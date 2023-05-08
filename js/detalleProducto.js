@@ -183,5 +183,5 @@ class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
   }
 }
 window.carrito = (codigo) => {
-  window.location.href = window.location.origin + '/pages/carrito.html?codigo=' + productoBuscado.codigo + '?contador=' + contadorcarrito
+  window.location.href = window.location.origin + '/pages/carrito.html?codigo=' + productoBuscado.codigo + '&contador=' + contadorcarrito
 }
