@@ -4,12 +4,12 @@ document.addEventListener("keyup", function(e) {
       let resultadosEncontrados = false;
   
       for (let i = 0; i < productos.length; i++) {
-        let minusculas = productos[i];
-        if (minusculas.textContent.toLowerCase().includes(e.target.value)) {
-          minusculas.classList.remove("filtro");
+        let palabra = productos[i];
+        if (palabra.textContent.toLowerCase().includes(e.target.value) || palabra.textContent.toUpperCase().includes(e.target.value)) {
+          palabra.classList.remove("filtro");
           resultadosEncontrados = true;
         } else {
-          minusculas.classList.add("filtro");
+          palabra.classList.add("filtro");
         }
       }
   
