@@ -31,10 +31,10 @@ detalle.innerHTML = `<article class="pt-5 fw-bold">
         <div class="col-2 p-0">
           <input type="number" min="1" max="10" value="1" class="w-100 h-100" title="stock">
         </div>
-        <button class="btn btn-primary" onclick="detalleProducto('${producto.codigo}')">
+        <button class="btn btn-primary" onclick="detalleProducto('${productoBuscado.codigo}')">
           <p class="text-center fs-3 fw-bold pt-2 ">COMPRAR</p>
         </button>
-        <button class="btn btn-primary" onclick="detalleProducto('${producto.codigo}')">
+        <button class="btn btn-primary" onclick="detalleProducto('${productoBuscado.codigo}')">
           <i class="bi bi-cart-plus fw-bold fs-3"><span class="text-center">AGREGAR AL CARRITO</span></i>
         </button>
       </div>
