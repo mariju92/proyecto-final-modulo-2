@@ -1,5 +1,6 @@
 import Producto from "./claseProducto.js";
 
+
 let listaProducto = localStorage.getItem(`listaProducto`);
 if (!listaProducto) {
   listaProducto = [];
@@ -21,27 +22,27 @@ if (!listaProducto) {
 
 cargaInicial();
 
-function cargaInicial(){
+function cargaInicial() {
   //verificar si listaProductos tiene datos
-  if(listaProducto.length > 0){
+  if (listaProducto.length > 0) {
     //dibuja los datos en la tabla
-    listaProducto.map((producto)=> crearCardProducto(producto))
+    listaProducto.map((producto) => crearCardProducto(producto))
   }
 }
 
 cargaInicialDestacado()
-function cargaInicialDestacado(){
+function cargaInicialDestacado() {
   //verificar si listaProductos tiene datos
-  if(listaProducto.length > 0){
+  if (listaProducto.length > 0) {
     //dibuja los datos en la tabla
-    listaProducto.map((producto)=> crearCardProductoDestacado(producto))
+    listaProducto.map((producto) => crearCardProductoDestacado(producto))
   }
 }
 
 
 function crearCardProducto(producto) {
-    let grilla = document.querySelector("#mostrarProductos");
-    grilla.innerHTML += `
+  let grilla = document.querySelector("#mostrarProductos");
+  grilla.innerHTML += `
     <div class="col-9 col-md-4 col-lg-3 p-3 text-center cardsProductos">
       <div class="card border-0 m-2">
       <a href="./pages/detalles.html?codigo=${producto.codigo}">
@@ -65,7 +66,7 @@ function crearCardProducto(producto) {
 
 function crearCardProductoDestacado(producto) {
   let grilla = document.querySelector("#productoCarrouselGrande");
-  if(producto.destacado===true){
+  if (producto.destacado === true) {
     grilla.innerHTML += `
     <div class="">
       <div class="card border-0 m-2">
@@ -82,9 +83,9 @@ function crearCardProductoDestacado(producto) {
     </div>
   `;
   }
-  
+
 }
 
 window.detalleProducto = (codigo) => {
-    window.location.href = window.location.origin + './pages/detalles.html?codigo=' + codigo
+  window.location.href = window.location.origin + './pages/detalles.html?codigo=' + codigo
 }
