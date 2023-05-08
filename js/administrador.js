@@ -62,7 +62,7 @@ function crearFila(producto,indice)
 {
   let datosProducto = document.querySelector('tbody');
 
-  datosProducto.innerHTML += `<tr>
+  datosProducto.innerHTML += `<tr class="cardsProductos">
   <th>${indice + 1}</th>
   <td>${producto.nombre}</td>
   <td>${producto.categoria}</td>
