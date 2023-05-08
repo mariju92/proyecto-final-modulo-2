@@ -13,7 +13,7 @@ export function validarNombreProducto(nombreProducto)
 }
 
 export function validarPrecio(precio){
-    let patron = /^([3-9][0-9]{2}|[1-9][0-9]{3,})$/
+    let patron = /^([3-9][0-9]{2}|[1-9][0-9]{3,5})$/
     if(patron.test(precio.value))
     {
         precio.classList.replace('is-invalid','is-valid');
@@ -74,13 +74,15 @@ export function validarStock(stock)
     
 }
 
-function esDestacado(destacado)
+export function esDestacado(destacado)
 {
     if(destacado.checked == true)
     {
         destacado.value = true;
+        destacado.setAttribute('checked','checked')
         return true
     }
+    destacado.removeAttribute('checked');
     destacado.value = false;
     return false;
 }

@@ -1,5 +1,5 @@
 import Producto from './claseProducto.js';
-import { sumarioValidaciones, validarCategoria, validarDescripcion, validarNombreProducto, validarPrecio, validarStock, validarURLImagen } from "./helpers.js";
+import { esDestacado, sumarioValidaciones, validarCategoria, validarDescripcion, validarNombreProducto, validarPrecio, validarStock, validarURLImagen } from "./helpers.js";
 
 const codigo = document.getElementById('codigo');
 const nombreProducto = document.getElementById('nombre');
@@ -22,6 +22,7 @@ descripcion.addEventListener('keyup', () => validarDescripcion(descripcion))
 imagen.addEventListener('keyup', () => validarURLImagen(imagen))
 categoria.addEventListener('change', () => validarCategoria(categoria))
 stock.addEventListener('keyup', () => validarStock(stock))
+destacado.addEventListener('change',() => esDestacado(destacado))
 
 let listaProducto = localStorage.getItem('listaProducto');
 let estadoProducto = true;
@@ -46,8 +47,6 @@ else{
   ))
 }
 
-console.log(listaProducto)
-
 cargaInicial()
 
 function cargaInicial()
@@ -62,7 +61,7 @@ function crearFila(producto,indice)
 {
   let datosProducto = document.querySelector('tbody');
 
-  datosProducto.innerHTML += `<tr>
+  datosProducto.innerHTML += `<tr class='tablaProductos'>
   <th>${indice + 1}</th>
   <td>${producto.nombre}</td>
   <td>${producto.categoria}</td>
@@ -111,7 +110,7 @@ function crearProducto(){
           imagen.value,
           descripcion.value,
           stock.value,
-          destacado.checked
+          destacado.value
         )
         listaProducto.push(nuevoProducto);
         guardarLocalStorage();
@@ -150,6 +149,11 @@ function guardarLocalStorage()
   localStorage.setItem('listaProducto',JSON.stringify(listaProducto))
 }
 
+function limpiarTablaProducto(){
+  let datosProducto = document.querySelector('tbody');
+  datosProducto.innerHTML = '';
+}
+
 window.borrarProducto = (codigo) => {
   Swal.fire({
     title: '¿Esta seguro de borrar el producto?',
@@ -167,6 +171,8 @@ window.borrarProducto = (codigo) => {
     listaProducto.splice(posicionProducto,1)
     guardarLocalStorage();
     datosProducto.removeChild(datosProducto.children[posicionProducto]);
+    limpiarTablaProducto();
+    cargaInicial();
     Swal.fire(
     'Se borro el producto',
     'El producto seleccionado fue eliminado correctamente',
@@ -219,3 +225,35 @@ function actualizarProducto(){
   modalProducto.hide();
   }
 }
+
+document.addEventListener("keyup", function(e) {
+  if (e.target.matches("#inputBuscar")) {
+    let productos = document.querySelectorAll(".tablaProductos");
+    let resultadosEncontrados = false;
+
+    for (let i = 0; i < productos.length; i++) {
+      let palabra = productos[i];
+      if (palabra.textContent.toLowerCase().includes(e.target.value.toLowerCase()) || palabra.textContent.toUpperCase().includes(e.target.value)) {
+        palabra.classList.remove("filtro");
+        resultadosEncontrados = true;
+      } else {
+        palabra.classList.add("filtro");
+      }
+    }
+
+    let seccionProductos = document.getElementById("seccionProductos");
+    if (!resultadosEncontrados) {
+      let mensaje = document.createElement("h4");
+      mensaje.textContent = "No se encontraron productos con ese nombre.";
+      mensaje.className = "text-center p-4"
+      mensaje.setAttribute('id','mensajeNoProducto')
+      seccionProductos.innerHTML = "";
+      seccionProductos.appendChild(mensaje);
+    } else {
+      let mensaje = document.getElementById("mensajeNoProducto");
+      if (mensaje) {
+        seccionProductos.innerHTML = "";
+      }
+    }
+  }
+});
