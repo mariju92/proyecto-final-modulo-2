@@ -60,11 +60,8 @@ main {
     text-align: right;
 }
 
-::placeholder {
-    text-align: center;
-    color: white;
-    text-shadow: 2px 2px 4px black;
-
+.filtro {
+    display: none;
 }
 
 .colorDegradadoOrizontal {
