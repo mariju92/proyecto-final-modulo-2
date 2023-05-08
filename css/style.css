@@ -44,6 +44,15 @@ main {
 .fondoNegro {
     background-color: black;
     color: white;
+    min-height: 171.25px;
+}
+
+.imgCard{
+    height: 350px;
+}
+
+.espacioTitulo{
+    min-height: 100px;
 }
 
 .fondoNaranja {
@@ -58,6 +67,10 @@ main {
 
 #buscador::placeholder {
     text-align: right;
+}
+
+.filtro {
+    display: none;
 }
 
 .colorDegradadoOrizontal {
@@ -280,4 +293,16 @@ color: black;
         height: 85vh;
         width: 100%;
       }
+      .imgCard{
+        height: 350px;
     }
+    }
+
+@media screen and (min-width: 992px) and (max-width: 1399px) {
+    .imgCard{
+        height: 250px;
+    }
+    .espacioTitulo{
+        min-height: 100px;
+    }
+}
