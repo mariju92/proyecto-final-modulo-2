@@ -2,7 +2,14 @@
 const parametroCodigo = new URLSearchParams(window.location.search);
 let listaProducto =
   JSON.parse(localStorage.getItem("listaProducto")) || [];
+
 const productoBuscado = listaProducto.find((Producto) => Producto.codigo === parametroCodigo.get('codigo'));
+
+let carritoSuperior = document.getElementById('carritoSuperior');
+carritoSuperior.innerHTML = `<i
+class="bi bi-cart-fill opcionNav carrito"></i><span
+class="badge translate-middle bg-danger ">0</span>`;
+
 let detalle = document.getElementById('SeccionDetalleProducto');
 detalle.innerHTML = `<article class="pt-5 fw-bold">
 <nav aria-label="breadcrumb">
@@ -23,20 +30,19 @@ detalle.innerHTML = `<article class="pt-5 fw-bold">
     <div class="col-12">
       <h2 class="text-light pb-4">${productoBuscado.nombre}</h2>
       <h2 class="text-warning pb-3">$ ${productoBuscado.precio}</h2>
-      <div class="pb-3">
+      <div class="pb-3" id="carritoBoton">
         <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
       </div>
       <i class="bi bi-truck text-warning fs-5"><span class="text-light ps-3">Costo de envio: $1500</span></i><a href="/pages/error404" class="text-warning text-decoration-none fw-bold"></a>
-      <div class="row py-5 col-12 m-0">
-        <div class="col-2 p-0">
-          <input type="number" min="1" max="10" value="1" class="w-100 h-100" title="stock">
-        </div>
-        <button class="btn btn-primary" onclick="detalleProducto('${producto.codigo}')">
-          <p class="text-center fs-3 fw-bold pt-2 ">COMPRAR</p>
-        </button>
-        <button class="btn btn-primary" onclick="detalleProducto('${producto.codigo}')">
+      <div class="row py-5 col-12 m-0" >
+      <button class="btn btn-primary" id="botonCarrito" onclick="carrito('${productoBuscado.codigo}')">
+    <i class="bi bi-cart-plus fw-bold w-50"><span class="text-center">COMPRAR</span></i>
+  </button>
+        <hr>
+        <div id="botones">
+        <button class="btn btn-primary" id="botonCarrito" onclick="SumarCarrito()">
           <i class="bi bi-cart-plus fw-bold fs-3"><span class="text-center">AGREGAR AL CARRITO</span></i>
-        </button>
+        </button></div>
       </div>
     </div>
   </div>
@@ -101,6 +107,81 @@ detalle.innerHTML = `<article class="pt-5 fw-bold">
 </div>
 </article>`;
 
-window.detalleProducto = (codigo) => {
-  window.location.href = window.location.origin + '/pages/detalles.html?codigo=' + codigo
+
+let contadorcarrito = 1;
+function SumarCarrito() {
+
+  productoBuscado.stock = productoBuscado.stock - 1;
+  carritoSuperior.innerHTML = `<i
+class="bi bi-cart-fill opcionNav carrito"></i><span
+class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
+  let carritoBoton = document.getElementById('carritoBoton');
+  carritoBoton.innerHTML = `
+<i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
+ `
+  if (contadorcarrito >= 1) {
+    if (contadorcarrito > 1) {
+      contadorcarrito++;
+    }
+
+    let carritoBoton = document.getElementById('botones');
+    carritoBoton.innerHTML = `<article class="pt-5 fw-bold">
+<nav aria-label="breadcrumb">
+<button id="menos-cantidad"  onclick="restar()" class="btn btn-danger">-</button><span id="cant" class="h1 text-white">1</span><button id='mas-cantidad'  onclick="sumar()" class="btn btn-info">+</button>
+<button class="btn btn-primary" id="botonCarrito" onclick="carrito('${productoBuscado.codigo}')">
+    <i class="bi bi-cart-plus fw-bold w-50"><span class="text-center">IR AL CARRITO</span></i>
+  </button>
+`
+  } else if (contadorcarrito == 0) {
+    carritoBoton = document.getElementById('botones');
+    carritoBoton.innerHTML = `
+    <button class="btn btn-primary" id="botonCarrito" onclick="sumarCarrito()">
+    <i class="bi bi-cart-plus fw-bold fs-3"><span class="text-center">AGREGAR AL CARRITO</span></i>
+  </button>`
+  }
+
+}
+
+function restar() {
+  contadorcarrito--;
+  productoBuscado.stock = productoBuscado.stock + 1;
+  carritoSuperior.innerHTML = `<i
+class="bi bi-cart-fill opcionNav carrito"></i><span
+class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
+  let carritoBoton = document.getElementById('carritoBoton');
+  carritoBoton.innerHTML = `
+<i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
+ `
+  document.getElementById("cant").innerHTML = contadorcarrito;
+  if (contadorcarrito <= productoBuscado.stock) {
+    document.getElementById("mas-cantidad").style.display = "initial";
+
+  }
+  if (contadorcarrito == 0) {
+    carritoBoton = document.getElementById('botones');
+    carritoBoton.innerHTML = `
+  <button class="btn btn-primary" id="botonCarrito" onclick="sumarCarrito()">
+  <i class="bi bi-cart-plus fw-bold fs-3"><span class="text-center">AGREGAR AL CARRITO</span></i>
+</button>`
+  }
+}
+
+function sumar() {
+  contadorcarrito++;
+  document.getElementById("cant").innerHTML = contadorcarrito;
+  productoBuscado.stock = productoBuscado.stock - 1;
+  carritoSuperior.innerHTML = `<i
+class="bi bi-cart-fill opcionNav carrito"></i><span
+class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
+  let carritoBoton = document.getElementById('carritoBoton');
+  carritoBoton.innerHTML = `
+<i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
+ `
+  if (productoBuscado.stock == 0) {
+    document.getElementById("mas-cantidad").style.display = "none";
+
+  }
+}
+window.carrito = (codigo) => {
+  window.location.href = window.location.origin + '/pages/carrito.html?codigo=' + codigo + '?contador=' + contadorcarrito
 }
