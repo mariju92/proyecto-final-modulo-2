@@ -185,6 +185,8 @@ window.borrarUsuario = (id) => {
       datosTablaUsuario.removeChild(datosTablaUsuario.children[posicionUsuario]);
 
       // hacer: actualizar las filas de la tabla
+      limpiarTablaUsuarios()
+      cargaInicial()
       // datosTablaPelicula.children[posicionPelicula].children[0]
 
       // mostrar mensaje al usuario
@@ -265,4 +267,7 @@ function limpiarClaseDeValidacion() {
   contrasenia.className = "form-control"
   confirmarContrasenia.className = "form-control"
   rol.className = "form-control"
+}
+function limpiarTablaUsuarios(){
+  datosTablaUsuario.innerHTML = ""
 }
