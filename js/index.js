@@ -25,7 +25,16 @@ function cargaInicial(){
   //verificar si listaProductos tiene datos
   if(listaProducto.length > 0){
     //dibuja los datos en la tabla
-    listaProducto.map((producto, indice)=> crearCardProducto(producto, indice))
+    listaProducto.map((producto)=> crearCardProducto(producto))
+  }
+}
+
+cargaInicialDestacado()
+function cargaInicialDestacado(){
+  //verificar si listaProductos tiene datos
+  if(listaProducto.length > 0){
+    //dibuja los datos en la tabla
+    listaProducto.map((producto)=> crearCardProductoDestacado(producto))
   }
 }
 
@@ -52,6 +61,28 @@ function crearCardProducto(producto) {
       </div>
     </div>
     `;
+}
+
+function crearCardProductoDestacado(producto) {
+  let grilla = document.querySelector("#productoCarrouselGrande");
+  if(producto.destacado===true){
+    grilla.innerHTML += `
+    <div class="">
+      <div class="card border-0 m-2">
+        <a href="./pages/error404.html">
+          <img class="card-img-top border-1 bordeNaranja" src="${producto.imagen}" alt="${producto.nombre}">
+        </a>
+        <div class="card-body colorDegradadoOrizontal">
+          <a href="./pages/error404.html" class="text-decoration-none">
+            <h4 class="card-title text-white text-center"><b>${producto.nombre}</b></h4>
+            <h5 class="colorNaranja text-center"><b>$${producto.precio}</b></h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+  }
+  
 }
 
 window.detalleProducto = (codigo) => {
