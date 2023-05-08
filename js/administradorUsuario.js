@@ -187,7 +187,6 @@ window.borrarUsuario = (id) => {
       // hacer: actualizar las filas de la tabla
       limpiarTablaUsuarios()
       cargaInicial()
-      // datosTablaPelicula.children[posicionPelicula].children[0]
 
       // mostrar mensaje al usuario
       Swal.fire(
