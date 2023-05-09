@@ -258,6 +258,7 @@ function actualizarStock() {
   })
   localStorage.setItem('listaProducto', JSON.stringify(listaProducto));
 }
+//CODIGO QUE MUESTRA LA CANTIDAD DE PRODUCTOS EN EL CARRITO DEL NAVBAR
 function actualizarCarritoSuperior() {
   let cantidadTotal = 0;
   listaUsuarios.map(usuario => {

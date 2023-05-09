@@ -56,25 +56,31 @@
   <main class="bg-black">
     <div class="container">
       <h1 class="text-center ColorLetras">Mi Carrito</h1>
-      <table class="table " id="tablaCarrito">
-        <thead>
-          <tr>
-            <th scope="col" class="ColorLetras">eliminar</th>
-            <th scope="col" class="ColorLetras">Producto</th>
-            <th scope="col" class="ColorLetras">Precio</th>
-            <th scope="col" class="ColorLetras">Cantidad</th>
-            <th scope="col" class="ColorLetras">Total</th>
+      <div class="table-responsive">
+        <table class="table ">
+          <thead>
+            <tr>
 
-          </tr>
-        </thead>
-        <tfoot id="carritoVacio">
-          <tr id="footer-carrito">
-            <th scope="row" class="ColorLetras" colspan="5">
-              Carrito vacío - comience a comprar!
-            </th>
-          </tr>
-        </tfoot>
-      </table>
+              <th scope="col" class="ColorLetras">Producto</th>
+              <th scope="col" class="ColorLetras">Precio</th>
+              <th scope="col" class="ColorLetras">Cantidad</th>
+              <th scope="col" class="ColorLetras">Total</th>
+              <th scope="col" class="ColorLetras"></th>
+            </tr>
+          </thead>
+          <tbody id="tablaCarritoInterna">
+
+
+          </tbody>
+          <tfoot id="carritoVacio">
+            <tr id="footer-carrito">
+              <th scope="row" class="ColorLetras" colspan="5">
+                Carrito vacío - comience a comprar!
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
 
   </main>
