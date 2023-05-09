@@ -67,28 +67,25 @@ function filtrarPorCategoria(categoria) {
   let productos = document.querySelectorAll(".cardsProductos");
 
   productos.forEach((producto) => {
-    if (producto.dataset.categoria === categoria) {
-      producto.style.display = "block";
-    } else {
+    producto.style.display = "block";
+    if (categoria && producto.dataset.categoria !== categoria) {
       producto.style.display = "none";
     }
   });
+  
 }
 
-let btnComics = document.querySelector("#btnComics");
-let btnAccesorios = document.querySelector("#btnAccesorios");
-let btnPosters = document.querySelector("#btnPosters");
+let btnRopa = document.querySelector("#btnRopa");
+let btnMochila = document.querySelector("#btnMochila");
+let btnPoster = document.querySelector("#btnPoster");
 let btnFunko = document.querySelector("#btnFunko");
-let btnPeluches = document.querySelector("#btnPeluches");
-let btnRemeras = document.querySelector("#btnRemeras");
+let btnLimpiar = document.querySelector("#btnLimpiar");
 
-btnComics.addEventListener("click", () => filtrarPorCategoria("Comics"));
-btnAccesorios.addEventListener("click", () => filtrarPorCategoria("Accesorios"));
-btnPosters.addEventListener("click", () => filtrarPorCategoria("Poster"));
+btnRopa.addEventListener("click", () => filtrarPorCategoria("Ropa"));
+btnMochila.addEventListener("click", () => filtrarPorCategoria("Mochila"));
+btnPoster.addEventListener("click", () => filtrarPorCategoria("Poster"));
 btnFunko.addEventListener("click", () => filtrarPorCategoria("Funko"));
-btnPeluches.addEventListener("click", () => filtrarPorCategoria("Peluches"));
-btnRemeras.addEventListener("click", () => filtrarPorCategoria("Remeras"));
-
+btnLimpiar.addEventListener("click", () => filtrarPorCategoria(""));
 
 /* 
 function crearCardProductoDestacado(producto) {
