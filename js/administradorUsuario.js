@@ -12,7 +12,10 @@ const btnAgregarUsuario = document.querySelector("#btnAgregarUsuario")
 const btnEditarUsuario = document.querySelector("btnEditarUsuario");
 const tituloModalUsuario = document.querySelector("#tituloModalUsuario")
 const btnModalRegistro = document.querySelector("#btnModalRegistro")
-const formControl = document.querySelectorAll("#form-control")
+ const formControl = document.querySelectorAll("#form-control")
+// const formBusquedaUsuario = document.querySelector("#formBusquedaUsuario");
+// const inputBuscar = document.querySelector("#inputBuscar");
+
 const modalUsuario = new bootstrap.Modal(
   document.querySelector("#modalAgregarUsuario")
 );
@@ -41,7 +44,6 @@ if (!listaUsuarios) {
 
 btnAgregarUsuario.addEventListener("click", mostrarModalUsuario);
 formModalCargaUsuario.addEventListener("submit", cargarUsuario);
-
 
 cargaInicial()
 
