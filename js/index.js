@@ -87,6 +87,32 @@ btnPoster.addEventListener("click", () => filtrarPorCategoria("Poster"));
 btnFunko.addEventListener("click", () => filtrarPorCategoria("Funko"));
 btnLimpiar.addEventListener("click", () => filtrarPorCategoria(""));
 
+
+let btnRopaM = document.querySelector("#btnRopaM");
+let btnMochilaM = document.querySelector("#btnMochilaM");
+let btnPosterM = document.querySelector("#btnPosterM");
+let btnFunkoM = document.querySelector("#btnFunkoM");
+let btnLimpiarM = document.querySelector("#btnLimpiarM");
+
+btnRopaM.addEventListener("click", () => filtrarPorCategoria("Ropa"));
+btnMochilaM.addEventListener("click", () => filtrarPorCategoria("Mochila"));
+btnPosterM.addEventListener("click", () => filtrarPorCategoria("Poster"));
+btnFunkoM.addEventListener("click", () => filtrarPorCategoria("Funko"));
+btnLimpiarM.addEventListener("click", () => filtrarPorCategoria(""));
+
+
+let btnRopaSM = document.querySelector("#btnRopaSM");
+let btnMochilaSM = document.querySelector("#btnMochilaSM");
+let btnPosterSM = document.querySelector("#btnPosterSM");
+let btnFunkoSM = document.querySelector("#btnFunkoSM");
+let btnLimpiarSM = document.querySelector("#btnLimpiarSM");
+
+btnRopaSM.addEventListener("click", () => filtrarPorCategoria("Ropa"));
+btnMochilaSM.addEventListener("click", () => filtrarPorCategoria("Mochila"));
+btnPosterSM.addEventListener("click", () => filtrarPorCategoria("Poster"));
+btnFunkoSM.addEventListener("click", () => filtrarPorCategoria("Funko"));
+btnLimpiarSM.addEventListener("click", () => filtrarPorCategoria(""));
+
 /* 
 function crearCardProductoDestacado(producto) {
   let grilla = document.querySelector("#productoCarrouselGrande");

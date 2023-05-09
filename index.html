@@ -79,30 +79,30 @@
       <div class="row d-lg-none">
         <div class="col-3 col-md-2 col-lg-1">
           <p class="text-center text-white opacity-100 mancha"><b>CATEGORIAS</b>
-
           </p>
         </div>
         <div class="col-9 col-md-10">
+
+
           <!-- CARRUCEL DISPOSITIVO PEQUEÑO-->
           <div id="demo" class="carousel slide d-md-none" data-interval="false">
             <!-- The slideshow/carousel -->
             <div class="carousel-inner ">
               <div class="carousel-item active">
                 <div class="list-group list-group-horizontal d-flex justify-content-evenly ">
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">Comics</a>
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">accesorios</a>
+                  <button class="text-decoration-none colorNaranja py-2 btn" id="btnRopaSM">Ropa</button>
+                  <button class="text-decoration-none colorNaranja py-2 btn" id="btnMochilaSM">Mochilas</button>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="list-group list-group-horizontal d-flex justify-content-evenly">
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">posters</a>
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">funcos</a>
+                  <button class="text-decoration-none colorNaranja py-2 btn" id="btnPosterSM">Posters</button>
+                  <button class="text-decoration-none colorNaranja py-2 btn" id="btnFunkoSM">Funkos</button>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="list-group list-group-horizontal  d-flex justify-content-evenly">
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">peluches</a>
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">remeras</a>
+                  <button class="text-decoration-none colorNaranja py-2 btn" id="btnLimpiarSM">Limpiar Filtro</button>
                 </div>
               </div>
             </div>
@@ -116,33 +116,33 @@
               <span class="carousel-control-next-icon"></span>
             </button>
           </div>
+
+
           <!-- CARRUCEL DISPOSITIVO MEDIANO-->
-          <div id="demo" class="carousel slide d-none d-md-block d-lg-none" data-interval="false">
+          <div id="demo1" class="carousel slide d-none d-md-block d-lg-none" data-interval="false">
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="list-group list-group-horizontal d-flex justify-content-evenly">
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">Comics</a>
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">accesorios</a>
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">posters</a>
+                  <button class="text-decoration-none colorNaranja py-2 btn " id="btnRopaM">Ropa</button>
+                  <button class="text-decoration-none colorNaranja py-2 btn" id="btnMochilaM">Mochilas</button>
+                  <button class="text-decoration-none colorNaranja py-2 btn" id="btnPosterM">Posters</button>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="list-group list-group-horizontal d-flex justify-content-evenly">
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">funcos</a>
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">peluches</a>
-                  <a class="text-decoration-none colorNaranja" href="./pages/error404.html">remeras</a>
+                  <button class="text-decoration-none colorNaranja py-2 btn" id="btnFunkoM">Funkos</button>
+                  <button class="text-decoration-none colorNaranja py-2 btn" id="btnLimpiarM">Limpiar Filtro</button>
                 </div>
               </div>
-
             </div>
 
             <!-- Left and right controls/icons -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#demo" title="atras"
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo1" title="atras"
               data-bs-slide="prev">
               <span class="carousel-control-prev-icon"></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#demo" title="adelante"
+            <button class="carousel-control-next" type="button" data-bs-target="#demo1" title="adelante"
               data-bs-slide="next">
               <span class="carousel-control-next-icon"></span>
             </button>
@@ -154,13 +154,12 @@
       <div class="row col-lg-12">
         <div class="d-none d-lg-block col-1">
           <div class=" d-flex flex-column justify-content-center ">
-            <a class="text-decoration-none text-white py-2 pt-4 d-none d-lg-block" href="./pages/error404.html"><b
-                class="mancha">CATEGORIAS</b></a>
-            <button class="text-decoration-none colorNaranja py-2" id="btnRopa">Ropa</button>
-            <button class="text-decoration-none colorNaranja py-2" id="btnMochila">Mochilas</button>
-            <button class="text-decoration-none colorNaranja py-2" id="btnPoster">Posters</button>
-            <button class="text-decoration-none colorNaranja py-2" id="btnFunko">Funkos</button>
-            <button class="text-decoration-none colorNaranja py-2" id="btnLimpiar">Limpiar Filtro</button>
+            <a><b class="mancha">CATEGORIAS</b></a>
+            <button class="text-decoration-none colorNaranja py-2 btn" id="btnRopa">Ropa</button>
+            <button class="text-decoration-none colorNaranja py-2 btn" id="btnMochila">Mochilas</button>
+            <button class="text-decoration-none colorNaranja py-2 btn" id="btnPoster">Posters</button>
+            <button class="text-decoration-none colorNaranja py-2 btn" id="btnFunko">Funkos</button>
+            <button class="text-decoration-none colorNaranja py-2 btn" id="btnLimpiar">Limpiar Filtro</button>
           </div>
         </div>
         <div class="col-lg-11">
