@@ -21,11 +21,11 @@ if (!listaProducto) {
 
 cargaInicial();
 
-function cargaInicial(){
+function cargaInicial() {
   //verificar si listaProductos tiene datos
-  if(listaProducto.length > 0){
+  if (listaProducto.length > 0) {
     //dibuja los datos en la tabla
-    listaProducto.map((producto)=> crearCardProducto(producto))
+    listaProducto.map((producto) => crearCardProducto(producto))
   }
 }
 /* 
@@ -49,14 +49,10 @@ function crearCardProducto(producto) {
       </a>
       <div class="card-body fondoNegro">
         <a href="./pages/error404.html" class="text-decoration-none">
-          <h4 class="card-title text-white espacioTitulo">${producto.nombre}</h4>
-          <h5 class="colorNaranja">$${producto.precio}</h5>
+          <h4 class="card-title text-white espacioTitulo h3">${producto.nombre}</h4>
+          <h5 class="colorNaranja h3 pb-5">$${producto.precio}</h5>
         </a>
-        <form class="container">
-          <div class="input-group py-2 pe-3 pe-md-0 d-flex justify-content-center ">
-            <button class="colorDegradadoOrizontal border-0 botonRedondo text-white" type="button">agregar al carrito</button>
-          </div>
-        </form>
+       
       </div>
     </div>
   </div>
@@ -72,7 +68,7 @@ function filtrarPorCategoria(categoria) {
       producto.style.display = "none";
     }
   });
-  
+
 }
 
 let btnRopa = document.querySelector("#btnRopa");
@@ -137,5 +133,5 @@ function crearCardProductoDestacado(producto) {
 }
 */
 window.detalleProducto = (codigo) => {
-    window.location.href = window.location.origin + './pages/detalles.html?codigo=' + codigo
+  window.location.href = window.location.origin + './pages/detalles.html?codigo=' + codigo
 }
