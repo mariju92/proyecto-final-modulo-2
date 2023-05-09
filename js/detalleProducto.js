@@ -1,14 +1,50 @@
+import Producto from "./claseProducto.js";
+import Usuario from "./classUsuario.js";
+let listaProductosCarrito = [];
+
+
+
+let listaProducto = localStorage.getItem(`listaProducto`);
+if (!listaProducto) {
+  listaProducto = [];
+} else {
+  listaProducto = JSON.parse(listaProducto).map(
+    (producto) =>
+      new Producto(
+        producto.codigo,
+        producto.nombre,
+        producto.precio,
+        producto.categoria,
+        producto.imagen,
+        producto.descripcion,
+        producto.stock,
+        producto.destacado
+      )
+  );
+}
+//traigo los usuarios de localstorage
+let listaUsuarios = localStorage.getItem("listaUsuarios");
+if (!listaUsuarios) {
+  listaUsuarios = []
+} else {
+  listaUsuarios = JSON.parse(listaUsuarios).map((usuario) =>
+    new Usuario(
+      usuario.id,
+      usuario.nombre,
+      usuario.email,
+      usuario.contrasenia,
+      usuario.rol,
+      usuario.carrito
+    )
+  )
+}
+
 
 const parametroCodigo = new URLSearchParams(window.location.search);
-let listaProducto =
-  JSON.parse(localStorage.getItem("listaProducto")) || [];
+
 
 const productoBuscado = listaProducto.find((Producto) => Producto.codigo === parametroCodigo.get('codigo'));
-
-let carritoSuperior = document.getElementById('carritoSuperior');
-carritoSuperior.innerHTML = `<i
-class="bi bi-cart-fill opcionNav carrito"></i><span
-class="badge translate-middle bg-danger ">0</span>`;
+actualizarCarritoSuperior();
 
 let detalle = document.getElementById('SeccionDetalleProducto');
 detalle.innerHTML = `<article class="pt-5 fw-bold">
@@ -109,12 +145,10 @@ detalle.innerHTML = `<article class="pt-5 fw-bold">
 
 
 let contadorcarrito = 1;
-function SumarCarrito() {
+window.SumarCarrito = () => {
 
   productoBuscado.stock = productoBuscado.stock - 1;
-  carritoSuperior.innerHTML = `<i
-class="bi bi-cart-fill opcionNav carrito"></i><span
-class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
+
   let carritoBoton = document.getElementById('carritoBoton');
   carritoBoton.innerHTML = `
 <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
@@ -142,12 +176,10 @@ class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
 
 }
 
-function restar() {
+window.restar = () => {
   contadorcarrito--;
   productoBuscado.stock = productoBuscado.stock + 1;
-  carritoSuperior.innerHTML = `<i
-class="bi bi-cart-fill opcionNav carrito"></i><span
-class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
+
   let carritoBoton = document.getElementById('carritoBoton');
   carritoBoton.innerHTML = `
 <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
@@ -156,23 +188,19 @@ class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
   if (contadorcarrito <= productoBuscado.stock) {
     document.getElementById("mas-cantidad").style.display = "initial";
 
+  } if (contadorcarrito == 0) {
+    document.getElementById("menos-cantidad").style.display = "none";
+
   }
-  if (contadorcarrito == 0) {
-    carritoBoton = document.getElementById('botones');
-    carritoBoton.innerHTML = `
-  <button class="btn btn-primary" id="botonCarrito" onclick="sumarCarrito()">
-  <i class="bi bi-cart-plus fw-bold fs-3"><span class="text-center">AGREGAR AL CARRITO</span></i>
-</button>`
-  }
+
+
 }
 
-function sumar() {
+window.sumar = () => {
   contadorcarrito++;
   document.getElementById("cant").innerHTML = contadorcarrito;
   productoBuscado.stock = productoBuscado.stock - 1;
-  carritoSuperior.innerHTML = `<i
-class="bi bi-cart-fill opcionNav carrito"></i><span
-class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
+
   let carritoBoton = document.getElementById('carritoBoton');
   carritoBoton.innerHTML = `
 <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
@@ -181,7 +209,73 @@ class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
     document.getElementById("mas-cantidad").style.display = "none";
 
   }
+  if (contadorcarrito >= 1) {
+    document.getElementById("menos-cantidad").style.display = "initial";
+
+  }
 }
+
+
 window.carrito = (codigo) => {
+  guardarProductos()
   window.location.href = window.location.origin + '/pages/carrito.html?codigo=' + productoBuscado.codigo + '&contador=' + contadorcarrito
 }
+
+function guardarProductos() {
+  // guardar los datos del carrito en el localStorage
+  // Definir los datos del producto
+  let productoEnCarrito = {
+    codigo: productoBuscado.codigo,
+    nombre: productoBuscado.nombre,
+    precio: productoBuscado.precio,
+    cantidad: contadorcarrito
+  }
+
+  listaUsuarios.map(usuario => {
+
+    usuario.carrito.push(productoEnCarrito)
+  })
+
+  //guardamos el objeto en el array
+  listaProductosCarrito.push(productoEnCarrito);
+  // Guardar los datos del producto en el localStorage
+  actualizarStock();
+
+  localStorage.setItem('productoEnCarrito', JSON.stringify(listaProductosCarrito));
+  localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
+
+}
+function actualizarStock() {
+  let stockActualizado = productoBuscado.stock;
+
+  listaProducto.map(producto => {
+    if (producto.codigo === productoBuscado.codigo) {
+      producto.stock = stockActualizado;
+
+    }
+
+  })
+  localStorage.setItem('listaProducto', JSON.stringify(listaProducto));
+}
+function actualizarCarritoSuperior() {
+  let cantidadTotal = 0;
+  listaUsuarios.map(usuario => {
+    usuario.carrito.map(carrito => {
+      cantidadTotal = cantidadTotal + carrito.cantidad;
+    })
+
+  })
+  carritoSuperior.innerHTML = `<i
+  class="bi bi-cart-fill opcionNav carrito"></i><span
+  class="badge translate-middle bg-danger ">${cantidadTotal}</span>`;
+
+}
+
+
+
+
+
+
+
+
+
