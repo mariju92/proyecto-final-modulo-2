@@ -55,26 +55,24 @@ detalle.innerHTML = `<article class="pt-5 fw-bold">
   </ol>
 </nav>
 </article>
-<article class="bg-black">
-<aside class="row">
+<article class="container p-5  bg-black">
+<aside class="row d-flex justify-content-center ">
   <div class="col-lg-6">
     <img
       src="${productoBuscado.imagen}"
-      alt="" class="img-fluid p-5">
+      alt="" class="img-fluid ">
   </div>
-  <div class="col-lg-6 p-5">
+  <div class="col-lg-6 px-3 px-lg-5 py-3 py-lg-0">
     <div class="col-12">
-      <h2 class="text-light pb-4">${productoBuscado.nombre}</h2>
-      <h2 class="text-warning pb-3">$ ${productoBuscado.precio}</h2>
+      <h2 class="text-light pb-2">${productoBuscado.nombre}</h2>
+      <h2 class="text-warning pb-2">$ ${productoBuscado.precio}</h2>
       <div class="pb-3" id="carritoBoton">
         <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
       </div>
       <i class="bi bi-truck text-warning fs-5"><span class="text-light ps-3">Costo de envio: $1500</span></i><a href="/pages/error404" class="text-warning text-decoration-none fw-bold"></a>
-      <div class="row py-5 col-12 m-0" >
-      <button class="btn btn-primary" id="botonCarrito" onclick="carrito('${productoBuscado.codigo}')">
-    <i class="bi bi-cart-plus fw-bold w-50"><span class="text-center">COMPRAR</span></i>
-  </button>
-        <hr>
+      <div class="row py-3 py-lg-5 col-12" >
+      
+        
         <div id="botones">
         <button class="btn btn-primary" id="botonCarrito" onclick="SumarCarrito()">
           <i class="bi bi-cart-plus fw-bold fs-3"><span class="text-center">AGREGAR AL CARRITO</span></i>
@@ -84,13 +82,13 @@ detalle.innerHTML = `<article class="pt-5 fw-bold">
   </div>
 </aside>
 <aside class="row col-12">
-  <div class="col-12 px-5">
-    <h3 class="colorDescripcion">DESCRIPCION</h3>
-    <p class="text-light">${productoBuscado.descripcion}</p>
+  <div class="col-12 px-3 mt-md-3 mt-lg-5">
+    <h2 class="colorDescripcion ">DESCRIPCION</h2>
+    <p class="text-light fs-3">${productoBuscado.descripcion}</p>
   </div>
 </aside>
 </article>
-<article class="bg-black my-5 ">
+<article class="bg-black my-3 ">
 <div class="accordion accordion-flush acordionDetalles " id="accordionFlushExample">
   <div class="accordion-item acordionDetalles">
     <h2 class="accordion-header " id="flush-headingOne">
