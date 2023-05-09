@@ -28,7 +28,7 @@ let listaProducto = localStorage.getItem('listaProducto');
 let estadoProducto = true;
 let titulo = document.getElementById('agregarProductoModalLabel');
 let boton = document.getElementById('botonFormulario');
-
+let datosProducto = document.querySelector('tbody');
 
 if(!listaProducto)
 {
@@ -47,6 +47,7 @@ else{
   ))
 }
 
+
 cargaInicial()
 
 function cargaInicial()
@@ -59,8 +60,6 @@ function cargaInicial()
 
 function crearFila(producto,indice)
 {
-  let datosProducto = document.querySelector('tbody');
-
   datosProducto.innerHTML += `<tr class='cardsProductos'>
   <th>${indice + 1}</th>
   <td>${producto.nombre}</td>
@@ -137,8 +136,8 @@ function crearProducto(){
 function limpiarFormulario()
 {
     formularioProducto.reset()
-    const limpiarClaseSelect = document.querySelector('.selectFormularioProducto');
-    limpiarClaseSelect.classList.remove('is-valid','is-invalid');
+    const limpiarClaseSelect = document.querySelectorAll('.selectFormularioProducto');
+    limpiarClaseSelect.forEach(input => {input.classList.remove('is-valid','is-invalid')})
     const limpiarClase = document.querySelectorAll('.inputFormularioProducto');
     limpiarClase.forEach(input => {
       input.classList.remove('is-valid','is-invalid')});
@@ -150,7 +149,6 @@ function guardarLocalStorage()
 }
 
 function limpiarTablaProducto(){
-  let datosProducto = document.querySelector('tbody');
   datosProducto.innerHTML = '';
 }
 
@@ -167,7 +165,6 @@ window.borrarProducto = (codigo) => {
   }).then((result) => {
     if (result.isConfirmed){
     let posicionProducto = listaProducto.findIndex(producto => producto.codigo === codigo)
-    let datosProducto = document.querySelector('tbody');
     listaProducto.splice(posicionProducto,1)
     guardarLocalStorage();
     datosProducto.removeChild(datosProducto.children[posicionProducto]);
@@ -209,14 +206,13 @@ function actualizarProducto(){
   listaProducto[posicionProducto].imagen = imagen.value;
   listaProducto[posicionProducto].descripcion = descripcion.value;
   listaProducto[posicionProducto].stock = stock.value;
-  listaProducto[posicionProducto].destacado = destacado.checked;
+  listaProducto[posicionProducto].destacado = destacado.value;
   guardarLocalStorage();
   Swal.fire(
       "Producto Editado",
       "El producto elegido fue editado corrrectamente",
       "success"
   );
-  let datosProducto = document.querySelector('tbody');
   datosProducto.children[posicionProducto].children[1].innerText = nombreProducto.value;
   datosProducto.children[posicionProducto].children[2].innerText = categoria.value;
   datosProducto.children[posicionProducto].children[3].innerText = precio.value;
