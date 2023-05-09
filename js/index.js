@@ -42,13 +42,13 @@ function cargaInicialDestacado(){
 function crearCardProducto(producto) {
   let grilla = document.querySelector("#mostrarProductos");
   grilla.innerHTML += `
-  <div class="col-9 col-md-4 col-lg-3 p-3 text-center cardsProductos" data-categoria="${producto.categoria}">
-    <div class="card border-0 m-2">
+  <div class="col-12 col-md-4 col-lg-3 p-3 text-center cardsProductos" data-categoria="${producto.categoria}">
+    <div class="card border-0 m-2 cardShadow ">
     <a href="./pages/detalles.html?codigo=${producto.codigo}">
         <img class="card-img-top border-1 bordeNaranja imgCard" src="${producto.imagen}" alt="${producto.nombre}">
       </a>
-      <div class="card-body fondoNegro">
-        <a href="./pages/error404.html" class="text-decoration-none">
+      <div class="card-body fondoNegro rounded-bottom-1">
+        <a href="./pages/detalles.html?codigo=${producto.codigo}" class="text-decoration-none">
           <h4 class="card-title text-white espacioTitulo h3">${producto.nombre}</h4>
           <h5 class="colorNaranja h3 pb-5">$${producto.precio}</h5>
         </a>
@@ -62,14 +62,14 @@ function crearCardProductoDestacado(producto) {
   let grilla = document.querySelector("#productoCarrouselGrande");
   if(producto.destacado==="Si"){
     grilla.innerHTML += `
-    <div class="col-4">
-      <div class="card border-0 m-2 mx-4">
+    <div class="col-12 col-md-4 cardsProductosDestacado">
+      <div class="card border-0 m-2 mx-4 my-4 cardShadowDestacado">
         <a href="./pages/detalles.html?codigo=${producto.codigo}">
-          <img class="card-img-top border-1 bordeNaranja imgCard" src="${producto.imagen}" alt="${producto.nombre}">
+          <img class="card-img-top border-1 bordeNaranja imgCardDestacado" src="${producto.imagen}" alt="${producto.nombre}">
         </a>
-        <div class="card-body colorDegradadoOrizontal">
-          <a href="./pages/error404.html" class="text-decoration-none">
-            <h4 class="card-title text-white text-center"><b>${producto.nombre}</b></h4>
+        <div class="card-body colorDegradadoOrizontal rounded-bottom-1">
+          <a href="./pages/detalles.html?codigo=${producto.codigo}" class="text-decoration-none">
+            <h4 class="card-title text-white text-center productoDestacadoh4"><b>${producto.nombre}</b></h4>
             <h5 class="colorNaranja text-center"><b>$${producto.precio}</b></h5>
           </a>
         </div>
