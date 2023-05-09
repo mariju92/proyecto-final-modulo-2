@@ -83,7 +83,8 @@ export function esDestacado(destacado)
         destacado.classList.replace('is-invalid','is-valid');
         return true;
     }
-        destacado.classList.replace('is-invalid','is-valid');
+        destacado.classList.remove('is-valid');
+        destacado.classList.add('is-invalid');
         return false;
 }
 
