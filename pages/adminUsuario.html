@@ -71,9 +71,10 @@
       </article>
       <article class="col-md-12 col-lg-10">
         <h2 class="text-center fw-bold mt-3 mt-lg-0">Usuarios</h2>
-        <form class="mt-md-3" id="formBusquedaUsuario">
-          <button type="submit" class="btn btn-primary">Buscar</button>
-          <input type="text" id="inputBuscar" class="border border-black me-3">
+        <form class="mt-md-3">
+          <label class="fw-bold">Buscar</label>
+          <input type="text" id="buscador" class="border border-black" type="search" placeholder="Buscar"
+                    aria-label="Buscar">
           <!-- BOTON MODAL PARA CREAR USUARIO -->
           <button type="button" class="btn btn-primary mt-3 mt-sm-0 " id="btnAgregarUsuario">Agregar nuevo usuario</button>
         </form>
@@ -89,7 +90,7 @@
               </tr>
             </thead>
             <tbody id="tbodyUsuarios">
-
+              <section id="seccionProductos"></section>
 
             </tbody>
           </table>
@@ -207,6 +208,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script src="../js/administradorUsuario.js" type="module"></script>
+  <script src="../js/app.js"></script>
 </body>
 
 </html>

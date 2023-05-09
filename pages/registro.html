@@ -62,100 +62,15 @@
         <article>
           <label for="nombreapellido" class="form-label text-light py-2">Nombre y Apellido:</label>
 
-            <input
-              type="text"
-              placeholder="Juan Perez"
-              id="nombreapellido"
-              minlength="3"
-              maxlength="50"
-              required
-              class="form-control"
-            />
-          </article>
-          <article>
-            <label for="email" class="text-light py-2">Email:</label>
-
-            <input
-              type="text"
-              placeholder="juanperez@email.com"
-              id="email"
-              minlength="3"
-              maxlength="100"
-              required
-              class="form-control"
-            />
-          </article>
-          <article>
-            <label for="contraseña" class="form-label text-light py-2"
-              >contraseña:</label
-            >
-
-            <input
-              type="password"
-              id="contraseña"
-              placeholder="Se recomienda agregar simbolos,números y mayúsculas para mayor seguridad"
-              minlength="5"
-              maxlength="20"
-              required
-              class="form-control"
-            />
-            <label for="confirmarcontraseña" class="form-label text-light py-2">
-              Confirmar contraseña:</label
-            >
-            <input
-              type="password"
-              id="confirmarcontraseña"
-              minlength="8"
-              maxlength="15"
-              required
-              class="form-control"
-            />
-          </article>
-          <button type="submit" class="botonEnviarFormulario">Enviar</button>
-        </form>
-      </section>
-  </main>
-    <footer class="bg-dark py-4">
-      <section class="container">
-        <article class="row">
-          <aside class="col-md-4 text-center text-md-start">
-            <a href="index.html"
-              ><img
-                src="/img/TucumánimeLogo.png"
-                class="img-fluid logo rounded-pill"
-                alt="Logo Tucumánime"
-            /></a>
-          </aside>
-          <aside class="col-md-4 text-center my-4 my-md-0">
-            <h4>Seguinos en nuestras redes</h4>
-            <div>
-              <a href="/pages/error404.html" title="instagram"
-                ><i class="bi bi-instagram fs-4 p-1 opcionNav"></i
-              ></a>
-              <a href="/pages/error404.html" title="facebook"
-                ><i class="bi bi-facebook fs-4 p-1 opcionNav"></i
-              ></a>
-              <a href="/pages/error404.html" title="twitter"
-                ><i class="bi bi-twitter fs-4 p-1 opcionNav"></i
-              ></a>
-            </div>
-          </aside>
-          <aside class="col-md-4 text-center text-md-end">
-            <a href="/index.html" class="text-decoration-none opcionNav d-block"
-              >Inicio</a
-            >
-            <a
-              href="/pages/sobrenosotros.html"
-              class="text-decoration-none opcionNav d-block"
-              >Sobre Nosotros</a
-            >
-          </aside>
+          <input type="text" placeholder="Juan Perez" id="nombreApellido" minlength="3" maxlength="50"
+            class="form-control" required />
+          <div class="invalid-feedback">El nombre solo debe contener letras y un minimo de 3 caracteres </div>
         </article>
         <article>
           <label for="email" class="text-light py-2">Email:</label>
 
           <input type="text" placeholder="juanperez@email.com" id="email" minlength="3" maxlength="100"
-            class="form-control" />
+            class="form-control" required />
           <div class="invalid-feedback">Debe ingresar un email válido</div>
 
         </article>
@@ -164,43 +79,40 @@
 
           <input type="password" id="contrasenia"
             placeholder="Se recomienda agregar simbolos,números y mayúsculas para mayor seguridad" minlength="5"
-            maxlength="20" class="form-control" />
+            maxlength="20" class="form-control"  required/>
           <div class="invalid-feedback">La contraseña debe tener al menos 4 caracteres</div>
 
           <label for="confirmarcontraseña" class="form-label text-light py-2">
             Confirmar contraseña:</label>
-          <input type="password" id="confirmarContrasenia" minlength="5" maxlength="20" class="form-control" />
+          <input type="password" id="confirmarContrasenia" minlength="5" maxlength="20" class="form-control" required />
           <div class="invalid-feedback">Las contraseñas deben coincidir</div>
         </article>
         <button type="submit" class="botonEnviarFormulario">Enviar</button>
       </form>
     </section>
   </main>
-  <footer class="bg-dark py-4">
+  <footer class="bg-black py-4">
     <section class="container">
-      <article class="row">
-        <aside class="col-md-4 text-center text-md-start">
-          <a href="index.html"><img src="/img/TucumánimeLogo.png" class="img-fluid logo rounded-pill"
-              alt="Logo Tucumánime" /></a>
-        </aside>
-        <aside class="col-md-4 text-center my-4 my-md-0">
-          <h4>Seguinos en nuestras redes</h4>
-          <div>
-            <a href="/pages/error404.html" title="instagram"><i class="bi bi-instagram fs-4 p-1 opcionNav"></i></a>
-            <a href="/pages/error404.html" title="facebook"><i class="bi bi-facebook fs-4 p-1 opcionNav"></i></a>
-            <a href="/pages/error404.html" title="twitter"><i class="bi bi-twitter fs-4 p-1 opcionNav"></i></a>
-          </div>
-        </aside>
-        <aside class="col-md-4 text-center text-md-end">
-          <a href="/index.html" class="text-decoration-none opcionNav d-block">Inicio</a>
-          <a href="/pages/sobrenosotros.html" class="text-decoration-none opcionNav d-block">Sobre Nosotros</a>
-        </aside>
-      </article>
-      <article>
-        <h4 class="text-center mt-4">&copy; Todos los Derechos Reservados</h4>
-      </article>
+        <article class="row">
+            <aside class="col-md-4 text-center text-md-start"><a href="../index.html"><img src="../img/TucumánimeLogo.png" class="img-fluid logo rounded-pill" alt="Logo Tucumánime"></a></aside>
+            <aside class="col-md-4 text-center my-4 my-md-0">
+                <h4>Seguinos en nuestras redes</h4>
+            <div>
+                <a href="./error404.html"><i class="bi bi-instagram fs-4 p-1 opcionNav"></i></a>
+                <a href="./error404.html"><i class="bi bi-facebook fs-4 p-1 opcionNav"></i></a>
+                <a href="./error404.html"><i class="bi bi-twitter fs-4 p-1 opcionNav"></i></a>
+            </div>
+            </aside>
+            <aside class="col-md-4 text-center text-md-end">
+                <a href="../index.html" class="text-decoration-none opcionNav d-block">Inicio</a>
+                <a href="./sobrenosotros.html" class="text-decoration-none opcionNav d-block">Sobre Nosotros</a>
+            </aside>
+        </article>
+        <article>
+            <h4 class="text-center mt-4">&copy; Todos los Derechos Reservados</h4>
+        </article>
     </section>
-  </footer>
+</footer>
 
   <!-- Modal  Iniciar Sesion -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

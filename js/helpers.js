@@ -6,14 +6,16 @@ export function validarNombreProducto(nombreProducto)
         nombreProducto.classList.replace('is-invalid','is-valid');
         return true;
     }
+    else{
         nombreProducto.classList.remove('is-valid');
         nombreProducto.classList.add('is-invalid');
         return false;
+    }
     
 }
 
 export function validarPrecio(precio){
-    let patron = /^([3-9][0-9]{2}|[1-9][0-9]{3,})$/
+    let patron = /^([3-9][0-9]{2}|[1-9][0-9]{3,5})$/
     if(patron.test(precio.value))
     {
         precio.classList.replace('is-invalid','is-valid');
@@ -74,15 +76,15 @@ export function validarStock(stock)
     
 }
 
-function esDestacado(destacado)
+export function esDestacado(destacado)
 {
-    if(destacado.checked == true)
+    if(destacado.value === "Si" || destacado.value === "No")
     {
-        destacado.value = true;
-        return true
+        destacado.classList.replace('is-invalid','is-valid');
+        return true;
     }
-    destacado.value = false;
-    return false;
+        destacado.classList.replace('is-invalid','is-valid');
+        return false;
 }
 
 
@@ -109,17 +111,16 @@ export function sumarioValidaciones(nombre,precio,descripcion,imagen,categoria,s
     }
     if(!validarStock(stock))
     {
-        resumen += 'El minimo de Stock debe ser 1'
+        resumen += 'El minimo de Stock debe ser 1 <br>'
     }
     if(!esDestacado(destacado))
     {
-        destacado.value = false;
+        resumen += 'Debe elegir si el producto es destacado'
     }
     if(resumen.length !== 0){
         return resumen;
     }
     else{
-        console.log('todo bien')
         return '';
     }
 }
