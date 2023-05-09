@@ -12,7 +12,10 @@ const btnAgregarUsuario = document.querySelector("#btnAgregarUsuario")
 const btnEditarUsuario = document.querySelector("btnEditarUsuario");
 const tituloModalUsuario = document.querySelector("#tituloModalUsuario")
 const btnModalRegistro = document.querySelector("#btnModalRegistro")
-const formControl = document.querySelectorAll("#form-control")
+ const formControl = document.querySelectorAll("#form-control")
+// const formBusquedaUsuario = document.querySelector("#formBusquedaUsuario");
+// const inputBuscar = document.querySelector("#inputBuscar");
+
 const modalUsuario = new bootstrap.Modal(
   document.querySelector("#modalAgregarUsuario")
 );
@@ -41,7 +44,6 @@ if (!listaUsuarios) {
 
 btnAgregarUsuario.addEventListener("click", mostrarModalUsuario);
 formModalCargaUsuario.addEventListener("submit", cargarUsuario);
-
 
 cargaInicial()
 
@@ -110,12 +112,6 @@ function cargaInicial() {
     listaUsuarios.map((usuario, indice) => crearFila(usuario, indice))
   } else {
     //mostrar msj de que no hay datos para mostrar
-    datosTablaUsuario.innerHTML += `
-        
-        <tr>
-        <td colspan="5">Aún no hay datos cargados para mostrar</td>
-        </tr>
-        `
 
   }
 }
@@ -128,9 +124,9 @@ function crearFila(usuario, indice) {
     <td>${usuario.email}</td>
     <td>${usuario.rol}</td>
     <td>
-      <button class=" btn bi bi-search btn-primary mx-1" id="btnEditarUsuario"  onclick="editarUsuario('${usuario.id
+      <button class=" btn bi bi-search btn-primary mx-1 my-1 my-md-0" id="btnEditarUsuario"  onclick="editarUsuario('${usuario.id
     }')"></button>
-      <button class=" btn bi bi-x-lg btn-danger mx-1 " onclick="borrarUsuario('${usuario.id
+      <button class=" btn bi bi-x-lg btn-danger mx-1 my-1 my-md-0 " onclick="borrarUsuario('${usuario.id
     }')"></button>
     </td>
   </tr>
