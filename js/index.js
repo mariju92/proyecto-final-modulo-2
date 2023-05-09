@@ -28,7 +28,7 @@ function cargaInicial() {
     listaProducto.map((producto) => crearCardProducto(producto))
   }
 }
-/* 
+
 cargaInicialDestacado()
 function cargaInicialDestacado(){
   //verificar si listaProductos tiene datos
@@ -37,7 +37,7 @@ function cargaInicialDestacado(){
     listaProducto.map((producto)=> crearCardProductoDestacado(producto))
   }
 }
-*/
+
 
 function crearCardProducto(producto) {
   let grilla = document.querySelector("#mostrarProductos");
@@ -52,23 +52,43 @@ function crearCardProducto(producto) {
           <h4 class="card-title text-white espacioTitulo h3">${producto.nombre}</h4>
           <h5 class="colorNaranja h3 pb-5">$${producto.precio}</h5>
         </a>
-       
       </div>
     </div>
   </div>
   `;
 }
 
+function crearCardProductoDestacado(producto) {
+  let grilla = document.querySelector("#productoCarrouselGrande");
+  if(producto.destacado==="Si"){
+    grilla.innerHTML += `
+    <div class="col-4">
+      <div class="card border-0 m-2 mx-4">
+        <a href="./pages/detalles.html?codigo=${producto.codigo}">
+          <img class="card-img-top border-1 bordeNaranja imgCard" src="${producto.imagen}" alt="${producto.nombre}">
+        </a>
+        <div class="card-body colorDegradadoOrizontal">
+          <a href="./pages/error404.html" class="text-decoration-none">
+            <h4 class="card-title text-white text-center"><b>${producto.nombre}</b></h4>
+            <h5 class="colorNaranja text-center"><b>$${producto.precio}</b></h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+  }
+  
+}
+
 function filtrarPorCategoria(categoria) {
   let productos = document.querySelectorAll(".cardsProductos");
-
+  
   productos.forEach((producto) => {
     producto.style.display = "block";
     if (categoria && producto.dataset.categoria !== categoria) {
       producto.style.display = "none";
     }
   });
-
 }
 
 let btnRopa = document.querySelector("#btnRopa");
@@ -109,29 +129,9 @@ btnPosterSM.addEventListener("click", () => filtrarPorCategoria("Poster"));
 btnFunkoSM.addEventListener("click", () => filtrarPorCategoria("Funko"));
 btnLimpiarSM.addEventListener("click", () => filtrarPorCategoria(""));
 
-/* 
-function crearCardProductoDestacado(producto) {
-  let grilla = document.querySelector("#productoCarrouselGrande");
-  if(producto.destacado===true){
-    grilla.innerHTML += `
-    <div class="">
-      <div class="card border-0 m-2">
-        <a href="./pages/error404.html">
-          <img class="card-img-top border-1 bordeNaranja" src="${producto.imagen}" alt="${producto.nombre}">
-        </a>
-        <div class="card-body colorDegradadoOrizontal">
-          <a href="./pages/error404.html" class="text-decoration-none">
-            <h4 class="card-title text-white text-center"><b>${producto.nombre}</b></h4>
-            <h5 class="colorNaranja text-center"><b>$${producto.precio}</b></h5>
-          </a>
-        </div>
-      </div>
-    </div>
-  `;
-  }
-  
-}
-*/
+
+
+
 window.detalleProducto = (codigo) => {
   window.location.href = window.location.origin + './pages/detalles.html?codigo=' + codigo
 }
