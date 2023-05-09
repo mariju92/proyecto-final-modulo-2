@@ -60,24 +60,25 @@ function crearCardProducto(producto) {
 
 function crearCardProductoDestacado(producto) {
   let grilla = document.querySelector("#productoCarrouselGrande");
-  if(producto.destacado==="Si"){
+  let destacados = grilla.querySelectorAll(".cardsProductosDestacado");
+  
+  if (producto.destacado === "Si" && destacados.length < 3) {
     grilla.innerHTML += `
-    <div class="col-12 col-md-4 cardsProductosDestacado">
-      <div class="card border-0 m-2 mx-4 my-4 cardShadowDestacado">
-        <a href="./pages/detalles.html?codigo=${producto.codigo}">
-          <img class="card-img-top border-1 bordeNaranja imgCardDestacado" src="${producto.imagen}" alt="${producto.nombre}">
-        </a>
-        <div class="card-body colorDegradadoOrizontal rounded-bottom-1">
-          <a href="./pages/detalles.html?codigo=${producto.codigo}" class="text-decoration-none">
-            <h4 class="card-title text-white text-center productoDestacadoh4"><b>${producto.nombre}</b></h4>
-            <h5 class="colorNaranja text-center"><b>$${producto.precio}</b></h5>
+      <div class="col-12 col-md-4 cardsProductosDestacado">
+        <div class="card border-0 m-2 mx-4 my-4 cardShadowDestacado">
+          <a href="./pages/detalles.html?codigo=${producto.codigo}">
+            <img class="card-img-top border-1 bordeNaranja imgCardDestacado" src="${producto.imagen}" alt="${producto.nombre}">
           </a>
+          <div class="card-body colorDegradadoOrizontal rounded-bottom-1">
+            <a href="./pages/detalles.html?codigo=${producto.codigo}" class="text-decoration-none">
+              <h4 class="card-title text-white text-center productoDestacadoh4"><b>${producto.nombre}</b></h4>
+              <h5 class="colorNaranja text-center"><b>$${producto.precio}</b></h5>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  `;
+    `;
   }
-  
 }
 
 function filtrarPorCategoria(categoria) {
