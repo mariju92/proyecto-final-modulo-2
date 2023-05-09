@@ -1,7 +1,24 @@
-const queryString = window.location.search;
-let listaProducto =
-  JSON.parse(localStorage.getItem("listaProducto")) || [];
-const urlParams = new URLSearchParams(queryString);
+import Producto from "./claseProducto.js";
+
+let listaProducto = localStorage.getItem(`listaProducto`);
+if (!listaProducto) {
+  listaProducto = [];
+} else {
+  listaProducto = JSON.parse(listaProducto).map(
+    (producto) =>
+      new Producto(
+        producto.codigo,
+        producto.nombre,
+        producto.precio,
+        producto.categoria,
+        producto.imagen,
+        producto.descripcion,
+        producto.stock,
+        producto.destacado
+      )
+  );
+}
+
 let producto = listaProducto.find((Producto) => Producto.codigo === urlParams.get('codigo'));
 
 let contadorcarrito = urlParams.get('contador');
