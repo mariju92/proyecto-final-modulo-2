@@ -122,7 +122,7 @@ function cargaInicial() {
 
 function crearFila(usuario, indice) {
   datosTablaUsuario.innerHTML += `
-    <tr>
+    <tr class='cardsProductos'>
     <th>${indice + 1}</th>
     <td>${usuario.nombre}</td>
     <td>${usuario.email}</td>
