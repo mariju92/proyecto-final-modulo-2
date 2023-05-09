@@ -2,18 +2,15 @@ const queryString = window.location.search;
 let listaProducto =
   JSON.parse(localStorage.getItem("listaProducto")) || [];
 const urlParams = new URLSearchParams(queryString);
-const producto = listaProducto.find((Producto) => Producto.codigo === urlParams.get('codigo'));
+let producto = listaProducto.find((Producto) => Producto.codigo === urlParams.get('codigo'));
 
-const contadorcarrito = urlParams.get('contador');
-console.log(queryString);
-console.log(listaProducto);
-console.log(urlParams.get('codigo'));
-console.log(producto);
-console.log(contadorcarrito);
+let contadorcarrito = urlParams.get('contador');
+if (contadorcarrito >= 1) {
+  document.getElementById("carritoVacio").style.display = "none";
+}
 carritoSuperior.innerHTML = `<i
 class="bi bi-cart-fill opcionNav carrito"></i><span
-class="badge translate-middle bg-danger ">${contadorcarrito}</span>`;
-
+class="badge translate-middle bg-danger ">${contadorcarrito || 0}</span>`;
 let detalle = document.getElementById('tablaCarrito');
 detalle.innerHTML += `
 <tbody><th scope="col" class="ColorLetras">${producto.codigo}</th>
@@ -23,8 +20,7 @@ detalle.innerHTML += `
 <th scope="col" class="ColorLetras">${producto.precio * contadorcarrito}</th></tbody>
 <tfoot>
 <tr id="footer-carrito">
-  <th scope="row" class="ColorLetras" colspan="5">
-    Carrito vacío - comience a comprar!
-  </th>
+  
 </tr>
 </tfoot>`;
+
