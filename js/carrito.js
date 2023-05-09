@@ -59,7 +59,12 @@ function mostrarProductos() {
 
     usuario.carrito.map((carrito) => {
       cantidadTotal = cantidadTotal + carrito.cantidad;
+      if (cantidadTotal == 0) {
+        document.getElementById("carritoVacio").style.display = "initial";
 
+      } else {
+        document.getElementById("carritoVacio").style.display = "none";
+      }
       carritoSuperior.innerHTML = `<i
     class="bi bi-cart-fill opcionNav carrito"></i><span
     class="badge translate-middle bg-danger ">${cantidadTotal || 0}</span>`;
