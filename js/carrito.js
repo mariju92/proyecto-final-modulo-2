@@ -65,23 +65,18 @@ function mostrarProductos() {
     class="bi bi-cart-fill opcionNav carrito"></i><span
     class="badge translate-middle bg-danger ">${cantidadTotal || 0}</span>`;
 
-      let detalle = document.getElementById('tablaCarrito');
+      let detalle = document.getElementById('tablaCarritoInterna');
       detalle.innerHTML += `
-    <tbody>
+    
     <th scope="col" class="ColorLetras">${carrito.nombre}</th>
     <th scope="col" class="ColorLetras">${carrito.precio}</th>
     <th scope="col" class="ColorLetras">${carrito.cantidad}</th>
     <th scope="col" class="ColorLetras">${carrito.precio * carrito.cantidad}</th>
     <th scope="col" class="ColorLetras">
     <button class="btn btn-danger btn-sm " id="botoneliminar" onclick="eliminar()">
-    <i class="bi bi-cart-plus fw-bold w-50"><span class="text-center">eliminar</span></i>
+    <span class="text-center">eliminar</span>
   </button></th>
-    </tbody>
-    <tfoot>
-    <tr id="footer-carrito">
-      
-    </tr>
-    </tfoot>`;
+    `;
     })
 
   })
@@ -90,7 +85,32 @@ function mostrarProductos() {
 
 }
 window.eliminar = () => {
+  let detalle = document.getElementById('tablaCarritoInterna');
+  listaUsuarios.map((usuario) => {
 
+    usuario.carrito.map((carrito) => {
+      cantidadTotal = cantidadTotal + carrito.cantidad;
 
+      let posicionProducto = usuario.carrito.findIndex(producto => producto.codigo === carrito.codigo)
+      actualizarStock(carrito.cantidad, carrito.codigo);
+      usuario.carrito.splice(posicionProducto, 1)
+      localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
+      detalle.removeChild(detalle.children[posicionProducto]);
 
+    })
+
+  })
 }
+function actualizarStock(cantidad, codigo) {
+  let producto = listaProducto.find(pro => pro.codigo === codigo);
+  let stockActualizado = producto.stock + cantidad;
+
+  listaProducto.map(pro => {
+    if (pro.codigo === codigo) {
+      producto.stock = stockActualizado;
+
+    }
+
+  })
+  localStorage.setItem('listaProducto', JSON.stringify(listaProducto));
+} 
