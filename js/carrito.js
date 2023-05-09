@@ -41,7 +41,7 @@ let datosGuardados = JSON.parse(localStorage.getItem("productoEnCarrito")) || []
 carritoSuperior.innerHTML = `<i
 class="bi bi-cart-fill opcionNav carrito"></i><span
 class="badge translate-middle bg-danger ">${datosGuardados.contadorcarrito || 0}</span>`;
-
+let listadoCarrito = []
 let detalle = document.getElementById('tablaCarrito');
 detalle.innerHTML += `
 <tbody><th scope="col" class="ColorLetras">${datosGuardados.codigo}</th>
