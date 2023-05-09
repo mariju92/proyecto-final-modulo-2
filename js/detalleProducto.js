@@ -145,6 +145,7 @@ detalle.innerHTML = `<article class="pt-5 fw-bold">
 
 
 let contadorcarrito = 1;
+
 window.SumarCarrito = () => {
 
   productoBuscado.stock = productoBuscado.stock - 1;
@@ -191,8 +192,6 @@ window.restar = () => {
   } if (contadorcarrito == 0) {
     document.getElementById("carritoVacio").style.display = "none";
 
-  } else {
-    document.getElementById("carritoVacio").style.display = "initial";
   }
 
 
@@ -219,7 +218,7 @@ window.sumar = () => {
 
 
 window.carrito = (codigo) => {
-  guardarProductos()
+  guardarProductos();
   window.location.href = window.location.origin + '/pages/carrito.html?codigo=' + productoBuscado.codigo + '&contador=' + contadorcarrito
 }
 

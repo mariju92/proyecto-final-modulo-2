@@ -47,11 +47,7 @@ let producto = listaProducto.find((Producto) => Producto.codigo === urlParams.ge
 let contadorcarrito = urlParams.get('contador');
 
 
-mostrarProductos()
-
-
-
-
+mostrarProductos();
 
 function mostrarProductos() {
 
@@ -71,11 +67,16 @@ function mostrarProductos() {
 
       let detalle = document.getElementById('tablaCarrito');
       detalle.innerHTML += `
-    <tbody><th scope="col" class="ColorLetras">${carrito.codigo}</th>
+    <tbody>
     <th scope="col" class="ColorLetras">${carrito.nombre}</th>
     <th scope="col" class="ColorLetras">${carrito.precio}</th>
     <th scope="col" class="ColorLetras">${carrito.cantidad}</th>
-    <th scope="col" class="ColorLetras">${carrito.precio * carrito.cantidad}</th></tbody>
+    <th scope="col" class="ColorLetras">${carrito.precio * carrito.cantidad}</th>
+    <th scope="col" class="ColorLetras">
+    <button class="btn btn-danger btn-sm " id="botoneliminar" onclick="eliminar()">
+    <i class="bi bi-cart-plus fw-bold w-50"><span class="text-center">eliminar</span></i>
+  </button></th>
+    </tbody>
     <tfoot>
     <tr id="footer-carrito">
       
@@ -84,6 +85,11 @@ function mostrarProductos() {
     })
 
   })
+
+
+
+}
+window.eliminar = () => {
 
 
 
