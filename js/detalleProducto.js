@@ -189,8 +189,10 @@ window.restar = () => {
     document.getElementById("mas-cantidad").style.display = "initial";
 
   } if (contadorcarrito == 0) {
-    document.getElementById("menos-cantidad").style.display = "none";
+    document.getElementById("carritoVacio").style.display = "none";
 
+  } else {
+    document.getElementById("carritoVacio").style.display = "initial";
   }
 
 
