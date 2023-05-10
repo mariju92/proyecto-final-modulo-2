@@ -76,9 +76,14 @@ function mostrarProductos() {
     <th scope="col" class="ColorLetras">
     <button class="btn btn-danger btn-sm " id="botoneliminar" onclick="eliminar()">
     <span class="text-center">eliminar</span>
-  </button></th>
-    `;
+  </button>
+  <a class="btn btn-primary btn-sm" href="./error404.html"> Comprar <a/>
+    </th>
+  `
+  
+    ;
     })
+  
 
   }
 
