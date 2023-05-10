@@ -50,6 +50,22 @@ main {
     height: 350px;
 }
 
+.imgCardDestacado {
+    height: 350px;
+}
+
+.cardShadow:hover {
+    box-shadow: 2px 2px 15px #e49f00;
+}
+
+.cardShadowDestacado:hover {
+    box-shadow: 2px 2px 15px #000000;
+}
+
+.productoDestacadoh4 {
+    height: 100px;
+}
+
 .espacioTitulo {
     min-height: 100px;
 }
@@ -281,6 +297,17 @@ footer {
     }
 }
 
+@media (min-width: 576px) and (max-width: 767px) {
+    .cardsProductos {
+        width: 550px;
+    }
+
+    #mostrarProductos {
+        display: flex;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 992px) {
     .cardError {
         left: 25%;
@@ -315,7 +342,22 @@ footer {
     .imgCard {
         height: 350px;
     }
+
+    .imgCardDestacado {
+        height: 200px;
+    }
 }
+
+@media (max-width: 768px) {
+    .imgCardDestacado {
+        height: 400px;
+    }
+}
+
+.imgCard {
+    height: 350px;
+}
+
 
 @media screen and (min-width: 992px) and (max-width: 1399px) {
     .imgCard {

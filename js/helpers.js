@@ -65,7 +65,7 @@ export function validarCategoria(categoria){
 
 export function validarStock(stock)
 {
-    if(stock.value>0)
+    if(stock.value>0 && stock.value<=100)
     {
         stock.classList.replace('is-invalid','is-valid');
         return true;
@@ -112,7 +112,7 @@ export function sumarioValidaciones(nombre,precio,descripcion,imagen,categoria,s
     }
     if(!validarStock(stock))
     {
-        resumen += 'El minimo de Stock debe ser 1 <br>'
+        resumen += 'El minimo de Stock debe ser 1 y el maximo 100<br>'
     }
     if(!esDestacado(destacado))
     {

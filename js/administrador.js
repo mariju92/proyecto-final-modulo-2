@@ -1,5 +1,7 @@
 import Producto from './claseProducto.js';
 import { esDestacado, sumarioValidaciones, validarCategoria, validarDescripcion, validarNombreProducto, validarPrecio, validarStock, validarURLImagen } from "./helpers.js";
+import mostrarMensajeTablaAdmin from './mensajeTablaVacia.js';
+import habilitarDeshabilitarBuscador from './buscadorAdmin.js';
 
 const codigo = document.getElementById('codigo');
 const nombreProducto = document.getElementById('nombre');
@@ -56,6 +58,9 @@ function cargaInicial()
   {
     listaProducto.map((producto, indice) => crearFila(producto,indice))
   }
+  mostrarMensajeTablaAdmin(listaProducto)
+  habilitarDeshabilitarBuscador(listaProducto)
+
 }
 
 function crearFila(producto,indice)
@@ -66,6 +71,7 @@ function crearFila(producto,indice)
   <td>${producto.categoria}</td>
   <td>${producto.precio}</td>
   <td>${producto.stock}</td>
+  <td>${producto.destacado}</td>
   <td>
     <button class=" btn bi bi-search btn-primary"></button>
     <button class=" btn bi bi-pencil btn-warning my-3 my-md-0" onclick="editarProducto('${producto.codigo}')"></button>
@@ -122,6 +128,8 @@ function crearProducto(){
           'success'
         )
         limpiarFormulario();
+        mostrarMensajeTablaAdmin(listaProducto)
+        habilitarDeshabilitarBuscador(listaProducto)
     }
     else{
       msjError.className = 'alert alert-danger mt-3';
@@ -170,6 +178,8 @@ window.borrarProducto = (codigo) => {
     datosProducto.removeChild(datosProducto.children[posicionProducto]);
     limpiarTablaProducto();
     cargaInicial();
+    mostrarMensajeTablaAdmin(listaProducto)
+    habilitarDeshabilitarBuscador(listaProducto)
     Swal.fire(
     'Se borro el producto',
     'El producto seleccionado fue eliminado correctamente',
@@ -208,48 +218,50 @@ function actualizarProducto(){
   listaProducto[posicionProducto].stock = stock.value;
   listaProducto[posicionProducto].destacado = destacado.value;
   guardarLocalStorage();
-  Swal.fire(
-      "Producto Editado",
-      "El producto elegido fue editado corrrectamente",
-      "success"
-  );
-  datosProducto.children[posicionProducto].children[1].innerText = nombreProducto.value;
-  datosProducto.children[posicionProducto].children[2].innerText = categoria.value;
-  datosProducto.children[posicionProducto].children[3].innerText = precio.value;
-  datosProducto.children[posicionProducto].children[4].innerText = stock.value;
+  limpiarTablaProducto();
+  cargaInicial();
   limpiarFormulario();
   modalProducto.hide();
+  Swal.fire(
+    "Producto Editado",
+    "El producto elegido fue editado corrrectamente",
+    "success"
+);
   }
 }
 
 document.addEventListener("keyup", function(e) {
-  if (e.target.matches("#inputBuscar")) {
-    let productos = document.querySelectorAll(".tablaProductos");
+  if (e.target.matches("#buscador")) {
+    let buscador = e.target;
+    let productos = document.querySelectorAll(".cardsProductos");
     let resultadosEncontrados = false;
 
     for (let i = 0; i < productos.length; i++) {
-      let palabra = productos[i];
-      if (palabra.textContent.toLowerCase().includes(e.target.value.toLowerCase()) || palabra.textContent.toUpperCase().includes(e.target.value)) {
-        palabra.classList.remove("filtro");
+      let producto = productos[i];
+      if (producto.textContent.toLowerCase().includes(buscador.value.toLowerCase()) || producto.textContent.toUpperCase().includes(buscador.value.toUpperCase())) {
+        producto.classList.remove("filtro");
         resultadosEncontrados = true;
       } else {
-        palabra.classList.add("filtro");
+        producto.classList.add("filtro");
       }
     }
 
-    let seccionProductos = document.getElementById("seccionProductos");
+    let contenedorMensaje = document.getElementById(
+      'contenedorMensajeTablaVacia'
+    );
     if (!resultadosEncontrados) {
       let mensaje = document.createElement("h4");
-      mensaje.textContent = "No se encontraron productos con ese nombre.";
-      mensaje.className = "text-center p-4"
-      mensaje.setAttribute('id','mensajeNoProducto')
-      seccionProductos.innerHTML = "";
-      seccionProductos.appendChild(mensaje);
+      mensaje.textContent = "No se encontraron productos.";
+      mensaje.className = "text-center py-5"
+      mensaje.id = "mensajeNoProducto";
+      contenedorMensaje.innerHTML = '';
+      contenedorMensaje.appendChild(mensaje);
     } else {
       let mensaje = document.getElementById("mensajeNoProducto");
       if (mensaje) {
-        seccionProductos.innerHTML = "";
+        mensaje.remove();
       }
     }
+    
   }
 });
