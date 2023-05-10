@@ -74,3 +74,15 @@ function cerrarSesion() {
   window.location.href = window.location.origin;
 }
 
+//funcion para validar el email del administrador
+function validarEmail() {
+  const regExp =
+    /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+  if (regExp.test(email.value)) {
+    email.className = "form-control is-valid";
+    return true;
+  } else {
+    email.className = "form-control is- invalid";
+    return false;
+  }
+}
