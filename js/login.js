@@ -10,3 +10,8 @@ const modalLogin = new bootstrap.Modal (document.querySelector("#modalLogin"));
 btnIniciarSesion.addEventListener("click", mostrarModal);
 btnIngresar.addEventListener("submit", iniciarSesion);
 
+//Cargo constante de Administrador
+const administrador = {
+  email: "admin@gmail.com",
+  password: "Code123",
+};
