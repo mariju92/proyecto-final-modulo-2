@@ -70,7 +70,7 @@ function iniciarSesion(e) {
 function cerrarSesion() {
   sessionStorage.removeItem("usuario");
   btnIngresar.innerHTML = "Iniciar Sesión";
-  document.querySelector("#admin").classList.add("d-none");
+  document.querySelector("btnAdministrador").classList.add("d-none");
   window.location.href = window.location.origin;
 }
 
