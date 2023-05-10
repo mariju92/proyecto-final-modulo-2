@@ -23,7 +23,7 @@ function verificarAdmin() {
   let siAdmin = sessionStorage.getItem("usuario");
   if (siAdmin) {
     btnIniciarSesion.innerHTML = "Cerrar Sesión";
-    document.querySelector("#admin").classList.remove("d-none");
+    document.querySelector("#btnAdministrador").classList.remove("d-none");
   } else {
     btnIniciarSesion.innerHTML = "Iniciar Sesión";
     let webAdmin = window.location.origin + "/pages/administrador.html";
@@ -46,3 +46,23 @@ function mostrarModal() {
     cerrarSesion();
   }
 }
+
+//agrego la funcion para el inicio de sesion
+function iniciarSesion(e) {
+  e.preventDefault();
+  if (validarEmail() && validarPassword()) {
+    if (
+      email.value === administrador.email &&
+      password.value === administrador.password
+    ) {
+      alert.className = "alert alert-danger mt-3 d-none";
+      btnIniciarSesion.innerHTML = "Cerrar Sesión";
+      sessionStorage.setItem("usuario", JSON.stringify(administrador));
+      document.querySelector("#btnAdministrador").classList.remove("d-none");
+      modalLogin.hide();
+    } else {
+      alert.className = "alert alert-danger mt-3";
+    } 
+  }
+}
+
