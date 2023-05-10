@@ -1,181 +1,273 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="author"
+      content="Martin	Julian, Avila Mariana, Gomez Roxania, Fuentes Joaquin, Quipildor Leandro"
+    />
+    <meta
+      name="description"
+      content="Pagina de venta de productos relacionados al anime"
+    />
+    <meta
+      name="keywords"
+      content="anime, productos, venta, tienda online, tienda, exclusivo, variedad"
+    />
+    <title>Tucumánime</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="author"
-    content="Martin	Julian, Avila Mariana, Gomez Roxania, Fuentes Joaquin, Quipildor Leandro"
-  />
-  <meta
-    name="description"
-    content="Pagina de venta de productos relacionados al anime"
-  />
-  <meta
-    name="keywords"
-    content="anime, productos, venta, tienda online, tienda, exclusivo, variedad"
-  />
-  <title>Tucumánime</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-  />
-  <link rel="stylesheet" href="/css/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
-  <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
-
-
-</head>
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg bg-black">
-      <div class="container">
-        <a class="navbar-brand" href="../index.html"
-          ><img
-            src="../img/TucumánimeLogo.png"
-            class="img-fluid logo rounded-pill"
-            alt="Logo Tucumánime"
-        /></a>
-        <button
-          class="navbar-toggler navbar-dark"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link opcionNav" aria-current="page" href="../index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="d-none" aria-current="page"
-                href="/pages/administrador.html" id="btnAdministrador">Administrador</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link opcionNav mx-lg-3" href="/pages/sobrenosotros.html">Sobre Nosotros</a>
-            </li>
-            <!-- Boton para activar el modal -->
-            <li class="nav-item">
-              <button type="button" class="btn botonIniciarSesion" id="btnIniciarSesion">
-                Iniciar Sesión
-              </button>
-              <button type="button" class="d-none" id="btnCerrarSesion">
-                Cerrar Sesión
-              </button>
-            </li>
-            <li class="nav-item">
-              <a class="d-none" href="/pages/carrito.html" id="btnCarrito"><i class="bi bi-cart-fill opcionNav carrito"></i><span
-                  class="badge translate-middle bg-danger">0</span></a>
-            </li>
-          </ul>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html"
+            ><img
+              src="../img/TucumánimeLogo.png"
+              class="img-fluid logo rounded-pill"
+              alt="Logo Tucumánime"
+          /></a>
+          <button
+            class="navbar-toggler navbar-dark"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link opcionNav"
+                  aria-current="page"
+                  href="../index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="d-none"
+                  aria-current="page"
+                  href="/pages/administrador.html"
+                  id="btnAdministrador"
+                  >Administrador</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link opcionNav mx-lg-3"
+                  href="/pages/sobrenosotros.html"
+                  >Sobre Nosotros</a
+                >
+              </li>
+              <!-- Boton para activar el modal -->
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn botonIniciarSesion"
+                  id="btnIniciarSesion"
+                >
+                  Iniciar Sesión
+                </button>
+                <button type="button" class="d-none" id="btnCerrarSesion">
+                  Cerrar Sesión
+                </button>
+              </li>
+              <li class="nav-item">
+                <a class="d-none" href="/pages/carrito.html" id="btnCarrito"
+                  ><i class="bi bi-cart-fill opcionNav carrito"></i
+                  ><span class="badge translate-middle bg-danger">0</span></a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  <main class="bg-black">
-    <h1 class="text-light text-center py-3">
-      ¡Registrate! Y llega el control de tus compras de forma sencilla y
-      rápida.
-    </h1>
-    <section class="contenedorFormulario">
-      <form class="row" id="formCargarUsuario">
-        <article>
-          <label for="nombreapellido" class="form-label text-light py-2">Nombre y Apellido:</label>
+      </nav>
+    </header>
+    <main class="bg-black">
+      <h1 class="text-light text-center py-3">
+        ¡Registrate! Y llega el control de tus compras de forma sencilla y
+        rápida.
+      </h1>
+      <section class="contenedorFormulario">
+        <form class="row" id="formCargarUsuario">
+          <article>
+            <label for="nombreapellido" class="form-label text-light py-2"
+              >Nombre y Apellido:</label
+            >
 
-          <input type="text" placeholder="Juan Perez" id="nombreApellido" minlength="3" maxlength="50"
-            class="form-control" required />
-          <div class="invalid-feedback">El nombre solo debe contener letras y un minimo de 3 caracteres </div>
-        </article>
-        <article>
-          <label for="email" class="text-light py-2">Email:</label>
-
-          <input type="text" placeholder="juanperez@email.com" id="email" minlength="3" maxlength="100"
-            class="form-control" required />
-          <div class="invalid-feedback">Debe ingresar un email válido</div>
-
-        </article>
-        <article>
-          <label for="contraseña" class="form-label text-light py-2">contraseña:</label>
-
-          <input type="password" id="contrasenia"
-            placeholder="Se recomienda agregar simbolos,números y mayúsculas para mayor seguridad" minlength="5"
-            maxlength="20" class="form-control"  required/>
-          <div class="invalid-feedback">La contraseña debe tener al menos 4 caracteres</div>
-
-          <label for="confirmarcontraseña" class="form-label text-light py-2">
-            Confirmar contraseña:</label>
-          <input type="password" id="confirmarContrasenia" minlength="5" maxlength="20" class="form-control" required />
-          <div class="invalid-feedback">Las contraseñas deben coincidir</div>
-        </article>
-        <button type="submit" class="botonEnviarFormulario">Enviar</button>
-      </form>
-    </section>
-  </main>
-  <footer class="bg-black py-4">
-    <section class="container">
-        <article class="row">
-            <aside class="col-md-4 text-center text-md-start"><a href="../index.html"><img src="../img/TucumánimeLogo.png" class="img-fluid logo rounded-pill" alt="Logo Tucumánime"></a></aside>
-            <aside class="col-md-4 text-center my-4 my-md-0">
-                <h4>Seguinos en nuestras redes</h4>
-            <div>
-                <a href="./error404.html"><i class="bi bi-instagram fs-4 p-1 opcionNav"></i></a>
-                <a href="./error404.html"><i class="bi bi-facebook fs-4 p-1 opcionNav"></i></a>
-                <a href="./error404.html"><i class="bi bi-twitter fs-4 p-1 opcionNav"></i></a>
+            <input
+              type="text"
+              placeholder="Juan Perez"
+              id="nombreApellido"
+              minlength="3"
+              maxlength="50"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">
+              El nombre solo debe contener letras y un minimo de 3 caracteres
             </div>
-            </aside>
-            <aside class="col-md-4 text-center text-md-end">
-                <a href="../index.html" class="text-decoration-none opcionNav d-block">Inicio</a>
-                <a href="./sobrenosotros.html" class="text-decoration-none opcionNav d-block">Sobre Nosotros</a>
-            </aside>
+          </article>
+          <article>
+            <label for="email" class="text-light py-2">Email:</label>
+
+            <input
+              type="text"
+              placeholder="juanperez@email.com"
+              id="email"
+              minlength="3"
+              maxlength="100"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">Debe ingresar un email válido</div>
+          </article>
+          <article>
+            <label for="contraseña" class="form-label text-light py-2"
+              >contraseña:</label
+            >
+
+            <input
+              type="password"
+              id="contrasenia"
+              placeholder="Se recomienda agregar simbolos,números y mayúsculas para mayor seguridad"
+              minlength="5"
+              maxlength="20"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">
+              La contraseña debe tener al menos 4 caracteres
+            </div>
+
+            <label for="confirmarcontraseña" class="form-label text-light py-2">
+              Confirmar contraseña:</label
+            >
+            <input
+              type="password"
+              id="confirmarContrasenia"
+              minlength="5"
+              maxlength="20"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">Las contraseñas deben coincidir</div>
+          </article>
+          <button type="submit" class="botonEnviarFormulario">Enviar</button>
+        </form>
+      </section>
+    </main>
+    <footer class="bg-black py-4">
+      <section class="container">
+        <article class="row">
+          <aside class="col-md-4 text-center text-md-start">
+            <a href="../index.html"
+              ><img
+                src="../img/TucumánimeLogo.png"
+                class="img-fluid logo rounded-pill"
+                alt="Logo Tucumánime"
+            /></a>
+          </aside>
+          <aside class="col-md-4 text-center my-4 my-md-0">
+            <h4>Seguinos en nuestras redes</h4>
+            <div>
+              <a href="./error404.html"
+                ><i class="bi bi-instagram fs-4 p-1 opcionNav"></i
+              ></a>
+              <a href="./error404.html"
+                ><i class="bi bi-facebook fs-4 p-1 opcionNav"></i
+              ></a>
+              <a href="./error404.html"
+                ><i class="bi bi-twitter fs-4 p-1 opcionNav"></i
+              ></a>
+            </div>
+          </aside>
+          <aside class="col-md-4 text-center text-md-end">
+            <a
+              href="../index.html"
+              class="text-decoration-none opcionNav d-block"
+              >Inicio</a
+            >
+            <a
+              href="./sobrenosotros.html"
+              class="text-decoration-none opcionNav d-block"
+              >Sobre Nosotros</a
+            >
+          </aside>
         </article>
         <article>
-            <h4 class="text-center mt-4">&copy; Todos los Derechos Reservados</h4>
+          <h4 class="text-center mt-4">&copy; Todos los Derechos Reservados</h4>
         </article>
-    </section>
-</footer>
+      </section>
+    </footer>
 
     <!-- Modal  Iniciar Sesion -->
-    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="modalLogin"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="">
-            <form class="border formLogin p-4 rounded bg-dark text-warning" id="formLogin">
+            <form
+              class="border formLogin p-4 rounded bg-dark text-warning"
+              id="formLogin"
+            >
               <h3 class="text-center fw-bold fs-2">Iniciar sesión</h3>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label usuario"><i
-                    class="bi bi-person-fill me-1 "></i>Email:</label>
+                <label for="exampleInputEmail1" class="form-label usuario"
+                  ><i class="bi bi-person-fill me-1"></i>Email:</label
+                >
                 <input type="text" class="form-control" id="email" />
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"><i
-                    class="bi bi-lock-fill me-1 password"></i>Contraseña:</label>
+                <label for="exampleInputPassword1" class="form-label"
+                  ><i class="bi bi-lock-fill me-1 password"></i
+                  >Contraseña:</label
+                >
                 <input type="password" class="form-control" id="contrasenia" />
               </div>
-              <p id="alert" class="text-danger d-none">Debe ingresar un email y contraseña validos</p>
+              <p id="alert" class="text-danger d-none">
+                Debe ingresar un email y contraseña validos
+              </p>
               <p>
                 Olvidaste tu contraseña?
-                <a href="/pages/error404.html" class="text-warning">hacé click aquí</a>
+                <a href="/pages/error404.html" class="text-warning"
+                  >hacé click aquí</a
+                >
               </p>
               <p>
                 Aún no estas registrado?
-                <a href="/pages/registro.html" class="text-warning">hacé click aquí</a>
+                <a href="/pages/registro.html" class="text-warning"
+                  >hacé click aquí</a
+                >
               </p>
               <button type="submit" class="btn btn-warning">Ingresar</button>
             </form>
@@ -184,11 +276,12 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script src="../js/registroUsuario.js" type="module"></script>
     <script src="/js/login.js" type="module"></script>
-</body>
-
+  </body>
 </html>

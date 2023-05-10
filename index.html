@@ -35,8 +35,8 @@
               <a class="nav-link opcionNav" aria-current="page" href="index.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="d-none" aria-current="page"
-                href="pages/administrador.html" id="btnAdministrador">Administrador</a>
+              <a class="d-none" aria-current="page" href="pages/administrador.html"
+                id="btnAdministrador">Administrador</a>
             </li>
             <li class="nav-item">
               <a class="nav-link opcionNav mx-lg-3" href="./pages/sobrenosotros.html">Sobre Nosotros</a>
@@ -52,8 +52,7 @@
             </li>
             <li class="nav-item">
               <a class="d-none" id="btnCarrito" href="./pages/carrito.html">
-                <i
-                  class="bi bi-cart-fill opcionNav carrito"></i><span
+                <i class="bi bi-cart-fill opcionNav carrito"></i><span
                   class="badge translate-middle bg-danger ">0</span></a>
             </li>
           </ul>
@@ -179,21 +178,6 @@
           </div>
         </div>
       </div>
-      <div>
-        <ul class="pagination justify-content-center">
-          <li class="page-item text-primary shadow"><a class="p-3 text-decoration-none fondoNegro text-primary"
-              href="javascript:void(0);">
-              anterior </a>
-          </li>
-          <li class="page-item "><a class="p-3 text-decoration-none colorNaranja" href="javascript:void(0);">1</a>
-          </li>
-          <li class="page-item "><a class="p-3 text-decoration-none colorNaranja" href="javascript:void(0);">2</a>
-          </li>
-          <li class="page-item text-primary shadow"><a class="p-3 text-decoration-none fondoNegro text-primary"
-              href="javascript:void(0);">siguiente</a>
-          </li>
-        </ul>
-      </div>
     </div>
     <hr class="opacity-100 py-1 colorDegradadoOrizontal">
     <div class="container d-flex justify-content-center fondoNegro py-4">
@@ -206,10 +190,10 @@
         </div>
       </div>
     </div>
-  </div>
-  </div>
-        </div>
-      </div>
+    </div>
+    </div>
+    </div>
+    </div>
   </main>
   <footer class="bg-black py-4">
     <section class="container">
@@ -243,12 +227,12 @@
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label usuario"><i
                   class="bi bi-person-fill me-1 "></i>Email:</label>
-              <input type="text" class="form-control" id="email" />
+              <input type="email" class="form-control" id="email" minlength="3" maxlength="50" required />
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label"><i
                   class="bi bi-lock-fill me-1 password"></i>Contraseña:</label>
-              <input type="password" class="form-control" id="contrasenia" />
+              <input type="password" class="form-control" id="contrasenia" minlength="3" maxlength="50" required />
             </div>
             <p id="alert" class="text-danger d-none">Debe ingresar un email y contraseña validos</p>
             <p>
