@@ -66,3 +66,11 @@ function iniciarSesion(e) {
   }
 }
 
+//Se crea la funcion para cerrar sesion
+function cerrarSesion() {
+  sessionStorage.removeItem("usuario");
+  btnIngresar.innerHTML = "Iniciar Sesión";
+  document.querySelector("#admin").classList.add("d-none");
+  window.location.href = window.location.origin;
+}
+
