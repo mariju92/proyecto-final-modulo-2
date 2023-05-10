@@ -1,4 +1,4 @@
-let contenedorMensaje = document.getElementById('contenedorMensajeTablaVacia');
+let contenedorMensaje = document.getElementById("contenedorMensajeTablaVacia");
 
 const mostrarMensajeTablaAdmin = (listaProducto) => {
   listaProducto.length <= 0

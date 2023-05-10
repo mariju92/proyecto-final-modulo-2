@@ -1,4 +1,4 @@
-document.addEventListener("keyup", function(e) {
+document.addEventListener("keyup", function (e) {
   if (e.target.matches("#buscador")) {
     let buscador = e.target;
     let productos = document.querySelectorAll(".cardsProductos");
@@ -6,7 +6,11 @@ document.addEventListener("keyup", function(e) {
 
     for (let i = 0; i < productos.length; i++) {
       let producto = productos[i];
-      if (producto.textContent.toLowerCase().includes(buscador.value.toLowerCase())) {
+      if (
+        producto.textContent
+          .toLowerCase()
+          .includes(buscador.value.toLowerCase())
+      ) {
         producto.classList.remove("filtro");
         resultadosEncontrados = true;
       } else {
@@ -18,7 +22,7 @@ document.addEventListener("keyup", function(e) {
     if (!resultadosEncontrados) {
       let mensaje = document.createElement("h4");
       mensaje.textContent = "No se encontraron productos.";
-      mensaje.className = "text-center p-4"
+      mensaje.className = "text-center p-4";
       mensaje.id = "mensajeNoProducto";
       seccionProductos.innerHTML = "";
       seccionProductos.appendChild(mensaje);
@@ -28,6 +32,5 @@ document.addEventListener("keyup", function(e) {
         mensaje.remove();
       }
     }
-    
   }
 });

@@ -1,55 +1,53 @@
 import Usuario from "./classUsuario.js";
-import { sumarioValidacionesCrear, sumarioValidacionesEditar } from "./helpersUsuario.js"
+import {
+  sumarioValidacionesCrear,
+  sumarioValidacionesEditar,
+} from "./helpersUsuario.js";
 
 const nombre = document.querySelector("#nombreApellido");
 const email = document.querySelector("#email");
 const contrasenia = document.querySelector("#contrasenia");
 const rol = document.querySelector("#rol");
-const divContrasenia = document.querySelector("#divContrasenia")
+const divContrasenia = document.querySelector("#divContrasenia");
 const confirmarContrasenia = document.querySelector("#confirmarContrasenia");
-const datosTablaUsuario = document.querySelector("#tbodyUsuarios")
-const btnAgregarUsuario = document.querySelector("#btnAgregarUsuario")
-const btnEditarUsuario = document.querySelector("btnEditarUsuario");
-const tituloModalUsuario = document.querySelector("#tituloModalUsuario")
-const btnModalRegistro = document.querySelector("#btnModalRegistro")
- const formControl = document.querySelectorAll("#form-control")
-// const formBusquedaUsuario = document.querySelector("#formBusquedaUsuario");
-// const inputBuscar = document.querySelector("#inputBuscar");
+const datosTablaUsuario = document.querySelector("#tbodyUsuarios");
+const btnAgregarUsuario = document.querySelector("#btnAgregarUsuario");
+const tituloModalUsuario = document.querySelector("#tituloModalUsuario");
+const btnModalRegistro = document.querySelector("#btnModalRegistro");
 
 const modalUsuario = new bootstrap.Modal(
   document.querySelector("#modalAgregarUsuario")
 );
 
 let estadoUsuario = true; //true = crear usuario,  false = editar usuario
-let id
-
+let id;
 
 //traigo los usuarios de localstorage
 let listaUsuarios = localStorage.getItem("listaUsuarios");
 if (!listaUsuarios) {
-  listaUsuarios = []
+  listaUsuarios = [];
 } else {
-  listaUsuarios = JSON.parse(listaUsuarios).map((usuario) =>
-    new Usuario(
-      usuario.id,
-      usuario.nombre,
-      usuario.email,
-      usuario.contrasenia,
-      usuario.rol,
-      usuario.carrito
-    )
-  )
+  listaUsuarios = JSON.parse(listaUsuarios).map(
+    (usuario) =>
+      new Usuario(
+        usuario.id,
+        usuario.nombre,
+        usuario.email,
+        usuario.contrasenia,
+        usuario.rol,
+        usuario.carrito
+      )
+  );
 }
-
 
 btnAgregarUsuario.addEventListener("click", mostrarModalUsuario);
 formModalCargaUsuario.addEventListener("submit", cargarUsuario);
 
-cargaInicial()
+cargaInicial();
 
 function cargarUsuario(e) {
   e.preventDefault();
-  console.log("Aqui se carga el usuario")
+  console.log("Aqui se carga el usuario");
   if (estadoUsuario === true) {
     //aqui creo el usuario
     crearUsuario();
@@ -71,7 +69,7 @@ function crearUsuario() {
       []
     );
     listaUsuarios.push(nuevoUsuario);
-    console.log(nuevoUsuario)
+    console.log(nuevoUsuario);
     //guardar el usuario en localstorage
     guardarUsuarioEnLocalStorage();
     //limpiar el formulario
@@ -87,32 +85,29 @@ function crearUsuario() {
       "El usuario fue creado correctamente",
       "success"
     );
-
   }
-
 }
 
 function guardarUsuarioEnLocalStorage() {
-  localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios))
+  localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
 }
 function limpiarFormularioUsuario() {
-  formModalCargaUsuario.reset()
+  formModalCargaUsuario.reset();
 }
 
 function verificarSiEsAdmin(email) {
   if (email.value === "admin@gmail.com" || rol.value === "administrador") {
-    return "administrador"
+    return "administrador";
   } else {
-    return "invitado"
+    return "invitado";
   }
 }
 
 function cargaInicial() {
   if (listaUsuarios.length > 0) {
-    listaUsuarios.map((usuario, indice) => crearFila(usuario, indice))
+    listaUsuarios.map((usuario, indice) => crearFila(usuario, indice));
   } else {
     //mostrar msj de que no hay datos para mostrar
-
   }
 }
 
@@ -124,13 +119,15 @@ function crearFila(usuario, indice) {
     <td>${usuario.email}</td>
     <td>${usuario.rol}</td>
     <td>
-      <button class=" btn bi bi-search btn-primary mx-1 my-1 my-md-0" id="btnEditarUsuario"  onclick="editarUsuario('${usuario.id
-    }')"></button>
-      <button class=" btn bi bi-x-lg btn-danger mx-1 my-1 my-md-0 " onclick="borrarUsuario('${usuario.id
-    }')"></button>
+      <button class=" btn bi bi-search btn-primary mx-1 my-1 my-md-0" id="btnEditarUsuario"  onclick="editarUsuario('${
+        usuario.id
+      }')"></button>
+      <button class=" btn bi bi-x-lg btn-danger mx-1 my-1 my-md-0 " onclick="borrarUsuario('${
+        usuario.id
+      }')"></button>
     </td>
   </tr>
-    `
+    `;
 }
 function mostrarModalUsuario() {
   estadoUsuario = true;
@@ -138,19 +135,18 @@ function mostrarModalUsuario() {
   modalUsuario.show();
 
   //sacar clase de la validacion
-  limpiarClaseDeValidacion()
-  // cambiar titulo del modal y texto del boton 
-  tituloModalUsuario.innerHTML = "Registro  usuario"
-  btnModalRegistro.innerHTML = "Crear registro"
+  limpiarClaseDeValidacion();
+  // cambiar titulo del modal y texto del boton
+  tituloModalUsuario.innerHTML = "Registro  usuario";
+  btnModalRegistro.innerHTML = "Crear registro";
   // completar los datos en el modal
   nombre.value = "";
   email.value = "";
-  console.log("aqui tengo q devolver el input de contraseña")
+  console.log("aqui tengo q devolver el input de contraseña");
   //mostrar campos de contraseña
   contrasenia.disabled = false;
   confirmarContrasenia.disabled = false;
   divContrasenia.style.display = "block";
-
 }
 
 window.borrarUsuario = (id) => {
@@ -178,11 +174,13 @@ window.borrarUsuario = (id) => {
       guardarUsuarioEnLocalStorage();
 
       // quitar la fila de la tabla
-      datosTablaUsuario.removeChild(datosTablaUsuario.children[posicionUsuario]);
+      datosTablaUsuario.removeChild(
+        datosTablaUsuario.children[posicionUsuario]
+      );
 
       // hacer: actualizar las filas de la tabla
-      limpiarTablaUsuarios()
-      cargaInicial()
+      limpiarTablaUsuarios();
+      cargaInicial();
 
       // mostrar mensaje al usuario
       Swal.fire(
@@ -190,24 +188,23 @@ window.borrarUsuario = (id) => {
         "Se elímino el usuario de la base de datos",
         "success"
       );
-
     }
   });
 };
 
 window.editarUsuario = (idUnico) => {
-  limpiarClaseDeValidacion()
+  limpiarClaseDeValidacion();
   console.log("aqui estoy editando pelicula");
   const usuario = listaUsuarios.find((usuario) => usuario.id === idUnico);
   console.log(usuario);
   //mostrar ventana modal
   modalUsuario.show();
 
-  // cambiar titulo del modal y texto del boton 
-  tituloModalUsuario.innerHTML = "Editar Usuario"
-  btnModalRegistro.innerHTML = "Aceptar"
+  // cambiar titulo del modal y texto del boton
+  tituloModalUsuario.innerHTML = "Editar Usuario";
+  btnModalRegistro.innerHTML = "Aceptar";
   // completar los datos en el modal
-  id = usuario.id
+  id = usuario.id;
   nombre.value = usuario.nombre;
   email.value = usuario.email;
   rol.value = usuario.rol;
@@ -215,7 +212,7 @@ window.editarUsuario = (idUnico) => {
   //ocultar campos de contraseña
   contrasenia.disabled = true;
   confirmarContrasenia.disabled = true;
-  divContrasenia.style.display = "none"
+  divContrasenia.style.display = "none";
 
   // cambiar estado de variable bandera
   estadoUsuario = false;
@@ -224,9 +221,11 @@ window.editarUsuario = (idUnico) => {
 function actualizarUsuario() {
   //validar los datos
   if (sumarioValidacionesEditar()) {
-    console.log(listaUsuarios)
+    console.log(listaUsuarios);
     // necesito el usuario que estoy editando
-    let posicionUsuario = listaUsuarios.findIndex((usuario) => usuario.id === id);
+    let posicionUsuario = listaUsuarios.findIndex(
+      (usuario) => usuario.id === id
+    );
     // actualizar las propiedades de ese usuario
     listaUsuarios[posicionUsuario].nombre = nombre.value;
     listaUsuarios[posicionUsuario].email = email.value;
@@ -252,17 +251,17 @@ function actualizarUsuario() {
     //cerrar el modal
     modalUsuario.hide();
   } else {
-    console.log("no edita el usuario por falla en validacion")
+    console.log("no edita el usuario por falla en validacion");
   }
 }
 
 function limpiarClaseDeValidacion() {
-  nombre.className = "form-control"
-  email.className = "form-control"
-  contrasenia.className = "form-control"
-  confirmarContrasenia.className = "form-control"
-  rol.className = "form-control"
+  nombre.className = "form-control";
+  email.className = "form-control";
+  contrasenia.className = "form-control";
+  confirmarContrasenia.className = "form-control";
+  rol.className = "form-control";
 }
-function limpiarTablaUsuarios(){
-  datosTablaUsuario.innerHTML = ""
+function limpiarTablaUsuarios() {
+  datosTablaUsuario.innerHTML = "";
 }

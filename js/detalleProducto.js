@@ -2,11 +2,10 @@ import Producto from "./claseProducto.js";
 import Usuario from "./classUsuario.js";
 let listaProductosCarrito = [];
 
-const carritoSuperior = document.querySelector("#btnCarrito")
-const botonesParaUsuarioLogueado = document.querySelector("#botonesParaUsuarioLogueado")
-
-
-
+const carritoSuperior = document.querySelector("#btnCarrito");
+const botonesParaUsuarioLogueado = document.querySelector(
+  "#botonesParaUsuarioLogueado"
+);
 
 let listaProducto = localStorage.getItem(`listaProducto`);
 if (!listaProducto) {
@@ -29,27 +28,29 @@ if (!listaProducto) {
 //traigo los usuarios de localstorage
 let listaUsuarios = localStorage.getItem("listaUsuarios");
 if (!listaUsuarios) {
-  listaUsuarios = []
+  listaUsuarios = [];
 } else {
-  listaUsuarios = JSON.parse(listaUsuarios).map((usuario) =>
-    new Usuario(
-      usuario.id,
-      usuario.nombre,
-      usuario.email,
-      usuario.contrasenia,
-      usuario.rol,
-      usuario.carrito
-    )
-  )
+  listaUsuarios = JSON.parse(listaUsuarios).map(
+    (usuario) =>
+      new Usuario(
+        usuario.id,
+        usuario.nombre,
+        usuario.email,
+        usuario.contrasenia,
+        usuario.rol,
+        usuario.carrito
+      )
+  );
 }
 let usuarioLogueado = JSON.parse(sessionStorage.getItem("usuarioLogueado"));
 
 const parametroCodigo = new URLSearchParams(window.location.search);
 
+const productoBuscado = listaProducto.find(
+  (Producto) => Producto.codigo === parametroCodigo.get("codigo")
+);
 
-const productoBuscado = listaProducto.find((Producto) => Producto.codigo === parametroCodigo.get('codigo'));
-
-let detalle = document.getElementById('SeccionDetalleProducto');
+let detalle = document.getElementById("SeccionDetalleProducto");
 detalle.innerHTML = `<article class="pt-5 fw-bold">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -146,84 +147,80 @@ detalle.innerHTML = `<article class="pt-5 fw-bold">
 </div>
 </article>`;
 
-
 let contadorcarrito = 1;
 
 window.SumarCarrito = () => {
-
   productoBuscado.stock = productoBuscado.stock - 1;
 
-  let carritoBoton = document.getElementById('carritoBoton');
+  let carritoBoton = document.getElementById("carritoBoton");
   carritoBoton.innerHTML = `
 <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
- `
+ `;
   if (contadorcarrito >= 1) {
     if (contadorcarrito > 1) {
       contadorcarrito++;
     }
 
-    let carritoBoton = document.getElementById('botones');
+    let carritoBoton = document.getElementById("botones");
     carritoBoton.innerHTML = `<article class="pt-5 fw-bold">
 <nav aria-label="breadcrumb">
 <button id="menos-cantidad"  onclick="restar()" class="btn btn-danger">-</button><span id="cant" class="h1 text-white">1</span><button id='mas-cantidad'  onclick="sumar()" class="btn btn-info">+</button>
 <button class="btn btn-primary" id="botonCarrito" onclick="carrito('${productoBuscado.codigo}')">
     <i class="bi bi-cart-plus fw-bold w-50"><span class="text-center">IR AL CARRITO</span></i>
   </button>
-`
+`;
   } else if (contadorcarrito == 0) {
-    carritoBoton = document.getElementById('botones');
+    carritoBoton = document.getElementById("botones");
     carritoBoton.innerHTML = `
     <button class="btn btn-primary" id="botonCarrito" onclick="sumarCarrito()">
     <i class="bi bi-cart-plus fw-bold fs-3"><span class="text-center">AGREGAR AL CARRITO</span></i>
-  </button>`
+  </button>`;
   }
-
-}
+};
 
 window.restar = () => {
   contadorcarrito--;
   productoBuscado.stock = productoBuscado.stock + 1;
 
-  let carritoBoton = document.getElementById('carritoBoton');
+  let carritoBoton = document.getElementById("carritoBoton");
   carritoBoton.innerHTML = `
 <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
- `
+ `;
   document.getElementById("cant").innerHTML = contadorcarrito;
   if (contadorcarrito <= productoBuscado.stock) {
     document.getElementById("mas-cantidad").style.display = "initial";
-
-  } if (contadorcarrito == 0) {
-    document.getElementById("carritoVacio").style.display = "none";
-
   }
-
-
-}
+  if (contadorcarrito == 0) {
+    document.getElementById("menos-cantidad").style.display = "none";
+  }
+};
 
 window.sumar = () => {
   contadorcarrito++;
   document.getElementById("cant").innerHTML = contadorcarrito;
   productoBuscado.stock = productoBuscado.stock - 1;
 
-  let carritoBoton = document.getElementById('carritoBoton');
+  let carritoBoton = document.getElementById("carritoBoton");
   carritoBoton.innerHTML = `
 <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
- `
+ `;
   if (productoBuscado.stock == 0) {
     document.getElementById("mas-cantidad").style.display = "none";
-
   }
   if (contadorcarrito >= 1) {
     document.getElementById("menos-cantidad").style.display = "initial";
-
   }
-}
-
+};
 
 window.carrito = (codigo) => {
   guardarProductos();
-  window.location.href = window.location.origin + '/pages/carrito.html?codigo=' + productoBuscado.codigo + '&contador=' + contadorcarrito
-}
+  window.location.href =
+    window.location.origin +
+    "/pages/carrito.html?codigo=" +
+    productoBuscado.codigo +
+    "&contador=" +
+    contadorcarrito;
+};
 
 function guardarProductos() {
   // guardar los datos del carrito en el localStorage
@@ -232,36 +229,35 @@ function guardarProductos() {
     codigo: productoBuscado.codigo,
     nombre: productoBuscado.nombre,
     precio: productoBuscado.precio,
-    cantidad: contadorcarrito
-  }
+    cantidad: contadorcarrito,
+  };
 
-    usuarioLogueado.carrito.push(productoEnCarrito) 
-  
+  usuarioLogueado.carrito.push(productoEnCarrito);
+
   //guardamos el objeto en el array
   // Guardar los datos del producto en el localStorage
   actualizarStock();
 
-  localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
-  sessionStorage.setItem('usuarioLogueado', JSON.stringify(usuarioLogueado));
-
+  localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
+  sessionStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogueado));
 }
 function actualizarStock() {
   let stockActualizado = productoBuscado.stock;
 
-  listaProducto.map(producto => {
+  listaProducto.map((producto) => {
     if (producto.codigo === productoBuscado.codigo) {
       producto.stock = stockActualizado;
-
     }
-
-  })
-  localStorage.setItem('listaProducto', JSON.stringify(listaProducto));
+  });
+  localStorage.setItem("listaProducto", JSON.stringify(listaProducto));
 }
 
-mostrarOcultarBotones()
-function mostrarOcultarBotones(){
-  const botonesParaUsuarioLogueado = document.querySelector("#botonesParaUsuarioLogueado")
-  if(usuarioLogueado === null){
-    botonesParaUsuarioLogueado.innerHTML = ""
+mostrarOcultarBotones();
+function mostrarOcultarBotones() {
+  const botonesParaUsuarioLogueado = document.querySelector(
+    "#botonesParaUsuarioLogueado"
+  );
+  if (usuarioLogueado === null) {
+    botonesParaUsuarioLogueado.innerHTML = "";
   }
 }

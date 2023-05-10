@@ -25,19 +25,18 @@ function cargaInicial() {
   //verificar si listaProductos tiene datos
   if (listaProducto.length > 0) {
     //dibuja los datos en la tabla
-    listaProducto.map((producto) => crearCardProducto(producto))
+    listaProducto.map((producto) => crearCardProducto(producto));
   }
 }
 
-cargaInicialDestacado()
-function cargaInicialDestacado(){
+cargaInicialDestacado();
+function cargaInicialDestacado() {
   //verificar si listaProductos tiene datos
-  if(listaProducto.length > 0){
+  if (listaProducto.length > 0) {
     //dibuja los datos en la tabla
-    listaProducto.map((producto)=> crearCardProductoDestacado(producto))
+    listaProducto.map((producto) => crearCardProductoDestacado(producto));
   }
 }
-
 
 function crearCardProducto(producto) {
   let grilla = document.querySelector("#mostrarProductos");
@@ -61,7 +60,7 @@ function crearCardProducto(producto) {
 function crearCardProductoDestacado(producto) {
   let grilla = document.querySelector("#productoCarrouselGrande");
   let destacados = grilla.querySelectorAll(".cardsProductosDestacado");
-  
+
   if (producto.destacado === "Si" && destacados.length < 3) {
     grilla.innerHTML += `
       <div class="col-12 col-md-4 cardsProductosDestacado">
@@ -83,7 +82,7 @@ function crearCardProductoDestacado(producto) {
 
 function filtrarPorCategoria(categoria) {
   let productos = document.querySelectorAll(".cardsProductos");
-  
+
   productos.forEach((producto) => {
     producto.style.display = "block";
     if (categoria && producto.dataset.categoria !== categoria) {
@@ -104,7 +103,6 @@ btnPoster.addEventListener("click", () => filtrarPorCategoria("Poster"));
 btnFunko.addEventListener("click", () => filtrarPorCategoria("Funko"));
 btnLimpiar.addEventListener("click", () => filtrarPorCategoria(""));
 
-
 let btnRopaM = document.querySelector("#btnRopaM");
 let btnMochilaM = document.querySelector("#btnMochilaM");
 let btnPosterM = document.querySelector("#btnPosterM");
@@ -116,7 +114,6 @@ btnMochilaM.addEventListener("click", () => filtrarPorCategoria("Mochila"));
 btnPosterM.addEventListener("click", () => filtrarPorCategoria("Poster"));
 btnFunkoM.addEventListener("click", () => filtrarPorCategoria("Funko"));
 btnLimpiarM.addEventListener("click", () => filtrarPorCategoria(""));
-
 
 let btnRopaSM = document.querySelector("#btnRopaSM");
 let btnMochilaSM = document.querySelector("#btnMochilaSM");
@@ -130,9 +127,7 @@ btnPosterSM.addEventListener("click", () => filtrarPorCategoria("Poster"));
 btnFunkoSM.addEventListener("click", () => filtrarPorCategoria("Funko"));
 btnLimpiarSM.addEventListener("click", () => filtrarPorCategoria(""));
 
-
-
-
 window.detalleProducto = (codigo) => {
-  window.location.href = window.location.origin + './pages/detalles.html?codigo=' + codigo
-}
+  window.location.href =
+    window.location.origin + "./pages/detalles.html?codigo=" + codigo;
+};
