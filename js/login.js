@@ -37,3 +37,12 @@ function verificarAdmin() {
     }
   }
 }
+
+//Se agrega la funcion para mostrar el modal
+function mostrarModal() {
+  if (btnIniciarSesion.innerHTML === "Iniciar Sesión") {
+    modalLogin.show();
+  } else {
+    cerrarSesion();
+  }
+}
