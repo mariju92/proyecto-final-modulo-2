@@ -15,3 +15,25 @@ const administrador = {
   email: "admin@gmail.com",
   password: "Code123",
 };
+
+//Creo la funcion para verificar el usuario administrador
+verificarAdmin();
+
+function verificarAdmin() {
+  let siAdmin = sessionStorage.getItem("usuario");
+  if (siAdmin) {
+    btnIniciarSesion.innerHTML = "Cerrar Sesión";
+    document.querySelector("#admin").classList.remove("d-none");
+  } else {
+    btnIniciarSesion.innerHTML = "Iniciar Sesión";
+    let webAdmin = window.location.origin + "/pages/administrador.html";
+
+    if (window.location.href === webAdmin) {
+      document.querySelector("main").innerHTML =
+        '<h2 class="text-center"> No posee autorización para ingresar a esta página, volviendo a Inicio';
+      setTimeout(() => {
+        window.location.href = window.location.origin;
+      }, 3000);
+    }
+  }
+}
