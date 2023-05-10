@@ -177,18 +177,19 @@ window.SumarCarrito = () => {
 
 window.restar = () => {
   contadorcarrito--;
+  document.getElementById("cant").innerHTML = contadorcarrito;
   productoBuscado.stock = productoBuscado.stock + 1;
 
   let carritoBoton = document.getElementById('carritoBoton');
   carritoBoton.innerHTML = `
 <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
  `
-  document.getElementById("cant").innerHTML = contadorcarrito;
-  if (contadorcarrito <= productoBuscado.stock) {
+
+  if (contadorcarrito > 1) {
     document.getElementById("mas-cantidad").style.display = "initial";
 
   } if (contadorcarrito == 0) {
-    document.getElementById("carritoVacio").style.display = "none";
+    document.getElementById("menos-cantidad").style.display = "none";
 
   }
 

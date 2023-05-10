@@ -46,7 +46,6 @@ let producto = listaProducto.find((Producto) => Producto.codigo === urlParams.ge
 
 let contadorcarrito = urlParams.get('contador');
 
-
 mostrarProductos();
 
 function mostrarProductos() {
@@ -55,15 +54,8 @@ function mostrarProductos() {
 
     usuario.carrito.map((carrito) => {
       cantidadTotal = cantidadTotal + carrito.cantidad;
-      if (cantidadTotal == 0) {
-        document.getElementById("carritoVacio").style.display = "initial";
 
-      } else {
-        document.getElementById("carritoVacio").style.display = "none";
-      }
-      carritoSuperior.innerHTML = `<i
-    class="bi bi-cart-fill opcionNav carrito"></i><span
-    class="badge translate-middle bg-danger ">${cantidadTotal || 0}</span>`;
+      actualizarCarritoSuperior();
 
       let detalle = document.getElementById('tablaCarritoInterna');
       detalle.innerHTML += `
@@ -82,7 +74,7 @@ function mostrarProductos() {
   })
 
 
-
+  document.getElementById("cajaCompra").style.display = "initial";
 }
 window.eliminar = () => {
   let detalle = document.getElementById('tablaCarritoInterna');
@@ -93,9 +85,11 @@ window.eliminar = () => {
 
       let posicionProducto = usuario.carrito.findIndex(producto => producto.codigo === carrito.codigo)
       actualizarStock(carrito.cantidad, carrito.codigo);
+
       usuario.carrito.splice(posicionProducto, 1)
       localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
       detalle.removeChild(detalle.children[posicionProducto]);
+      actualizarCarritoSuperior();
 
     })
 
@@ -113,4 +107,37 @@ function actualizarStock(cantidad, codigo) {
 
   })
   localStorage.setItem('listaProducto', JSON.stringify(listaProducto));
-} 
+
+}
+//CODIGO QUE MUESTRA LA CANTIDAD DE PRODUCTOS EN EL CARRITO DEL NAVBAR
+function actualizarCarritoSuperior() {
+  let cantidadTotal = 0;
+  listaUsuarios.map(usuario => {
+    usuario.carrito.map(carrito => {
+      cantidadTotal = cantidadTotal + carrito.cantidad;
+    })
+
+  })
+  carritoSuperior.innerHTML = `<i
+  class="bi bi-cart-fill opcionNav carrito"></i><span
+  class="badge translate-middle bg-danger ">${cantidadTotal}</span>`;
+  if (cantidadTotal == 0) {
+    document.getElementById("carritoVacio").style.display = "initial";
+
+
+  } else {
+    document.getElementById("carritoVacio").style.display = "none";
+
+  }
+
+}
+function BotonDeCompra() {
+  if (cantidadTotal == 0) {
+    document.getElementById("cajaCompra").style.display = "initial";
+
+
+  } else {
+    document.getElementById("cajaCompra").style.display = "none";
+
+  }
+}

@@ -1,0 +1,42 @@
+[33m92dc7ef[m[33m ([m[1;36mHEAD -> [m[1;32magregarAlCarrito[m[33m, [m[1;31morigin/agregarAlCarrito[m[33m)[m HEAD@{0}: commit (merge): margin
+[33m390949d[m HEAD@{1}: commit: corrigiendo detalles de estilo
+[33m74b912f[m HEAD@{2}: commit: boton de actualizar el estock al borrar los productos del carrito
+[33m479e038[m HEAD@{3}: commit: boton de eliminar producto del stock
+[33m38b8f6d[m HEAD@{4}: pull origin dev: Fast-forward
+[33m413fc7a[m HEAD@{5}: commit: logica del cartelito de carrito vacio actualizado
+[33mfd62d00[m HEAD@{6}: pull origin dev: Merge made by the 'ort' strategy.
+[33m86ab18e[m HEAD@{7}: commit: logica del mostrar productos, y precio total en el carrito
+[33m48e3e57[m HEAD@{8}: pull origin dev: Merge made by the 'ort' strategy.
+[33m4135153[m HEAD@{9}: commit: logica del mostrar productos, y precio total en el carrito
+[33mc17a225[m HEAD@{10}: commit: logica del mostrar productos, y precio total en el carrito
+[33m188446f[m HEAD@{11}: commit: borre boton agregar al carrito del index
+[33m66ddfa9[m HEAD@{12}: pull origin dev: Fast-forward
+[33m8edacaf[m HEAD@{13}: commit: guardando los daatos del carrito en el localStorage
+[33m44b1c38[m HEAD@{14}: commit: funcion que borra el cartel de carrito vacio al agregar un elemento al carrito
+[33m35f92f4[m HEAD@{15}: pull origin dev: Merge made by the 'ort' strategy.
+[33m5efb63b[m HEAD@{16}: commit: logica del carrito del navBar andando
+[33mcd0ff3c[m HEAD@{17}: commit: logica del carrito terminada
+[33m0797660[m HEAD@{18}: commit (merge): elimino la card de prueba de producto
+[33m2cc3efc[m HEAD@{19}: commit: elimino la card de prueba de producto
+[33m97e2202[m HEAD@{20}: commit (merge): Merge branch 'dev' of https://github.com/mariju92/proyecto-final-modulo-2 into agregarAlCarrito
+[33ma1884d2[m HEAD@{21}: commit: hice el aumentar y disminuir productos del carrito
+[33m5a49c19[m HEAD@{22}: commit: boton de agregar y quitar del carrito
+[33m2d136ec[m[33m ([m[1;32mdetalleProducto[m[33m)[m HEAD@{23}: checkout: moving from detalleProducto to agregarAlCarrito
+[33m2d136ec[m[33m ([m[1;32mdetalleProducto[m[33m)[m HEAD@{24}: pull origin dev: Fast-forward
+[33meffed5c[m[33m ([m[1;31morigin/detalleProducto[m[33m)[m HEAD@{25}: commit: termine la logica que muestra el detalle del producto
+[33m7ae8333[m[33m ([m[1;32minicio[m[33m)[m HEAD@{26}: checkout: moving from inicio to detalleProducto
+[33m7ae8333[m[33m ([m[1;32minicio[m[33m)[m HEAD@{27}: pull origin dev: Fast-forward
+[33mc7dc898[m[33m ([m[1;31morigin/inicio[m[33m)[m HEAD@{28}: commit: corregi desṕlazamiento y estilo de las categorias
+[33m79e286a[m HEAD@{29}: pull origin dev: Fast-forward
+[33m6e08589[m HEAD@{30}: commit: agregue un hr que separa la seccion destacados
+[33m6307975[m HEAD@{31}: commit: termine maquetado index
+[33m233ddd3[m HEAD@{32}: pull origin dev: Fast-forward
+[33m3b2b3c7[m HEAD@{33}: pull origin dev: Fast-forward
+[33m83043eb[m HEAD@{34}: pull origin dev: Merge made by the 'ort' strategy.
+[33m355c957[m HEAD@{35}: pull origin dev: Merge made by the 'ort' strategy.
+[33mff9ad78[m HEAD@{36}: commit: mejore la forma del boton de buscar para que quede el borde redondeado
+[33mc9dd53a[m HEAD@{37}: commit: termine el mawuetado del boton buscar con su repectivo responsive
+[33m8784e5d[m HEAD@{38}: commit: complete banner responsive
+[33mcc113f8[m[33m ([m[1;32mdev[m[33m)[m HEAD@{39}: checkout: moving from dev to inicio
+[33mcc113f8[m[33m ([m[1;32mdev[m[33m)[m HEAD@{40}: checkout: moving from main to dev
+[33me5e98fe[m[33m ([m[1;32mmain[m[33m)[m HEAD@{41}: clone: from https://github.com/mariju92/proyecto-final-modulo-2.git

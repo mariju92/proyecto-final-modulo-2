@@ -12,8 +12,7 @@ main {
     flex-grow: 1;
 }
 
-.fondoIndex
-{
+.fondoIndex {
     background-color: black;
 }
 
@@ -47,11 +46,11 @@ main {
     min-height: 171.25px;
 }
 
-.imgCard{
+.imgCard {
     height: 350px;
 }
 
-.espacioTitulo{
+.espacioTitulo {
     min-height: 100px;
 }
 
@@ -100,52 +99,63 @@ footer {
     font-size: 20px;
 }
 
-.fondoTabla{
-    background-image: linear-gradient(to top, #ffe600 0%, rgb(255,165,0)  100%);
+.fondoTabla {
+    background-image: linear-gradient(to top, #ffe600 0%, rgb(255, 165, 0) 100%);
 }
 
 /*Carrito de compras*/
-.ColorLetras{
+.ColorLetras {
     color: orange;
 }
-.botonCarrito{
-background-color: orange;
-color: black;
+
+.botonCarrito {
+    background-color: orange;
+    color: black;
 }
-.cardsCarrito{
+
+.cardsCarrito {
     margin-left: 8%;
     margin-bottom: 3%;
 }
 
+#cajaCompra {
+    display: none;
+}
 
 /*PAGINA DETALLES*/
 
-.bg-detalles{
+.bg-detalles {
     background-image: linear-gradient(to top, #fab519, #faa616, #f99618, #f7871c, #f47721);
 }
-.acordionDetalles{
+
+.acordionDetalles {
     border-color: #f47721;
     background-color: black;
 }
-.btnCarrito{
+
+.btnCarrito {
     background-color: #f47721;
     border: none;
 }
-.btnCarrito:hover{
+
+.btnCarrito:hover {
     background-color: #ea5e00;
 }
 
-.btnComprar{
+.btnComprar {
     background-color: #fab519;
     border: none;
 }
-.btnComprar:hover{
+
+.btnComprar:hover {
     background-color: #e49f00;
 }
-.colorDescripcion{
+
+.colorDescripcion {
     color: #f47721;
 }
-/*Pagina de registro*/ 
+
+/*Pagina de registro*/
 .botonEnviarFormulario {
     background-color: orange;
     border: 1px solid black;
@@ -155,14 +165,14 @@ color: black;
     margin-top: 20px;
     margin-bottom: 30px;
     margin-left: 25%;
-  }
-  
-  .contenedorFormulario {
+}
+
+.contenedorFormulario {
     width: 45%;
     margin-left: 30%;
     margin-bottom: 50px;
     margin-top: 50px;
-  }
+}
 
 /*PAGINA ACERCA DE NOSOTROS*/
 
@@ -189,14 +199,14 @@ color: black;
 }
 
 
-.tablaOpcion{
+.tablaOpcion {
     background-color: orange;
 }
 
 
 /* ESTILOS DE MODAL LOGIN */
-.formLogin{
-    border: 1px solid orange!important;
+.formLogin {
+    border: 1px solid orange !important;
 }
 
 
@@ -210,8 +220,9 @@ color: black;
     background-position: center center;
     height: 100vh;
     width: 100%;
-  }
-  .cardError {
+}
+
+.cardError {
     position: relative;
     top: 20%;
     left: 65%;
@@ -223,51 +234,55 @@ color: black;
     flex-direction: column;
     z-index: 1;
     height: 50%;
-  }
-  
-  .titulo404 {
+}
+
+.titulo404 {
     font-size: 90px;
     font-weight: 700;
-  }
-  .btnHover404:hover {
-    background-color: orange;
-  }
-  
-  /*mediaqueries*/
+}
 
-   @media  (max-width: 576px) {
+.btnHover404:hover {
+    background-color: orange;
+}
+
+/*mediaqueries*/
+
+@media (max-width: 576px) {
     .cardError {
-      position: relative;
-      top: 20%;
-      left: 15%;
-      height: 50%;
-      width: 100%;
-      background-color: rgba(167, 136, 77, 0.250);
-      text-shadow: 1px 1px 1px black;
-      padding: 10px;
+        position: relative;
+        top: 20%;
+        left: 15%;
+        height: 50%;
+        width: 100%;
+        background-color: rgba(167, 136, 77, 0.250);
+        text-shadow: 1px 1px 1px black;
+        padding: 10px;
     }
-    .cuerpoCard{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-  }
-    .cardError div a{
-      text-shadow: none;
-      font-weight: 600;
-  
+
+    .cuerpoCard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
+
+    .cardError div a {
+        text-shadow: none;
+        font-weight: 600;
+
+    }
+
     .mainError404 {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      height: 85vh;
-      width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 85vh;
+        width: 100%;
     }
-  }
-  
-  @media  (max-width: 992px) {
-      .cardError { 
+}
+
+@media (max-width: 992px) {
+    .cardError {
         left: 25%;
         height: 50%;
         width: 50%;
@@ -275,34 +290,39 @@ color: black;
         text-shadow: 1px 1px 1px black;
         padding: 5px;
         padding-bottom: 50px;
-      }
-      .cuerpoCard{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-      }
-      .cuerpoCard a{
+    }
+
+    .cuerpoCard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .cuerpoCard a {
         text-shadow: none;
         font-weight: 600;
-      }
-      .mainError404 {
+    }
+
+    .mainError404 {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
         height: 85vh;
         width: 100%;
-      }
-      .imgCard{
-        height: 350px;
-    }
     }
 
+    .imgCard {
+        height: 350px;
+    }
+}
+
 @media screen and (min-width: 992px) and (max-width: 1399px) {
-    .imgCard{
+    .imgCard {
         height: 250px;
     }
-    .espacioTitulo{
+
+    .espacioTitulo {
         min-height: 100px;
     }
 }
