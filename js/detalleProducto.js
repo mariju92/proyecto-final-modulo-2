@@ -75,9 +75,6 @@ detalle.innerHTML = `<article class="pt-5 fw-bold">
       </div>
       <i class="bi bi-truck text-warning fs-5"><span class="text-light ps-3">Costo de envio: $1500</span></i><a href="/pages/error404" class="text-warning text-decoration-none fw-bold"></a>
       <div class="row py-5 col-12 m-0" id="botonesParaUsuarioLogueado" >
-      <button class="btn btn-primary" id="botonCarrito" onclick="carrito('${productoBuscado.codigo}')">
-    <i class="bi bi-cart-plus fw-bold w-50"><span class="text-center">COMPRAR</span></i>
-  </button>
         <hr>
         <div id="botones">
         <button class="btn btn-primary" id="botonCarrito" onclick="SumarCarrito()">
