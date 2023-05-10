@@ -2,6 +2,10 @@ import Producto from "./claseProducto.js";
 import Usuario from "./classUsuario.js";
 let listaProductosCarrito = [];
 
+const carritoSuperior = document.querySelector("#btnCarrito")
+const botonesParaUsuarioLogueado = document.querySelector("#botonesParaUsuarioLogueado")
+
+
 
 
 let listaProducto = localStorage.getItem(`listaProducto`);
@@ -38,13 +42,12 @@ if (!listaUsuarios) {
     )
   )
 }
-
+let usuarioLogueado = JSON.parse(sessionStorage.getItem("usuarioLogueado"));
 
 const parametroCodigo = new URLSearchParams(window.location.search);
 
 
 const productoBuscado = listaProducto.find((Producto) => Producto.codigo === parametroCodigo.get('codigo'));
-actualizarCarritoSuperior();
 
 let detalle = document.getElementById('SeccionDetalleProducto');
 detalle.innerHTML = `<article class="pt-5 fw-bold">
@@ -70,9 +73,17 @@ detalle.innerHTML = `<article class="pt-5 fw-bold">
         <i class="bi bi-check-circle-fill text-warning fs-5"><span class="text-light ps-3">EN STOCK ${productoBuscado.stock}</span></i>
       </div>
       <i class="bi bi-truck text-warning fs-5"><span class="text-light ps-3">Costo de envio: $1500</span></i><a href="/pages/error404" class="text-warning text-decoration-none fw-bold"></a>
+<<<<<<< HEAD
       <div class="row py-3 py-lg-5 col-12" >
       
         
+=======
+      <div class="row py-5 col-12 m-0" id="botonesParaUsuarioLogueado" >
+      <button class="btn btn-primary" id="botonCarrito" onclick="carrito('${productoBuscado.codigo}')">
+    <i class="bi bi-cart-plus fw-bold w-50"><span class="text-center">COMPRAR</span></i>
+  </button>
+        <hr>
+>>>>>>> b1b475459282aaf8786f55974d7029d4522367c5
         <div id="botones">
         <button class="btn btn-primary" id="botonCarrito" onclick="SumarCarrito()">
           <i class="bi bi-cart-plus fw-bold fs-3"><span class="text-center">AGREGAR AL CARRITO</span></i>
@@ -231,18 +242,14 @@ function guardarProductos() {
     cantidad: contadorcarrito
   }
 
-  listaUsuarios.map(usuario => {
-
-    usuario.carrito.push(productoEnCarrito)
-  })
-
+    usuarioLogueado.carrito.push(productoEnCarrito) 
+  
   //guardamos el objeto en el array
-  listaProductosCarrito.push(productoEnCarrito);
   // Guardar los datos del producto en el localStorage
   actualizarStock();
 
-  localStorage.setItem('productoEnCarrito', JSON.stringify(listaProductosCarrito));
   localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
+  sessionStorage.setItem('usuarioLogueado', JSON.stringify(usuarioLogueado));
 
 }
 function actualizarStock() {
@@ -257,26 +264,11 @@ function actualizarStock() {
   })
   localStorage.setItem('listaProducto', JSON.stringify(listaProducto));
 }
-//CODIGO QUE MUESTRA LA CANTIDAD DE PRODUCTOS EN EL CARRITO DEL NAVBAR
-function actualizarCarritoSuperior() {
-  let cantidadTotal = 0;
-  listaUsuarios.map(usuario => {
-    usuario.carrito.map(carrito => {
-      cantidadTotal = cantidadTotal + carrito.cantidad;
-    })
 
-  })
-  carritoSuperior.innerHTML = `<i
-  class="bi bi-cart-fill opcionNav carrito"></i><span
-  class="badge translate-middle bg-danger ">${cantidadTotal}</span>`;
-
+mostrarOcultarBotones()
+function mostrarOcultarBotones(){
+  const botonesParaUsuarioLogueado = document.querySelector("#botonesParaUsuarioLogueado")
+  if(usuarioLogueado === null){
+    botonesParaUsuarioLogueado.innerHTML = ""
+  }
 }
-
-
-
-
-
-
-
-
-

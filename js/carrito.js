@@ -3,7 +3,7 @@ import Usuario from "./classUsuario.js";
 let listaProductosCarrito = [];
 let cantidadTotal = 0;
 
-
+const carritoSuperior = document.querySelector("#btnCarrito")
 
 let listaProducto = localStorage.getItem(`listaProducto`);
 if (!listaProducto) {
@@ -40,6 +40,8 @@ if (!listaUsuarios) {
     )
   )
 }
+let usuarioLogueado = JSON.parse(sessionStorage.getItem("usuarioLogueado"));
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let producto = listaProducto.find((Producto) => Producto.codigo === urlParams.get('codigo'));
@@ -50,15 +52,14 @@ mostrarProductos();
 
 function mostrarProductos() {
 
-  listaUsuarios.map((usuario) => {
 
-    usuario.carrito.map((carrito) => {
-      cantidadTotal = cantidadTotal + carrito.cantidad;
+  usuarioLogueado.carrito.map((carrito) => {
+    cantidadTotal = cantidadTotal + carrito.cantidad;
 
-      actualizarCarritoSuperior();
+    actualizarCarritoSuperior();
 
-      let detalle = document.getElementById('tablaCarritoInterna');
-      detalle.innerHTML += `
+    let detalle = document.getElementById('tablaCarritoInterna');
+    detalle.innerHTML += `
     
     <th scope="col" class="ColorLetras">${carrito.nombre}</th>
     <th scope="col" class="ColorLetras">${carrito.precio}</th>
@@ -69,9 +70,8 @@ function mostrarProductos() {
     <span class="text-center">eliminar</span>
   </button></th>
     `;
-    })
-
   })
+
 
 
   document.getElementById("cajaCompra").style.display = "initial";
@@ -104,40 +104,146 @@ function actualizarStock(cantidad, codigo) {
       producto.stock = stockActualizado;
 
     }
-
   })
-  localStorage.setItem('listaProducto', JSON.stringify(listaProducto));
+  window.eliminar = () => {
+    let detalle = document.getElementById('tablaCarritoInterna');
+    let posicionProducto
 
-}
-//CODIGO QUE MUESTRA LA CANTIDAD DE PRODUCTOS EN EL CARRITO DEL NAVBAR
-function actualizarCarritoSuperior() {
-  let cantidadTotal = 0;
-  listaUsuarios.map(usuario => {
-    usuario.carrito.map(carrito => {
-      cantidadTotal = cantidadTotal + carrito.cantidad;
-    })
+    for (let i = 0; i < usuarioLogueado.carrito.length; i++) {
+      for (let j = 0; j < listaProducto.length; j++) {
+        if (listaProducto[j].codigo === usuarioLogueado.carrito[i].codigo) {
+          posicionProducto = i
+        }
+        listaProducto.map(producto => {
+          if (producto.codigo === usuarioLogueado.carrito[i].codigo) {
+            producto.stock = producto.stock + usuarioLogueado.carrito[i].cantidad
+            localStorage.setItem('listaProducto', JSON.stringify(listaProducto))
+          }
 
-  })
-  carritoSuperior.innerHTML = `<i
-  class="bi bi-cart-fill opcionNav carrito"></i><span
-  class="badge translate-middle bg-danger ">${cantidadTotal}</span>`;
-  if (cantidadTotal == 0) {
-    document.getElementById("carritoVacio").style.display = "initial";
+        })
+      }
+    }
 
 
-  } else {
-    document.getElementById("carritoVacio").style.display = "none";
+    console.log("posicion: " + posicionProducto)
+    cantidadTotal = cantidadTotal + usuarioLogueado.carrito.cantidad;
+
+    usuarioLogueado.carrito.pop(posicionProducto)
+    sessionStorage.setItem('usuarioLogueado', JSON.stringify(usuarioLogueado));
+    detalle.removeChild(detalle.children[posicionProducto]);
+    actualizarCarritoSuperior()
+
 
   }
+  // function actualizarStock() {
+  //   let producto = listaProducto.find(pro => pro.codigo === codigo);
+  //   let stockActualizado = producto.stock + cantidad;
 
-}
-function BotonDeCompra() {
-  if (cantidadTotal == 0) {
-    document.getElementById("cajaCompra").style.display = "initial";
+  //   listaProducto.map(pro => {
+  //     if (pro.codigo === codigo) {
+  //       producto.stock = stockActualizado;
+
+  //     }
+
+  //   })
+  //   localStorage.setItem('listaProducto', JSON.stringify(listaProducto));
+  // } 
+
+  // window.eliminar = () => {
+  //   let detalle = document.getElementById('tablaCarritoInterna');
+  //     let cantidadTotal = 0
+  //     let posicionProducto ;
+  //      usuarioLogueado.carrito[0].codigo
+  //     console.log(usuarioLogueado.carrito)
+  //     for(let i = 0; i < listaProducto.length; i++){
+  //       let codigoAComparar = usuarioLogueado.find((usuarioCarrito)=>{
+  //         return usuarioCarrito.codigo == listaProducto[i].codigo
+  //       })
+  //       console.log(listaProducto[i].codigo)
+  //       console.log(codigoAComparar)
+  //       if(listaProducto[i].codigo == codigoAComparar ){
+  //         console.log("son iguales")
+  //         posicionProducto = i
+  //         console.log("posision: " + posicionProducto)
+  //       }
+  //     }
+
+  //       actualizarStock(cantidadTotal);
+  //       console.log("posision: " + posicionProducto)
+  //       debugger
+  //       detalle.removeChild(detalle.children[posicionProducto]);
+  //       usuarioLogueado.carrito.splice(posicionProducto, 1)
+  //       cantidadTotal = cantidadTotal + usuarioLogueado.carrito.cantidad;
+  //       carritoSuperior.innerHTML = `<i
+  //       class="bi bi-cart-fill opcionNav carrito"></i><span
+  //       class="badge translate-middle bg-danger ">${cantidadTotal || 0}</span>`;
+
+  //     sessionStorage.setItem('usuarioLogueado', JSON.stringify(usuarioLogueado));
 
 
-  } else {
-    document.getElementById("cajaCompra").style.display = "none";
+  //   }
+
+  //  function actualizarStock() {
+
+  //    for(let i=0; i < usuarioLogueado.carrito.length; i++){
+  //     for(let j=0; j < listaProducto.length; j++){
+  //       if(listaProducto[j].codigo === usuarioLogueado.carrito[i].codigo){
+  //         posicionProducto = i
+  //       }
+  //     }
+  //   }
+  //    localStorage.setItem('listaProducto',JSON.stringify(listaProducto))
+
+
+  //  } 
+
+
+  //CODIGO QUE MUESTRA LA CANTIDAD DE PRODUCTOS EN EL CARRITO DEL NAVBAR
+  function actualizarCarritoSuperior() {
+    let cantidadTotal = 0;
+    if (usuarioLogueado) {
+      usuarioLogueado.carrito.map((carrito) => {
+        cantidadTotal = cantidadTotal + carrito.cantidad;
+        carritoSuperior.innerHTML = `<i
+    class="bi bi-cart-fill opcionNav carrito"></i><span
+    class="badge translate-middle bg-danger ">${cantidadTotal || 0}</span>`;
+
+      })
+      localStorage.setItem('listaProducto', JSON.stringify(listaProducto));
+
+    }
+    //CODIGO QUE MUESTRA LA CANTIDAD DE PRODUCTOS EN EL CARRITO DEL NAVBAR
+    function actualizarCarritoSuperior() {
+      let cantidadTotal = 0;
+      listaUsuarios.map(usuario => {
+        usuario.carrito.map(carrito => {
+          cantidadTotal = cantidadTotal + carrito.cantidad;
+        })
+
+      })
+      carritoSuperior.innerHTML = `<i
+  class="bi bi-cart-fill opcionNav carrito"></i><span
+  class="badge translate-middle bg-danger ">${cantidadTotal}</span>`;
+      if (cantidadTotal == 0) {
+        document.getElementById("carritoVacio").style.display = "initial";
+
+
+      } else {
+        document.getElementById("carritoVacio").style.display = "none";
+
+      }
+
+    }
+    function BotonDeCompra() {
+      if (cantidadTotal == 0) {
+        document.getElementById("cajaCompra").style.display = "initial";
+
+
+      } else {
+        document.getElementById("cajaCompra").style.display = "none";
+
+      }
+    }
 
   }
 }
