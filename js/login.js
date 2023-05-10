@@ -4,7 +4,7 @@ const btnIngresar = document.querySelector("#ingresar");
 const pagAdmin = document.querySelector("#btnAdministrador");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
-const modalLogin = new bootstrap.Modal (document.querySelector("#modalLogin"));
+const modalLogin = new bootstrap.Modal(document.querySelector("#modalLogin"));
 
 //Agrego evento a boton ingresar
 btnIniciarSesion.addEventListener("click", mostrarModal);
@@ -62,7 +62,7 @@ function iniciarSesion(e) {
       modalLogin.hide();
     } else {
       alert.className = "alert alert-danger mt-3";
-    } 
+    }
   }
 }
 
@@ -83,6 +83,18 @@ function validarEmail() {
     return true;
   } else {
     email.className = "form-control is- invalid";
+    return false;
+  }
+}
+
+//Funcion para validar la contraseña
+function validarPassword() {
+  const regExp = /^[a-zA-Z0-9]{5,15}$/;
+  if (regExp.test(password.value)) {
+    password.className = "form-control is valid";
+    return true;
+  } else {
+    password.className = "form-control is-invalid";
     return false;
   }
 }
